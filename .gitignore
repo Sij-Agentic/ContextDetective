@@ -1,3 +1,6 @@
 .env
 example2-prime.py
 talk2mcp-prime.py
+images/*
+images/mystery_photo.jpg
+brief.txt

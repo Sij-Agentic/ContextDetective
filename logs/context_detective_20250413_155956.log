@@ -1,0 +1,24 @@
+2025-04-13 15:59:57,884 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-13 15:59:59,414 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-13 15:59:59,414 - ContextDetective - INFO - Input image_path: images\mystery_photo.jpeg
+2025-04-13 15:59:59,414 - ContextDetective - INFO - Normalized image_path: images\mystery_photo.jpeg
+2025-04-13 15:59:59,414 - ContextDetective - INFO - Attempting to open image at: images\mystery_photo.jpeg
+2025-04-13 15:59:59,439 - ContextDetective - INFO - Sending request to Gemini API to describe visual elements
+2025-04-13 15:59:59,439 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-13 16:00:03,253 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-13 16:00:03,255 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-13 16:00:03,255 - ContextDetective - INFO - Successfully received response from Gemini
+2025-04-13 16:00:04,089 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-13 16:00:04,089 - ContextDetective - INFO - Sending request to Gemini API to describe style/aesthetics
+2025-04-13 16:00:04,089 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-13 16:00:07,855 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-13 16:00:07,855 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-13 16:00:07,855 - ContextDetective - INFO - Successfully received response from Gemini
+2025-04-13 16:00:08,812 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-13 16:00:08,813 - ContextDetective - INFO - Sending request to Gemini API to describe possible_scenario
+2025-04-13 16:00:08,815 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-13 16:00:11,850 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-13 16:00:11,850 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-13 16:00:11,850 - ContextDetective - INFO - Successfully received response from Gemini
+2025-04-13 16:00:13,237 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-13 16:00:14,408 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
