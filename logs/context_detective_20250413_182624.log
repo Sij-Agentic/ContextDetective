@@ -1,5 +1,3 @@
-Log started at 2025-04-13 18:26:24.482363
-==================================================
 2025-04-13 18:26:24,482 - ContextDetective - INFO - Logging setup complete
 2025-04-13 18:26:24,482 - ContextDetective - INFO - Detailed logs will be written to: logs\context_detective_20250413_182624.log
 2025-04-13 18:26:24,482 - ContextDetective - INFO - Simple log will be written to: log.txt

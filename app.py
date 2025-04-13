@@ -343,15 +343,15 @@ def run_client_with_image(image_path, progress_placeholder):
         # Save the raw output to a file for inspection
         output_file = Path("logs") / f"client_output_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
         with open(output_file, "w", encoding="utf-8") as f:
-            f.write(all_stdout)
+            f.write(log_text)  # Use log_text instead of all_stdout
         logger.info(f"Saved raw output to {output_file}")
         
-        # Extract the last line of output
-        lines = all_stdout.strip().split('\n')
+        # Extract the last line of output from log_text
+        lines = log_text.strip().split('\n')
         if not lines:
             logger.error("No output lines found")
             return {
-                "raw_output": all_stdout,
+                "raw_output": log_text,
                 "stderr": all_stderr,
                 "structured": None
             }
@@ -359,48 +359,13 @@ def run_client_with_image(image_path, progress_placeholder):
         last_line = lines[-1]
         logger.info(f"Last line of output: {last_line[:100]}...")
         
-        # Try to parse the last line as JSON
-        try:
-            # Check if it's a JSON-like structure
-            if last_line.startswith('[') and '"content"' in last_line:
-                # Extract the text content
-                text_match = re.search(r'"text":\s*"(.*?)",\s*"annotations"', last_line, re.DOTALL)
-                if text_match:
-                    text_content = text_match.group(1)
-                    # Unescape the text
-                    text_content = text_content.replace('\\n', '\n').replace('\\"', '"')
-                    
-                    # Extract confidence score
-                    confidence_match = re.search(r'Confidence Score:\s*(\d+\.\d+)', text_content)
-                    confidence = float(confidence_match.group(1)) if confidence_match else 0.5
-                    
-                    # Extract context guess
-                    context_guess_match = re.search(r'Most Likely Context:.*?\n\n(.*?)(?:\n\n|\Z)', text_content, re.DOTALL)
-                    context_guess = context_guess_match.group(1).strip() if context_guess_match else "Context analysis completed"
-                    
-                    # Create structured result
-                    structured_result = {
-                        "context_guess": context_guess,
-                        "confidence": confidence,
-                        "explanation": text_content,
-                        "related_links": [],
-                        "search_terms_used": []
-                    }
-                    
-                    logger.info("Successfully parsed JSON structure")
-                    return {
-                        "raw_output": all_stdout,
-                        "stderr": all_stderr,
-                        "structured": structured_result
-                    }
-        except Exception as e:
-            logger.error(f"Error parsing JSON: {str(e)}")
+        # Use a language model to structure the output
+        structured_result = structure_output_with_language_model(last_line)
         
-        # If we couldn't parse it as JSON, return the raw output
         return {
-            "raw_output": all_stdout,
+            "raw_output": log_text,
             "stderr": all_stderr,
-            "structured": None
+            "structured": structured_result
         }
             
     except Exception as e:
@@ -408,60 +373,101 @@ def run_client_with_image(image_path, progress_placeholder):
         progress_placeholder.error(f"Error during analysis: {str(e)}")
         return None
 
-# Main app layout
-st.title("🔍 Context Detective")
-st.write("Upload an image and let the Context Detective analyze it for you!")
+def structure_output_with_language_model(output_text):
+    """
+    Use a language model to structure the output text into a standardized format.
+    This is a placeholder function that should be replaced with an actual API call.
+    """
+    try:
+        # For now, we'll use a simple regex-based approach
+        # In a real implementation, this would call an API like OpenAI's GPT
+        
+        # Extract confidence score
+        confidence_match = re.search(r'Confidence Score:\s*(\d+\.\d+)', output_text)
+        confidence = float(confidence_match.group(1)) if confidence_match else 0.5
+        
+        # Extract context guess
+        context_guess_match = re.search(r'Most Likely Context:.*?\n\n(.*?)(?:\n\n|\Z)', output_text, re.DOTALL)
+        context_guess = context_guess_match.group(1).strip() if context_guess_match else "Context analysis completed"
+        
+        # Create structured result
+        structured_result = {
+            "context_guess": context_guess,
+            "confidence": confidence,
+            "explanation": output_text,
+            "related_links": [],
+            "search_terms_used": []
+        }
+        
+        logger.info("Successfully structured output with language model")
+        return structured_result
+    except Exception as e:
+        logger.error(f"Error structuring output with language model: {str(e)}")
+        return None
 
-# File uploader
-uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'jpeg', 'png'])
-
-if uploaded_file is not None:
-    # Display the uploaded image
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_container_width=True)
+def main():
+    st.title("Context Detective")
+    st.write("Upload an image to analyze its context.")
     
-    # Process button
-    if st.button("Analyze Image"):
-        # Create a temporary file for the uploaded image
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as tmp_file:
-            image.save(tmp_file.name)
-            image_path = tmp_file.name
-
-        try:
-            # Create a placeholder for progress updates
-            progress_placeholder = st.empty()
+    # File uploader
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    
+    if uploaded_file is not None:
+        # Display the uploaded image
+        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+        
+        # Create a temporary file to save the uploaded image
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
+            tmp_file.write(uploaded_file.getvalue())
+            tmp_file_path = tmp_file.name
+        
+        # Create a placeholder for progress updates
+        progress_placeholder = st.empty()
+        
+        # Run the analysis
+        result = run_client_with_image(tmp_file_path, progress_placeholder)
+        
+        # Clean up the temporary file
+        os.unlink(tmp_file_path)
+        
+        if result:
+            # Display the raw output in a code block
+            st.subheader("Raw Output")
+            st.code(result["raw_output"], language="text")
             
-            # Start the MCP server
-            with st.spinner("Starting analysis server..."):
-                server_process = start_mcp_server()
+            # If there was any stderr, display it
+            if result["stderr"]:
+                st.subheader("Errors/Warnings")
+                st.code(result["stderr"], language="text")
+            
+            # If we have structured data, display it
+            if result.get("structured"):
+                st.subheader("Analysis Results")
                 
-                if server_process:
-                    # Process the image
-                    with st.spinner("Analyzing image..."):
-                        result = run_client_with_image(image_path, progress_placeholder)
-                        
-                        if result:
-                            # Display the raw output in a code block
-                            st.subheader("Analysis Output")
-                            st.code(result["raw_output"], language="text")
-                            
-                            # If there was any stderr, display it
-                            if result["stderr"]:
-                                st.subheader("Errors/Warnings")
-                                st.code(result["stderr"], language="text")
-                        else:
-                            st.error("Failed to analyze the image. Please try again.")
-                    
-                    # Terminate the server process
-                    server_process.terminate()
-                    server_process.wait()
-                    logger.info("MCP server terminated")
-                else:
-                    st.error("Failed to start the analysis server. Please try again.")
-            
-        except Exception as e:
-            st.error(f"Error during analysis: {str(e)}")
-            logger.error(f"Error during analysis: {str(e)}", exc_info=True)
-        finally:
-            # Clean up
-            os.unlink(image_path)
+                # Context Guess
+                st.markdown("### Context Guess")
+                st.write(result["structured"].get('context_guess', 'No context guess available'))
+                
+                # Confidence
+                st.markdown("### Confidence")
+                confidence = result["structured"].get('confidence', 0)
+                st.progress(confidence)
+                st.write(f"{confidence:.2%}")
+                
+                # Explanation
+                st.markdown("### Explanation")
+                st.write(result["structured"].get('explanation', 'No explanation available'))
+                
+                # Related Links
+                st.markdown("### Related Links")
+                for link in result["structured"].get('related_links', []):
+                    st.write(f"- {link}")
+                
+                # Search Terms
+                st.markdown("### Search Terms Used")
+                st.write(", ".join(result["structured"].get('search_terms_used', [])))
+        else:
+            st.error("Analysis failed. Please try again.")
+
+if __name__ == "__main__":
+    main()
