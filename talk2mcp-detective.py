@@ -11,6 +11,7 @@ from google import genai
 from concurrent.futures import TimeoutError
 from typing import List, Dict, Any, Optional
 import inspect
+import sys
 
 def setup_logging():
     # Create logs directory if it doesn't exist
@@ -499,8 +500,11 @@ def extract_text_content(value):
 async def main():
     """Main entry point."""
     try:
+        if len(sys.argv) < 2:
+            logger.error("No image path provided")
+            return
         
-        image_path = "images/mystery_photo.jpeg"
+        image_path = sys.argv[1]
         logger.info(f"Attempting to open image at: {image_path}")
         await process_image(image_path)
     except Exception as e:

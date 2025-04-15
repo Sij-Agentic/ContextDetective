@@ -234,12 +234,16 @@ def extract_context_from_logs(log_text):
     return None
 
 # Function to run the client with the image path
-def run_client_with_image(image_path, progress_placeholder):
+def run_client_with_image(image_path: str, progress_placeholder):
     try:
         # Log the command being executed
         logger.info(f"Running client with image path: {image_path}")
         progress_placeholder.info("Starting image analysis...")
         
+        # Ensure the image path exists
+        if not os.path.exists(image_path):
+            raise FileNotFoundError(f"Image not found at {image_path}")
+            
         # Run the client with the image path using subprocess
         process = subprocess.Popen(
             [sys.executable, "talk2mcp-detective.py", image_path],
@@ -375,34 +379,114 @@ def run_client_with_image(image_path, progress_placeholder):
 
 def structure_output_with_language_model(output_text):
     """
-    Use a language model to structure the output text into a standardized format.
-    This is a placeholder function that should be replaced with an actual API call.
+    Structure the output text into a standardized format with improved parsing.
     """
     try:
-        # For now, we'll use a simple regex-based approach
-        # In a real implementation, this would call an API like OpenAI's GPT
+        logger.info("Starting output structuring")
+        debug_log_variable("output_text", output_text)
         
-        # Extract confidence score
-        confidence_match = re.search(r'Confidence Score:\s*(\d+\.\d+)', output_text)
-        confidence = float(confidence_match.group(1)) if confidence_match else 0.5
-        
-        # Extract context guess
-        context_guess_match = re.search(r'Most Likely Context:.*?\n\n(.*?)(?:\n\n|\Z)', output_text, re.DOTALL)
-        context_guess = context_guess_match.group(1).strip() if context_guess_match else "Context analysis completed"
-        
-        # Create structured result
+        # Initialize default values
         structured_result = {
-            "context_guess": context_guess,
-            "confidence": confidence,
+            "context_guess": "Context analysis completed",
+            "confidence": 0.5,
             "explanation": output_text,
             "related_links": [],
             "search_terms_used": []
         }
         
-        logger.info("Successfully structured output with language model")
+        # Try to parse as JSON first
+        try:
+            if output_text.strip().startswith('{'):
+                json_data = json.loads(output_text)
+                if isinstance(json_data, dict):
+                    structured_result.update({
+                        "context_guess": json_data.get("context_guess", structured_result["context_guess"]),
+                        "confidence": float(json_data.get("confidence", structured_result["confidence"])),
+                        "explanation": json_data.get("explanation", structured_result["explanation"]),
+                        "related_links": json_data.get("related_links", []),
+                        "search_terms_used": json_data.get("search_terms_used", [])
+                    })
+                    logger.info("Successfully parsed output as JSON")
+                    return structured_result
+        except json.JSONDecodeError:
+            logger.info("Output is not valid JSON, falling back to regex parsing")
+        
+        # Extract confidence score with improved pattern
+        confidence_patterns = [
+            r'Confidence Score:\s*(\d+\.\d+)',
+            r'Confidence:\s*(\d+\.\d+)',
+            r'Confidence Level:\s*(\d+\.\d+)'
+        ]
+        
+        for pattern in confidence_patterns:
+            confidence_match = re.search(pattern, output_text)
+            if confidence_match:
+                try:
+                    confidence = float(confidence_match.group(1))
+                    structured_result["confidence"] = min(max(confidence, 0.0), 1.0)  # Ensure between 0 and 1
+                    logger.info(f"Extracted confidence score: {confidence}")
+                    break
+                except ValueError:
+                    continue
+        
+        # Extract context guess with improved pattern
+        context_patterns = [
+            r'Most Likely Context:.*?\n\n(.*?)(?:\n\n|\Z)',
+            r'Context Analysis:.*?\n\n(.*?)(?:\n\n|\Z)',
+            r'Detected Context:.*?\n\n(.*?)(?:\n\n|\Z)'
+        ]
+        
+        for pattern in context_patterns:
+            context_match = re.search(pattern, output_text, re.DOTALL)
+            if context_match:
+                context_guess = context_match.group(1).strip()
+                if context_guess:
+                    structured_result["context_guess"] = context_guess
+                    logger.info(f"Extracted context guess: {context_guess[:100]}...")
+                    break
+        
+        # Extract search terms if present
+        search_terms_pattern = r'Search Terms:.*?\n(.*?)(?:\n\n|\Z)'
+        search_terms_match = re.search(search_terms_pattern, output_text, re.DOTALL)
+        if search_terms_match:
+            search_terms_text = search_terms_match.group(1).strip()
+            search_terms = [term.strip() for term in search_terms_text.split(',') if term.strip()]
+            structured_result["search_terms_used"] = search_terms
+            logger.info(f"Extracted search terms: {search_terms}")
+        
+        # Extract related links if present
+        links_pattern = r'Related Links:.*?\n(.*?)(?:\n\n|\Z)'
+        links_match = re.search(links_pattern, output_text, re.DOTALL)
+        if links_match:
+            links_text = links_match.group(1).strip()
+            links = [link.strip() for link in links_text.split('\n') if link.strip()]
+            structured_result["related_links"] = links
+            logger.info(f"Extracted related links: {links}")
+        
+        # Clean up the explanation
+        if structured_result["explanation"] == output_text:
+            # If we haven't extracted a specific explanation, try to clean up the raw output
+            explanation_patterns = [
+                r'Explanation:.*?\n\n(.*?)(?:\n\n|\Z)',
+                r'Analysis:.*?\n\n(.*?)(?:\n\n|\Z)',
+                r'Details:.*?\n\n(.*?)(?:\n\n|\Z)'
+            ]
+            
+            for pattern in explanation_patterns:
+                explanation_match = re.search(pattern, output_text, re.DOTALL)
+                if explanation_match:
+                    explanation = explanation_match.group(1).strip()
+                    if explanation:
+                        structured_result["explanation"] = explanation
+                        logger.info("Extracted cleaned explanation")
+                        break
+        
+        logger.info("Successfully structured output")
         return structured_result
+        
     except Exception as e:
         logger.error(f"Error structuring output with language model: {str(e)}")
+        logger.error(traceback.format_exc())
         return None
 
 def main():
@@ -416,58 +500,57 @@ def main():
         # Display the uploaded image
         st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
         
-        # Create a temporary file to save the uploaded image
-        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
-            tmp_file.write(uploaded_file.getvalue())
-            tmp_file_path = tmp_file.name
-        
-        # Create a placeholder for progress updates
-        progress_placeholder = st.empty()
-        
-        # Run the analysis
-        result = run_client_with_image(tmp_file_path, progress_placeholder)
-        
-        # Clean up the temporary file
-        os.unlink(tmp_file_path)
-        
-        if result:
-            # Display the raw output in a code block
-            st.subheader("Raw Output")
-            st.code(result["raw_output"], language="text")
+        # Create a temporary directory to save the uploaded image
+        with tempfile.TemporaryDirectory() as temp_dir:
+            # Save the uploaded file with its original name
+            temp_path = os.path.join(temp_dir, uploaded_file.name)
+            with open(temp_path, "wb") as f:
+                f.write(uploaded_file.getvalue())
             
-            # If there was any stderr, display it
-            if result["stderr"]:
-                st.subheader("Errors/Warnings")
-                st.code(result["stderr"], language="text")
+            # Create a placeholder for progress updates
+            progress_placeholder = st.empty()
             
-            # If we have structured data, display it
-            if result.get("structured"):
-                st.subheader("Analysis Results")
+            # Run the analysis with the temporary file path
+            result = run_client_with_image(temp_path, progress_placeholder)
+            
+            if result:
+                # Display the raw output in a code block
+                st.subheader("Raw Output")
+                st.code(result["raw_output"], language="text")
                 
-                # Context Guess
-                st.markdown("### Context Guess")
-                st.write(result["structured"].get('context_guess', 'No context guess available'))
+                # If there was any stderr, display it
+                if result["stderr"]:
+                    st.subheader("Errors/Warnings")
+                    st.code(result["stderr"], language="text")
                 
-                # Confidence
-                st.markdown("### Confidence")
-                confidence = result["structured"].get('confidence', 0)
-                st.progress(confidence)
-                st.write(f"{confidence:.2%}")
-                
-                # Explanation
-                st.markdown("### Explanation")
-                st.write(result["structured"].get('explanation', 'No explanation available'))
-                
-                # Related Links
-                st.markdown("### Related Links")
-                for link in result["structured"].get('related_links', []):
-                    st.write(f"- {link}")
-                
-                # Search Terms
-                st.markdown("### Search Terms Used")
-                st.write(", ".join(result["structured"].get('search_terms_used', [])))
-        else:
-            st.error("Analysis failed. Please try again.")
+                # If we have structured data, display it
+                if result.get("structured"):
+                    st.subheader("Analysis Results")
+                    
+                    # Context Guess
+                    st.markdown("### Context Guess")
+                    st.write(result["structured"].get('context_guess', 'No context guess available'))
+                    
+                    # Confidence
+                    st.markdown("### Confidence")
+                    confidence = result["structured"].get('confidence', 0)
+                    st.progress(confidence)
+                    st.write(f"{confidence:.2%}")
+                    
+                    # Explanation
+                    st.markdown("### Explanation")
+                    st.write(result["structured"].get('explanation', 'No explanation available'))
+                    
+                    # Related Links
+                    st.markdown("### Related Links")
+                    for link in result["structured"].get('related_links', []):
+                        st.write(f"- {link}")
+                    
+                    # Search Terms
+                    st.markdown("### Search Terms Used")
+                    st.write(", ".join(result["structured"].get('search_terms_used', [])))
+            else:
+                st.error("Analysis failed. Please try again.")
 
 if __name__ == "__main__":
     main()
