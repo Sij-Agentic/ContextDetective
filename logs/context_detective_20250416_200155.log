@@ -1,0 +1,13 @@
+2025-04-16 20:01:56,951 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-16 20:01:56,951 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-16 20:01:56,951 - ContextDetective.Memory - INFO - Memory module initialized with storage at memory_storage
+2025-04-16 20:01:57,540 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-16 20:01:57,540 - ContextDetective.Action - INFO - Action module initialized
+2025-04-16 20:02:24,459 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:02:24,494 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:02:24,496 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpu9uzvus8.png
+2025-04-16 20:02:24,539 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:02:27,735 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:02:27,743 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:02:27,743 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:08:58,888 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest

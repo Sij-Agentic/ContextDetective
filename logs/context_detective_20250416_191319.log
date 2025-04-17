@@ -1,0 +1,5 @@
+2025-04-16 19:13:20,289 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-16 19:13:20,289 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-16 19:13:20,289 - ContextDetective.Memory - INFO - Memory module initialized with storage at memory_storage
+2025-04-16 19:13:20,835 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-16 19:13:20,835 - ContextDetective.Action - INFO - Action module initialized

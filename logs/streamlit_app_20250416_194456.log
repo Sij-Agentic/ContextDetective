@@ -1,0 +1,82 @@
+2025-04-16 19:44:56,158 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_194456.log
+2025-04-16 19:45:01,188 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_194501.log
+2025-04-16 19:45:01,215 - ContextDetectiveUI - INFO - 🚀  starting – SSE transport
+2025-04-16 19:45:02,318 - ContextDetectiveUI - ERROR - ❌  unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 253, in run_context_analysis
+  |     async with sse_client("http://0.0.0.0:8000") as (reader, writer):
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 43, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 47, in sse_client
+    |     async with aconnect_sse(
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx_sse\_api.py", line 69, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------

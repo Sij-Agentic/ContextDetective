@@ -1,0 +1,9 @@
+2025-04-16 20:02:19,892 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_200219.log
+2025-04-16 20:02:23,349 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_200223.log
+2025-04-16 20:02:23,374 - ContextDetectiveUI - INFO - 🚀  starting – SSE transport
+2025-04-16 20:02:24,434 - ContextDetectiveUI - INFO - ✅  session initialised
+2025-04-16 20:02:24,468 - ContextDetectiveUI - INFO - 🛠️  tools: describe_visual_elements, describe_style_or_aesthetics, describe_possible_scenario, store_analysis, retrieve_similar_analyses, generate_search_terms, search_web, infer_context, format_final_output
+2025-04-16 20:02:24,476 - ContextDetectiveUI - INFO - 🔎  describe_visual_elements …
+2025-04-16 20:02:27,752 - ContextDetectiveUI - INFO - {"content": [{"type": "text", "text": "Here's a description of the visual elements in the image:\n\n**Objects:**\n\n*   Protest signs: Numerous signs held aloft, with varying designs and messages.\n*   American flags: Several small American flags are visible.\n*   Trees: Bare trees are visible in th…
+2025-04-16 20:02:27,758 - ContextDetectiveUI - INFO - 🏁  finished
+2025-04-16 20:08:58,505 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_200858.log

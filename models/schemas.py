@@ -2,6 +2,44 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Optional
 from datetime import datetime
 
+# --- Input Models ---
+class PerceptionInput(BaseModel):
+    """Input for perception tools"""
+    image_path: str = Field(..., description="Path to the image file to analyze")
+
+class SearchTermsInput(BaseModel):
+    """Input for search term generation"""
+    descriptions: List[str] = Field(..., description="Analysis descriptions from previous steps")
+
+class WebSearchInput(BaseModel):
+    """Input for web search"""
+    query: str = Field(..., description="Search query string")
+
+class ContextInferenceInput(BaseModel):
+    """Input for context inference"""
+    visual_elements: str = Field(..., description="Results from visual elements analysis")
+    style_analysis: str = Field(..., description="Results from style analysis")
+    scenario_analysis: str = Field(..., description="Results from scenario analysis")
+    web_findings: str = Field(..., description="Results from web search findings")
+
+class MemoryStoreInput(BaseModel):
+    """Input for storing analysis in memory"""
+    image_hash: str = Field(..., description="Unique hash identifier for the image")
+    analysis_json: str = Field(..., description="Complete analysis JSON to store")
+
+class MemoryRetrieveInput(BaseModel):
+    """Input for retrieving analysis from memory"""
+    image_hash: str = Field(..., description="Unique hash identifier for the image")
+
+class FinalOutputInput(BaseModel):
+    """Input for formatting final output"""
+    context_guess: str = Field(..., description="Final context determination")
+    confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence in the determination (0-1)")
+    explanation: str = Field(..., description="Detailed explanation")
+    related_links: List[str] = Field(default_factory=list, description="Related reference links")
+    search_terms: List[str] = Field(..., description="Search terms used in analysis")
+
+# --- Output Models ---
 class UserPreferences(BaseModel):
     """User preferences that influence the analysis"""
     interests: List[str] = Field(..., description="User's topics of interest")

@@ -1,0 +1,6 @@
+2025-04-16 17:59:38,423 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250416_175938.log
+2025-04-16 17:59:42,727 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250416_175942.log
+2025-04-16 17:59:43,229 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-16 17:59:43,229 - ContextDetectiveClient - INFO - Using main.py at: C:\Users\cydal\codebase\EAG\ContextDetective\main.py
+2025-04-16 17:59:43,229 - ContextDetectiveClient - INFO - Initializing MCP connection...
+2025-04-16 17:59:43,267 - ContextDetectiveClient - INFO - ❌ Fatal Error: Error during MCP session: 

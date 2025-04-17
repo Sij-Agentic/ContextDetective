@@ -1,0 +1,36 @@
+2025-04-16 19:33:23,247 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_193323.log
+2025-04-16 19:33:23,718 - ContextDetectiveUI - INFO - 🚀  starting (SSE transport) …
+2025-04-16 19:33:23,739 - ContextDetectiveUI - ERROR - ❌  unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 255, in run_context_analysis
+  |     async with sse_client(server_params) as (reader, writer):
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 43, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 45, in sse_client
+    |     logger.info(f"Connecting to SSE endpoint: {remove_request_params(url)}")
+    |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 18, in remove_request_params
+    |     return urljoin(url, urlparse(url).path)
+    |                         ^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\urllib\parse.py", line 394, in urlparse
+    |     url, scheme, _coerce_result = _coerce_args(url, scheme)
+    |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\urllib\parse.py", line 133, in _coerce_args
+    |     return _decode_args(args) + (_encode_result,)
+    |            ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\urllib\parse.py", line 117, in _decode_args
+    |     return tuple(x.decode(encoding, errors) if x else '' for x in args)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\urllib\parse.py", line 117, in <genexpr>
+    |     return tuple(x.decode(encoding, errors) if x else '' for x in args)
+    |                  ^^^^^^^^
+    | AttributeError: 'dict' object has no attribute 'decode'
+    +------------------------------------

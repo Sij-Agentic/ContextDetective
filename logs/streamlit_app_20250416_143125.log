@@ -1,0 +1,175 @@
+2025-04-16 14:31:25,649 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143125.log
+2025-04-16 14:31:26,987 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143126.log
+2025-04-16 14:31:28,088 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143128.log
+2025-04-16 14:31:32,977 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143132.log
+2025-04-16 14:31:40,482 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143140.log
+2025-04-16 14:31:40,983 - ContextDetectiveUI - INFO - Image saved temporarily to C:\Users\cydal\AppData\Local\Temp\tmpqkawz8fv\Oscars_Brazil_Carnival_88151.jpg
+2025-04-16 14:31:41,049 - ContextDetectiveUI - ERROR - Error during MCP session: 
+Traceback (most recent call last):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 72, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 309, in run_context_analysis
+    async with stdio_client(server_params) as (read, write):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 113, in stdio_client
+    process = await _create_platform_compatible_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 210, in _create_platform_compatible_process
+    process = await create_windows_process(command, args, env, errlog, cwd)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 85, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2025-04-16 14:37:28,572 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143728.log
+2025-04-16 14:37:28,579 - ContextDetectiveUI - INFO - Entering main execution block...
+2025-04-16 14:37:28,800 - ContextDetectiveUI - INFO - Starting MCP server...
+2025-04-16 14:37:46,627 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_143746.log
+2025-04-16 14:37:46,641 - ContextDetectiveUI - INFO - Entering main execution block...
+2025-04-16 14:37:47,136 - ContextDetectiveUI - INFO - Image saved temporarily to C:\Users\cydal\AppData\Local\Temp\tmpf076jfjt\Oscars_Brazil_Carnival_88151.jpg
+2025-04-16 14:37:47,163 - ContextDetectiveUI - ERROR - Error during MCP session: 
+Traceback (most recent call last):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 72, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 309, in run_context_analysis
+    async with stdio_client(server_params) as (read, write):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 113, in stdio_client
+    process = await _create_platform_compatible_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 210, in _create_platform_compatible_process
+    process = await create_windows_process(command, args, env, errlog, cwd)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 85, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2025-04-16 14:37:47,199 - ContextDetectiveUI - INFO - Starting MCP server...
+2025-04-16 14:40:30,848 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_144030.log
+2025-04-16 14:40:51,713 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_144051.log
+2025-04-16 14:40:51,959 - ContextDetectiveUI - INFO - Image saved temporarily to C:\Users\cydal\AppData\Local\Temp\tmp17szc8d0\Oscars_Brazil_Carnival_88151.jpg
+2025-04-16 14:40:51,969 - ContextDetectiveUI - ERROR - Error during MCP session: 
+Traceback (most recent call last):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 72, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 309, in run_context_analysis
+    async with stdio_client(server_params) as (read, write):
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 113, in stdio_client
+    process = await _create_platform_compatible_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\__init__.py", line 210, in _create_platform_compatible_process
+    process = await create_windows_process(command, args, env, errlog, cwd)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\stdio\win32.py", line 85, in create_windows_process
+    process = await anyio.open_process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_core\_subprocesses.py", line 190, in open_process
+    return await get_async_backend().open_process(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 2561, in open_process
+    process = await asyncio.create_subprocess_exec(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError

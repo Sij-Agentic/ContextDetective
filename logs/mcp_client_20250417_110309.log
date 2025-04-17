@@ -1,0 +1,125 @@
+2025-04-17 11:03:09,102 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250417_110309.log
+2025-04-17 11:03:11,052 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250417_110311.log
+2025-04-17 11:03:11,062 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-17 11:03:11,417 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-17 11:03:11,426 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-17 11:03:11,446 - ContextDetectiveClient - INFO - Retrieved system prompt from server.
+2025-04-17 11:03:11,448 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 1 ---
+2025-04-17 11:03:11,900 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:11,900 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:11,901 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:11,902 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:11,903 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:11,903 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:11,912 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:11,913 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:11,913 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:11,914 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:11,915 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 2 ---
+2025-04-17 11:03:12,328 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:12,328 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:12,329 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:12,330 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:12,331 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:12,331 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:12,336 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:12,337 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:12,337 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:12,338 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:12,338 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 3 ---
+2025-04-17 11:03:12,748 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:12,749 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:12,749 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:12,751 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:12,751 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:12,752 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:12,759 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:12,759 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:12,759 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:12,760 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:12,762 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 4 ---
+2025-04-17 11:03:13,180 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:13,181 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:13,182 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:13,182 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:13,183 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:13,183 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:13,189 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:13,189 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:13,190 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:13,190 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:13,191 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 5 ---
+2025-04-17 11:03:13,582 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:13,582 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:13,583 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:13,584 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:13,584 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:13,585 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:13,590 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:13,590 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:13,591 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:13,591 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:13,592 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 6 ---
+2025-04-17 11:03:13,999 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:13,999 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,000 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,002 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,003 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,003 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:14,009 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:14,010 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:14,010 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:14,011 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:14,012 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 7 ---
+2025-04-17 11:03:14,012 - ContextDetectiveClient - INFO - Approaching max iterations. Still need to complete: describe_style_or_aesthetics, describe_possible_scenario, generate_search_terms, search_web, infer_context
+2025-04-17 11:03:14,379 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:14,379 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,379 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,381 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,382 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,382 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:14,387 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:14,387 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:14,388 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:14,388 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:14,389 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 8 ---
+2025-04-17 11:03:14,391 - ContextDetectiveClient - INFO - Approaching max iterations. Still need to complete: describe_style_or_aesthetics, describe_possible_scenario, generate_search_terms, search_web, infer_context
+2025-04-17 11:03:14,765 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:14,766 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,768 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:14,770 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,771 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:14,772 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:14,779 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:14,780 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:14,780 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:14,781 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:14,782 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 9 ---
+2025-04-17 11:03:14,783 - ContextDetectiveClient - INFO - Approaching max iterations. Still need to complete: describe_style_or_aesthetics, describe_possible_scenario, generate_search_terms, search_web, infer_context
+2025-04-17 11:03:15,151 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:15,152 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:15,154 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:15,156 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:15,157 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:15,157 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:15,164 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:15,165 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:15,166 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:15,166 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:15,168 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 10 ---
+2025-04-17 11:03:15,169 - ContextDetectiveClient - INFO - Approaching max iterations. Still need to complete: describe_style_or_aesthetics, describe_possible_scenario, generate_search_terms, search_web, infer_context
+2025-04-17 11:03:15,535 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:03:15,535 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:15,536 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmp1jcf6_3d.png
+2025-04-17 11:03:15,537 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:15,538 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png']
+2025-04-17 11:03:15,538 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp1jcf6_3d.png'
+2025-04-17 11:03:15,544 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:03:15,545 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:03:15,545 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:03:15,545 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:03:15,546 - ContextDetectiveClient - INFO - Reached maximum iterations. Stopping.
+2025-04-17 11:03:15,547 - ContextDetectiveClient - INFO - Warning: Analysis incomplete. Missing tools: describe_style_or_aesthetics, describe_possible_scenario, generate_search_terms, search_web, infer_context
+2025-04-17 11:03:15,548 - ContextDetectiveClient - INFO - Workflow finished without a FINAL_ANSWER. Generating one based on available data.
+2025-04-17 11:03:15,550 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-17 11:03:15,551 - ContextDetectiveClient - INFO - Final JSON parsed and validated successfully.

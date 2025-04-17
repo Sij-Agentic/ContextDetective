@@ -1,0 +1,23 @@
+2025-04-16 19:57:10,054 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250416_195710.log
+2025-04-16 19:57:10,076 - ContextDetectiveUI - INFO - 🚀  starting – SSE transport
+2025-04-16 19:57:11,155 - ContextDetectiveUI - ERROR - ❌  unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\cydal\codebase\EAG\ContextDetective\app.py", line 253, in run_context_analysis
+  |     async with sse_client("http://127.0.0.1:8000") as (reader, writer):
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 43, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\mcp\client\sse.py", line 53, in sse_client
+    |     event_source.response.raise_for_status()
+    |   File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    |     raise HTTPStatusError(message, request=request, response=self)
+    | httpx.HTTPStatusError: Client error '404 Not Found' for url 'http://127.0.0.1:8000'
+    | For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+    +------------------------------------

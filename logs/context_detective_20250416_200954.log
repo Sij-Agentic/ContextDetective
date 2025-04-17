@@ -1,0 +1,616 @@
+2025-04-16 20:09:55,839 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-16 20:09:55,839 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-16 20:09:55,843 - ContextDetective.Memory - INFO - Memory module initialized with storage at memory_storage
+2025-04-16 20:09:56,496 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-16 20:09:56,498 - ContextDetective.Action - INFO - Action module initialized
+2025-04-16 20:10:34,656 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:15:00,612 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:15:00,629 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:15:06,758 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:15:06,761 - ContextDetective.Perception - INFO - Analyzing visual elements in image_path=C:\Users\cydal\AppData\Local\Temp\tmpd8sgqbfz.png
+2025-04-16 20:15:06,815 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:15:16,460 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:15:16,463 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:15:16,463 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:15:23,131 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:15:23,131 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in image_path
+2025-04-16 20:15:23,131 - ContextDetective.Perception - ERROR - Error analyzing style/aesthetics: [Errno 2] No such file or directory: 'image_path'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 104, in describe_style_or_aesthetics
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'image_path'
+2025-04-16 20:15:30,045 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:15:30,045 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpd8sgqbfz.png
+2025-04-16 20:15:30,045 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:15:38,663 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:15:38,672 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:15:38,672 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 20:24:58,874 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:24:58,881 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:25:04,465 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:25:04,467 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp30_hlooz.png
+2025-04-16 20:25:04,471 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:25:14,865 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:25:14,874 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:25:14,874 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:25:20,443 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:25:25,862 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:25:25,862 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmp30_hlooz.png
+2025-04-16 20:25:25,862 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:25:40,043 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:25:40,043 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:25:40,043 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 20:25:44,328 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:25:44,328 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmp30_hlooz.png
+2025-04-16 20:25:44,336 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:25:54,403 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:25:54,411 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:25:54,412 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 20:25:59,161 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:31:43,863 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:31:43,873 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:31:49,559 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:31:49,559 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpkerfk2if.png
+2025-04-16 20:31:49,567 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:31:52,796 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:31:52,804 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:31:52,804 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:32:04,255 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:32:04,255 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpkerfk2if.png
+2025-04-16 20:32:04,255 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:32:08,854 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:32:08,864 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:32:08,864 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 20:32:13,891 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:32:13,894 - ContextDetective.Perception - INFO - Analyzing possible scenarios in The image depicts a political rally or protest, likely in the United States, given the presence of American flags. The signs suggest a variety of viewpoints or concerns among the participants. The clothing indicates it may be a cooler time of year. The trees in the background further suggest it might be winter or early spring. It is possible that this is a demonstration about a controversial topic or a gathering to support a particular political cause. The overall mood is one of engagement and possibly tension, depending on the nature of the protest.
+2025-04-16 20:32:13,894 - ContextDetective.Perception - ERROR - Error analyzing scenario: [Errno 2] No such file or directory: 'The image depicts a political rally or protest, likely in the United States, given the presence of American flags. The signs suggest a variety of viewpoints or concerns among the participants. The clothing indicates it may be a cooler time of year. The trees in the background further suggest it might be winter or early spring. It is possible that this is a demonstration about a controversial topic or a gathering to support a particular political cause. The overall mood is one of engagement and possibly tension, depending on the nature of the protest.'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 162, in describe_possible_scenario
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'The image depicts a political rally or protest, likely in the United States, given the presence of American flags. The signs suggest a variety of viewpoints or concerns among the participants. The clothing indicates it may be a cooler time of year. The trees in the background further suggest it might be winter or early spring. It is possible that this is a demonstration about a controversial topic or a gathering to support a particular political cause. The overall mood is one of engagement and possibly tension, depending on the nature of the protest.'
+2025-04-16 20:32:18,746 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:32:18,750 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 20:32:18,754 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:32:20,003 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:32:20,003 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:32:20,003 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 20:43:09,943 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:43:09,968 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:02,334 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:49:02,344 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:06,615 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:06,623 - ContextDetective.Perception - INFO - Analyzing visual elements in image_path:C:\Users\cydal\AppData\Local\Temp\tmp21rl7v7v.png
+2025-04-16 20:49:06,626 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+2025-04-16 20:49:10,950 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:10,950 - ContextDetective.Perception - INFO - Analyzing visual elements in image_path:C:\Users\cydal\AppData\Local\Temp\tmp21rl7v7v.png
+2025-04-16 20:49:10,951 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+2025-04-16 20:49:21,816 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:21,816 - ContextDetective.Perception - INFO - Analyzing visual elements in image_path:C:\Users\cydal\AppData\Local\Temp\tmp21rl7v7v.png
+2025-04-16 20:49:21,817 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'image_path:C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp21rl7v7v.png'
+2025-04-16 20:49:27,065 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:49:27,066 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in The image is likely a digital photograph or illustration. Depending on the subject, the style could range from realistic to abstract, with colors varying from vibrant to muted. The composition and lighting would influence the overall mood and aesthetic.
+2025-04-16 20:49:27,067 - ContextDetective.Perception - ERROR - Error analyzing style/aesthetics: [Errno 2] No such file or directory: 'The image is likely a digital photograph or illustration. Depending on the subject, the style could range from realistic to abstract, with colors varying from vibrant to muted. The composition and lighting would influence the overall mood and aesthetic.'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 104, in describe_style_or_aesthetics
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'The image is likely a digital photograph or illustration. Depending on the subject, the style could range from realistic to abstract, with colors varying from vibrant to muted. The composition and lighting would influence the overall mood and aesthetic.'
+2025-04-16 20:51:17,077 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:51:17,082 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:21,277 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:21,278 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3nyn06p3.png
+2025-04-16 20:51:21,288 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:51:24,988 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:51:24,995 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:51:24,996 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:51:29,106 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:29,106 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmp3nyn06p3.png
+2025-04-16 20:51:29,107 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:51:32,009 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:51:32,014 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:51:32,015 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 20:51:35,616 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:35,616 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmp3nyn06p3.png
+2025-04-16 20:51:35,617 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:51:37,218 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:51:37,227 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:51:37,228 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 20:51:40,913 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:40,913 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 20:51:40,914 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:51:42,407 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:51:42,411 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:51:42,412 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 20:51:46,566 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:51:46,568 - ContextDetective.Decision - INFO - Performing web search for query: Public Defenders for Due Process protest
+2025-04-16 20:51:46,569 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Public Defenders for Due Process protest&format=json
+2025-04-16 20:51:47,586 - ContextDetective.Decision - INFO - Found 0 results for query: Public Defenders for Due Process protest
+2025-04-16 20:57:24,367 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 20:57:24,372 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:27,462 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:27,463 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpve2rhi9e.png
+2025-04-16 20:57:27,465 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:57:29,959 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:57:29,963 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:57:29,964 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 20:57:33,458 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:33,459 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpve2rhi9e.png
+2025-04-16 20:57:33,459 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:57:35,739 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:57:35,745 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:57:35,746 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 20:57:38,809 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:38,809 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpve2rhi9e.png
+2025-04-16 20:57:38,810 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:57:40,355 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:57:40,358 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:57:40,359 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 20:57:43,698 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:43,698 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 20:57:43,699 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 20:57:44,681 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 20:57:44,683 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 20:57:44,683 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 20:57:48,078 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 20:57:48,079 - ContextDetective.Decision - INFO - Performing web search for query: Political protest signs
+2025-04-16 20:57:48,079 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Political protest signs&format=json
+2025-04-16 20:57:48,978 - ContextDetective.Decision - INFO - Found 0 results for query: Political protest signs
+2025-04-16 21:12:33,335 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 21:12:33,352 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:36,254 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:36,258 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:12:36,263 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:12:39,446 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:12:39,457 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:12:39,457 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:12:42,264 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:42,265 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:12:42,267 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:12:44,565 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:12:44,618 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:12:44,620 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:12:47,526 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:47,528 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:12:47,528 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:12:49,906 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:12:49,916 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:12:49,916 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:12:52,660 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:52,660 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:12:52,660 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:12:55,176 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:12:55,191 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:12:55,193 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:12:57,719 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:12:57,719 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:12:57,719 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:00,847 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:00,852 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:00,852 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:04,048 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:04,050 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:04,052 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:06,069 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:06,069 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:06,069 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:08,673 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:08,673 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:08,675 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:11,942 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:11,949 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:11,949 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:14,718 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:14,718 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:14,718 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:18,017 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:18,028 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:18,028 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:20,561 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:20,561 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:20,565 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:23,683 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:23,687 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:23,690 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:26,819 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:26,819 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:26,819 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:29,823 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:29,829 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:29,829 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:32,843 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:32,843 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:32,845 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:35,557 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:35,560 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:35,560 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:13:38,781 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:38,781 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:38,781 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:42,000 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:42,008 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:42,008 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 21:13:48,106 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:48,106 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmp3celjun4.png
+2025-04-16 21:13:48,106 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:50,851 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:50,857 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:50,857 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 21:13:53,846 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:13:53,846 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 21:13:53,846 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:13:55,428 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:13:55,433 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:13:55,433 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 21:17:37,993 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 21:17:38,007 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:17:44,831 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:17:44,834 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpjkczlah7.png
+2025-04-16 21:17:44,837 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:17:49,199 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:17:49,208 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:17:49,210 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 21:17:56,879 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:17:56,879 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpjkczlah7.png
+2025-04-16 21:17:56,883 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:18:00,668 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:18:00,675 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:18:00,675 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 21:18:07,691 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:18:07,693 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpjkczlah7.png
+2025-04-16 21:18:07,693 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:18:10,399 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:18:10,404 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:18:10,404 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 21:18:15,051 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:18:15,051 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 21:18:15,051 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 21:18:16,548 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 21:18:16,550 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 21:18:16,550 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 21:18:21,300 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 21:18:21,300 - ContextDetective.Decision - INFO - Performing web search for query: Political protest signs
+2025-04-16 21:18:21,300 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Political protest signs&format=json
+2025-04-16 21:18:22,298 - ContextDetective.Decision - INFO - Found 0 results for query: Political protest signs
+2025-04-16 22:12:12,812 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 22:12:12,833 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:15,402 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:17,916 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:20,409 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:22,863 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:25,753 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:28,293 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:31,137 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:31,144 - ContextDetective.Perception - INFO - Analyzing visual elements in 'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpslzldyzo.png'}
+2025-04-16 22:12:31,147 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: "'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpslzldyzo.png'}"
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: "'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpslzldyzo.png'}"
+2025-04-16 22:12:34,097 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:34,099 - ContextDetective.Perception - INFO - Analyzing visual elements in "C:\Users\cydal\AppData\Local\Temp\tmpslzldyzo.png"
+2025-04-16 22:12:34,099 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: '"C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpslzldyzo.png"'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: '"C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpslzldyzo.png"'
+2025-04-16 22:12:37,196 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:12:37,196 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpslzldyzo.png
+2025-04-16 22:12:37,204 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:12:40,514 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:12:40,524 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:12:40,526 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 22:13:20,678 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 22:13:20,687 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:22,367 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:24,034 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:25,626 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:27,276 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:28,806 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:30,357 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:32,076 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:32,076 - ContextDetective.Perception - INFO - Analyzing visual elements in 'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp_vz9122n.png'}
+2025-04-16 22:13:32,076 - ContextDetective.Perception - ERROR - Error analyzing visual elements: [Errno 22] Invalid argument: "'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp_vz9122n.png'}"
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 45, in describe_visual_elements
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: "'C:\\Users\\cydal\\AppData\\Local\\Temp\\tmp_vz9122n.png'}"
+2025-04-16 22:13:34,188 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:34,188 - ContextDetective.Perception - INFO - Analyzing possible scenarios in The image analysis failed. I need to infer a possible scenario without visual information.
+2025-04-16 22:13:34,188 - ContextDetective.Perception - ERROR - Error analyzing scenario: [Errno 2] No such file or directory: 'The image analysis failed. I need to infer a possible scenario without visual information.'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 162, in describe_possible_scenario
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'The image analysis failed. I need to infer a possible scenario without visual information.'
+2025-04-16 22:13:36,376 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:36,383 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 22:13:36,385 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:13:37,374 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:13:37,374 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:13:37,374 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 22:13:39,603 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:13:39,603 - ContextDetective.Decision - INFO - Performing web search for query: "image analysis error invalid argument error no such file or directory error troubleshooting image analysis"}
+2025-04-16 22:13:39,603 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q="image analysis error invalid argument error no such file or directory error troubleshooting image analysis"}&format=json
+2025-04-16 22:13:40,393 - ContextDetective.Decision - INFO - Found 0 results for query: "image analysis error invalid argument error no such file or directory error troubleshooting image analysis"}
+2025-04-16 22:22:38,144 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 22:22:38,163 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:22:44,296 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:22:44,297 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp8cnu21da.png
+2025-04-16 22:22:44,302 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:22:47,147 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:22:47,156 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:22:47,156 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 22:22:53,161 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:22:53,163 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in The image appears to be a photograph of a protest. Describe the lighting, composition, and overall mood or feeling conveyed by the image.
+2025-04-16 22:22:53,164 - ContextDetective.Perception - ERROR - Error analyzing style/aesthetics: [Errno 2] No such file or directory: 'The image appears to be a photograph of a protest. Describe the lighting, composition, and overall mood or feeling conveyed by the image.'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 104, in describe_style_or_aesthetics
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'The image appears to be a photograph of a protest. Describe the lighting, composition, and overall mood or feeling conveyed by the image.'
+2025-04-16 22:22:59,489 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:22:59,489 - ContextDetective.Perception - INFO - Analyzing possible scenarios in The image appears to be a photograph of a protest. Describe the possible reasons for the protest, the potential participants, and the likely location.
+2025-04-16 22:22:59,492 - ContextDetective.Perception - ERROR - Error analyzing scenario: [Errno 2] No such file or directory: 'The image appears to be a photograph of a protest. Describe the possible reasons for the protest, the potential participants, and the likely location.'
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 162, in describe_possible_scenario
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'The image appears to be a photograph of a protest. Describe the possible reasons for the protest, the potential participants, and the likely location.'
+2025-04-16 22:23:03,394 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:23:03,394 - ContextDetective.Perception - INFO - Analyzing possible scenarios in The image shows a group of people holding American flags and protest signs. The scene appears to be outdoors, possibly in a park or near government buildings, as some trees and buildings are visible in the background. The dominant colors are red, white, and blue, suggesting a patriotic or political demonstration. Given the American flags, it's likely taking place in the United States. Possible scenarios could include a political rally, a demonstration against government policies, or a protest related to social issues. The participants are likely citizens expressing their views on a particular topic.
+2025-04-16 22:23:03,396 - ContextDetective.Perception - ERROR - Error analyzing scenario: [Errno 2] No such file or directory: "The image shows a group of people holding American flags and protest signs. The scene appears to be outdoors, possibly in a park or near government buildings, as some trees and buildings are visible in the background. The dominant colors are red, white, and blue, suggesting a patriotic or political demonstration. Given the American flags, it's likely taking place in the United States. Possible scenarios could include a political rally, a demonstration against government policies, or a protest related to social issues. The participants are likely citizens expressing their views on a particular topic."
+Traceback (most recent call last):
+  File "C:\Users\cydal\codebase\EAG\ContextDetective\modules\perception.py", line 162, in describe_possible_scenario
+    image = Image.open(image_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cydal\miniconda3\envs\streamlit-mcp\Lib\site-packages\PIL\Image.py", line 3465, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: "The image shows a group of people holding American flags and protest signs. The scene appears to be outdoors, possibly in a park or near government buildings, as some trees and buildings are visible in the background. The dominant colors are red, white, and blue, suggesting a patriotic or political demonstration. Given the American flags, it's likely taking place in the United States. Possible scenarios could include a political rally, a demonstration against government policies, or a protest related to social issues. The participants are likely citizens expressing their views on a particular topic."
+2025-04-16 22:23:06,346 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:23:06,355 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 22:23:06,355 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:23:07,687 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:23:07,692 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:23:07,692 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 22:23:10,572 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:23:10,574 - ContextDetective.Decision - INFO - Performing web search for query: Protest signs "ONLY YOU CAN PREVENT" "Public Defenders for Due Process" protest American flag protest "STOP TRAITORS" demonstration "RESIST" political rally Political protest red white blue US protest signs and flags
+2025-04-16 22:23:10,574 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Protest signs "ONLY YOU CAN PREVENT" "Public Defenders for Due Process" protest American flag protest "STOP TRAITORS" demonstration "RESIST" political rally Political protest red white blue US protest signs and flags&format=json
+2025-04-16 22:23:11,304 - ContextDetective.Decision - INFO - Found 0 results for query: Protest signs "ONLY YOU CAN PREVENT" "Public Defenders for Due Process" protest American flag protest "STOP TRAITORS" demonstration "RESIST" political rally Political protest red white blue US protest signs and flags
+2025-04-16 22:23:14,584 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:33:48,301 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 22:33:48,317 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:36:33,444 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 22:36:33,456 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:36:35,809 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:36:35,812 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpwpxad9zq.png
+2025-04-16 22:36:35,813 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:36:38,951 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:36:38,963 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:36:38,963 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 22:36:41,022 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:36:41,022 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 22:36:41,022 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 22:36:42,537 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 22:36:42,542 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 22:36:42,543 - ContextDetective.Decision - INFO - Generated 6 search terms
+2025-04-16 22:36:46,575 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 22:36:46,577 - ContextDetective.Decision - INFO - Performing web search for query: "Public Defenders for Due Process" protest
+2025-04-16 22:36:46,577 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q="Public Defenders for Due Process" protest&format=json
+2025-04-16 22:36:47,311 - ContextDetective.Decision - INFO - Found 0 results for query: "Public Defenders for Due Process" protest
+2025-04-16 23:34:38,606 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:34:38,612 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:34:40,770 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:34:40,772 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpb2ada9xh.png
+2025-04-16 23:34:40,775 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:34:45,038 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:34:45,044 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:34:45,046 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:34:46,266 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:34:46,267 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:34:46,267 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:34:47,820 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:34:47,823 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:34:47,824 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 23:34:52,261 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:34:52,262 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpb2ada9xh.png
+2025-04-16 23:34:52,263 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:34:55,270 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:34:55,281 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:34:55,282 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 23:34:57,113 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:34:57,114 - ContextDetective.Decision - INFO - Performing web search for query: Political protest "Public Defenders for Due Process"
+2025-04-16 23:34:57,115 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Political protest "Public Defenders for Due Process"&format=json
+2025-04-16 23:34:57,937 - ContextDetective.Decision - INFO - Found 0 results for query: Political protest "Public Defenders for Due Process"
+2025-04-16 23:35:01,768 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:35:01,768 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpb2ada9xh.png
+2025-04-16 23:35:01,770 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:35:04,158 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:35:04,160 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:35:04,160 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 23:41:28,311 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:41:28,334 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:41:31,341 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:41:31,346 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmp0565yhrg.png
+2025-04-16 23:41:31,349 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:41:34,071 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:41:34,086 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:41:34,086 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:41:36,868 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:41:36,871 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:41:36,871 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:41:38,034 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:41:38,043 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:41:38,043 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 23:41:45,995 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:41:45,997 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmp0565yhrg.png
+2025-04-16 23:41:45,997 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:41:48,989 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:41:48,989 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:41:48,989 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 23:41:57,201 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:41:57,201 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmp0565yhrg.png
+2025-04-16 23:41:57,201 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:41:59,440 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:41:59,445 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:41:59,445 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 23:42:02,236 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:42:02,236 - ContextDetective.Decision - INFO - Performing web search for query: Political protest signs American flag RESIST sign crowd STOP TRAITORS protest Political demonstration signs Crowd holding signs "ONLY YOU CAN PREVENT" sign meaning
+2025-04-16 23:42:02,236 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Political protest signs American flag RESIST sign crowd STOP TRAITORS protest Political demonstration signs Crowd holding signs "ONLY YOU CAN PREVENT" sign meaning&format=json
+2025-04-16 23:42:03,202 - ContextDetective.Decision - INFO - Found 0 results for query: Political protest signs American flag RESIST sign crowd STOP TRAITORS protest Political demonstration signs Crowd holding signs "ONLY YOU CAN PREVENT" sign meaning
+2025-04-16 23:43:05,862 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:43:05,877 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:09,073 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:09,073 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpux480geg.png
+2025-04-16 23:43:09,078 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:43:11,919 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:43:11,924 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:43:11,924 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:43:14,865 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:14,870 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:43:14,870 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:43:16,156 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:43:16,156 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:43:16,156 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 23:43:24,909 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:24,917 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpux480geg.png
+2025-04-16 23:43:24,920 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:43:27,919 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:43:27,919 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:43:27,919 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 23:43:30,901 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:30,901 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpux480geg.png
+2025-04-16 23:43:30,901 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:43:32,519 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:43:32,528 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:43:32,528 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 23:43:34,134 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:43:34,134 - ContextDetective.Decision - INFO - Performing web search for query: Protest signs "RESIST" "STOP TRAITORS" rally
+2025-04-16 23:43:34,134 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Protest signs "RESIST" "STOP TRAITORS" rally&format=json
+2025-04-16 23:43:34,665 - ContextDetective.Decision - INFO - Found 0 results for query: Protest signs "RESIST" "STOP TRAITORS" rally
+2025-04-16 23:44:48,404 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:44:48,422 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:44:51,227 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:44:51,227 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpd0ufly3u.png
+2025-04-16 23:44:51,230 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:44:54,170 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:44:54,177 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:44:54,177 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:44:57,049 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:44:57,049 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:44:57,049 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:44:58,231 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:44:58,235 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:44:58,235 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 23:45:01,472 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:45:01,474 - ContextDetective.Decision - INFO - Performing web search for query: "RESIST" protest American flags "STOP TRAITORS" sign Public Defenders protest Political protest crowd Diversity protest crowd "ONLY YOU CAN PREVENT" protest
+2025-04-16 23:45:01,474 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q="RESIST" protest American flags "STOP TRAITORS" sign Public Defenders protest Political protest crowd Diversity protest crowd "ONLY YOU CAN PREVENT" protest&format=json
+2025-04-16 23:45:01,998 - ContextDetective.Decision - INFO - Found 0 results for query: "RESIST" protest American flags "STOP TRAITORS" sign Public Defenders protest Political protest crowd Diversity protest crowd "ONLY YOU CAN PREVENT" protest
+2025-04-16 23:47:43,304 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:47:43,316 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:47:45,899 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:47:45,900 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpw80df3bm.png
+2025-04-16 23:47:45,905 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:47:49,318 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:47:49,385 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:47:49,392 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:47:52,426 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:47:52,427 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpw80df3bm.png
+2025-04-16 23:47:52,428 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:47:55,137 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:47:55,140 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:47:55,141 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 23:47:58,386 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:47:58,387 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpw80df3bm.png
+2025-04-16 23:47:58,388 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:48:00,100 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:48:00,105 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:48:00,105 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 23:48:01,715 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:48:01,716 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:48:01,717 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:48:02,768 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:48:02,771 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:48:02,772 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-16 23:49:38,669 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-16 23:49:38,678 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:49:40,810 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:49:40,811 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpeu2mocnf.png
+2025-04-16 23:49:40,812 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:49:44,255 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:49:44,278 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:49:44,283 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-16 23:49:46,891 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:49:46,891 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpeu2mocnf.png
+2025-04-16 23:49:46,892 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:49:48,863 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:49:48,868 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:49:48,869 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-16 23:49:50,329 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:49:50,331 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpeu2mocnf.png
+2025-04-16 23:49:50,332 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:49:51,888 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:49:51,908 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:49:51,914 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-16 23:49:53,897 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-16 23:49:53,898 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-16 23:49:53,898 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-16 23:49:55,124 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-16 23:49:55,127 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-16 23:49:55,128 - ContextDetective.Decision - INFO - Generated 7 search terms

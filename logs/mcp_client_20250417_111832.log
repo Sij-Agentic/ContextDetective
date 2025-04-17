@@ -1,0 +1,101 @@
+2025-04-17 11:18:32,180 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250417_111832.log
+2025-04-17 11:18:32,190 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-17 11:18:32,468 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-17 11:18:32,481 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-17 11:18:32,501 - ContextDetectiveClient - INFO - Retrieved system prompt from server.
+2025-04-17 11:18:32,502 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 1 ---
+2025-04-17 11:18:34,421 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:34,422 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+
+2025-04-17 11:18:34,422 - ContextDetectiveClient - INFO - Processing: describe_visual_elements|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+2025-04-17 11:18:34,423 - ContextDetectiveClient - INFO - Executing tool: describe_visual_elements with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:34,424 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:34,424 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_visual_elements' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png'
+2025-04-17 11:18:34,432 - ContextDetectiveClient - INFO - Received result from tool 'describe_visual_elements'
+2025-04-17 11:18:34,432 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' executed.
+2025-04-17 11:18:34,433 - ContextDetectiveClient - INFO - Tool 'describe_visual_elements' result processed.
+2025-04-17 11:18:34,433 - ContextDetectiveClient - INFO - State Updated: visual_elements set.
+2025-04-17 11:18:34,434 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 2 ---
+2025-04-17 11:18:36,308 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:36,309 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_style_or_aesthetics|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+
+2025-04-17 11:18:36,311 - ContextDetectiveClient - INFO - Processing: describe_style_or_aesthetics|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+2025-04-17 11:18:36,313 - ContextDetectiveClient - INFO - Executing tool: describe_style_or_aesthetics with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:36,315 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:36,316 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_style_or_aesthetics' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png'
+2025-04-17 11:18:36,327 - ContextDetectiveClient - INFO - Received result from tool 'describe_style_or_aesthetics'
+2025-04-17 11:18:36,327 - ContextDetectiveClient - INFO - Tool 'describe_style_or_aesthetics' executed.
+2025-04-17 11:18:36,328 - ContextDetectiveClient - INFO - Tool 'describe_style_or_aesthetics' result processed.
+2025-04-17 11:18:36,328 - ContextDetectiveClient - INFO - State Updated: style_analysis set.
+2025-04-17 11:18:36,329 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 3 ---
+2025-04-17 11:18:37,970 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:37,970 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: describe_possible_scenario|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+
+2025-04-17 11:18:37,971 - ContextDetectiveClient - INFO - Processing: describe_possible_scenario|C:\Users\cydal\AppData\Local\Temp\tmpqqpurezy.png
+2025-04-17 11:18:37,973 - ContextDetectiveClient - INFO - Executing tool: describe_possible_scenario with params: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:37,975 - ContextDetectiveClient - INFO - Normalized parameters: ['C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png']
+2025-04-17 11:18:37,975 - ContextDetectiveClient - INFO - Calling MCP tool 'describe_possible_scenario' with input model: image_path='C:\\Users\\cydal\\AppData\\Local\\Temp\\tmpqqpurezy.png'
+2025-04-17 11:18:37,982 - ContextDetectiveClient - INFO - Received result from tool 'describe_possible_scenario'
+2025-04-17 11:18:37,983 - ContextDetectiveClient - INFO - Tool 'describe_possible_scenario' executed.
+2025-04-17 11:18:37,984 - ContextDetectiveClient - INFO - Tool 'describe_possible_scenario' result processed.
+2025-04-17 11:18:37,985 - ContextDetectiveClient - INFO - State Updated: scenario_analysis set.
+2025-04-17 11:18:37,986 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 4 ---
+2025-04-17 11:18:39,806 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:39,806 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: generate_search_terms
+
+2025-04-17 11:18:39,808 - ContextDetectiveClient - INFO - Processing: generate_search_terms
+2025-04-17 11:18:39,809 - ContextDetectiveClient - INFO - Executing tool: generate_search_terms with params: []
+2025-04-17 11:18:39,809 - ContextDetectiveClient - INFO - Normalized parameters: []
+2025-04-17 11:18:39,810 - ContextDetectiveClient - INFO - Calling MCP tool 'generate_search_terms' with input model: descriptions=["Error executing tool describe_visual_elements: 1 validation error for describe_visual_elementsArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing", "Error executing tool describe_style_or_aesthetics: 1 validation error for describe_style_or_aestheticsArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing", "Error executing tool describe_possible_scenario: 1 validation error for describe_possible_scenarioArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing"]
+2025-04-17 11:18:39,819 - ContextDetectiveClient - INFO - Received result from tool 'generate_search_terms'
+2025-04-17 11:18:39,819 - ContextDetectiveClient - INFO - Tool 'generate_search_terms' executed.
+2025-04-17 11:18:39,819 - ContextDetectiveClient - INFO - Tool 'generate_search_terms' result processed.
+2025-04-17 11:18:39,820 - ContextDetectiveClient - INFO - State Updated: search_terms set.
+2025-04-17 11:18:39,821 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 5 ---
+2025-04-17 11:18:42,706 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:42,707 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: search_web|Error executing tool describe_visual_elements: 1 validation error for describe_visual_elementsArguments
+input_data
+  Field required [type=missing, input_value={'image_path': ...
+2025-04-17 11:18:42,708 - ContextDetectiveClient - INFO - Processing: search_web|Error executing tool describe_visual_elements: 1 validation error for describe_visual_elementsArguments
+2025-04-17 11:18:42,710 - ContextDetectiveClient - INFO - Executing tool: search_web with params: ['Error executing tool describe_visual_elements: 1 validation error for describe_visual_elementsArguments']
+2025-04-17 11:18:42,712 - ContextDetectiveClient - INFO - Normalized parameters: ['1 validation error for describe_visual_elementsArguments']
+2025-04-17 11:18:42,713 - ContextDetectiveClient - INFO - Calling MCP tool 'search_web' with input model: query='1 validation error for describe_visual_elementsArguments'
+2025-04-17 11:18:42,723 - ContextDetectiveClient - INFO - Received result from tool 'search_web'
+2025-04-17 11:18:42,724 - ContextDetectiveClient - INFO - Tool 'search_web' executed.
+2025-04-17 11:18:42,725 - ContextDetectiveClient - INFO - Tool 'search_web' result processed.
+2025-04-17 11:18:42,725 - ContextDetectiveClient - INFO - State Updated: web_findings set.
+2025-04-17 11:18:42,727 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 6 ---
+2025-04-17 11:18:44,532 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:44,533 - ContextDetectiveClient - INFO - Agent response sample: FUNCTION_CALL: infer_context
+
+2025-04-17 11:18:44,536 - ContextDetectiveClient - INFO - Processing: infer_context
+2025-04-17 11:18:44,538 - ContextDetectiveClient - INFO - Executing tool: infer_context with params: []
+2025-04-17 11:18:44,539 - ContextDetectiveClient - INFO - Normalized parameters: []
+2025-04-17 11:18:44,541 - ContextDetectiveClient - INFO - Extracted text content from all analyses for infer_context
+2025-04-17 11:18:44,541 - ContextDetectiveClient - INFO - Calling MCP tool 'infer_context' with input model: visual_elements="Error executing tool describe_visual_elements: 1 validation error for describe_visual_elementsArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing" style_analysis="Error executing tool describe_style_or_aesthetics: 1 validation error for describe_style_or_aestheticsArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing" scenario_analysis="Error executing tool describe_possible_scenario: 1 validation error for describe_possible_scenarioArguments\ninput_data\n  Field required [type=missing, input_value={'image_path': 'C:\\\\Users...\\Temp\\\\tmpqqpurezy.png'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing" web_findings="Error executing tool search_web: 1 validation error for search_webArguments\ninput_data\n  Field required [type=missing, input_value={'query': '1 validation e...sual_elementsArguments'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing"
+2025-04-17 11:18:44,551 - ContextDetectiveClient - INFO - Received result from tool 'infer_context'
+2025-04-17 11:18:44,552 - ContextDetectiveClient - INFO - Tool 'infer_context' executed.
+2025-04-17 11:18:44,552 - ContextDetectiveClient - INFO - Tool 'infer_context' result processed.
+2025-04-17 11:18:44,552 - ContextDetectiveClient - INFO - State Updated: context_inference set.
+2025-04-17 11:18:44,554 - ContextDetectiveClient - INFO - --- Starting Agent Iteration 7 ---
+2025-04-17 11:18:44,556 - ContextDetectiveClient - INFO - Approaching max iterations. Still need to complete: infer_context
+2025-04-17 11:18:46,483 - ContextDetectiveClient - INFO - Agent response received.
+2025-04-17 11:18:46,485 - ContextDetectiveClient - INFO - Agent response sample: FINAL_ANSWER: {"json": "Errors occurred in the analysis process. Please check the tool execution logs."}
+
+2025-04-17 11:18:46,488 - ContextDetectiveClient - INFO - Agent provided FINAL_ANSWER.
+2025-04-17 11:18:46,489 - ContextDetectiveClient - INFO - Final Answer Raw: {"json": "Errors occurred in the analysis process. Please check the tool execution logs."}
+2025-04-17 11:18:46,490 - ContextDetectiveClient - INFO - State Updated: final_output set.
+2025-04-17 11:18:46,494 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-17 11:18:46,497 - ContextDetectiveClient - INFO - Warning: Final JSON parsed but failed Pydantic validation: 4 validation errors for ActionOutput
+context_guess
+  Field required [type=missing, input_value={'json': 'Errors occurred...e tool execution logs.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+confidence
+  Field required [type=missing, input_value={'json': 'Errors occurred...e tool execution logs.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+explanation
+  Field required [type=missing, input_value={'json': 'Errors occurred...e tool execution logs.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+search_terms_used
+  Field required [type=missing, input_value={'json': 'Errors occurred...e tool execution logs.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
