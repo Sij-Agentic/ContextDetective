@@ -120,10 +120,8 @@ def generate_agent_step(
 ) -> str:
     """Generate the next step for the context detection agent."""
     
-    # Prepare the prompt
-    # Prepare status notes based on the analysis state
     visual_status = "Visual elements analysis is available." if "visual_elements" in analysis_state and analysis_state["visual_elements"] else "Visual elements have not been analyzed yet. Consider using describe_visual_elements next."
-    
+
     style_status = "Style/aesthetics analysis is available." if "style_or_aesthetics" in analysis_state and analysis_state["style_or_aesthetics"] else "Style/aesthetics have not been analyzed yet. Consider using describe_style_or_aesthetics after visual elements."
     
     scenario_status = "Scenario analysis is available." if "possible_scenario" in analysis_state and analysis_state["possible_scenario"] else "Possible scenarios have not been analyzed yet. Consider using describe_possible_scenario after style analysis."
@@ -152,36 +150,20 @@ Analysis Status:
 Determine the appropriate next step in the analysis.
 """
     
-    # Add a brief format reminder to the end of the prompt
     format_reminder = """
 IMPORTANT FINAL REMINDER:
 Your entire response MUST ONLY be in ONE of these EXACT formats:
 1. FUNCTION_CALL: tool_name|parameter  (NO JSON, NO parameter names, NO explanations)
 2. FINAL_ANSWER: {"json": "output"}
 
-⚠️ CRITICAL WARNING: ⚠️
-DO NOT include ANY explanation text before, during, or after your response.
-NEVER say things like:
-- "The image has been processed" 
-- "Therefore no further action is required" 
-- "Next, I will search the web"
-- "Based on the image analysis"
-- "I'll now call"
-JUST THE RAW FUNCTION CALL OR FINAL ANSWER ONLY.
-
 FOLLOW THE STRICT TOOL SEQUENCE:
 describe_visual_elements -> describe_style_or_aesthetics -> describe_possible_scenario -> 
 generate_search_terms -> search_web -> infer_context -> FINAL_ANSWER
 
 BAD examples (DO NOT DO THESE):
-- "I will analyze the image. FUNCTION_CALL: describe_visual_elements|path"
-- "The image has been processed. Therefore, FUNCTION_CALL: search_web|query"
 - "FUNCTION_CALL: visual_reasoning|{"image_path":"path"}"
-- "FUNCTION_CALL: get_system_prompt"
 - "FUNCTION_CALL: describe_style_or_aesthetics|image_path:path"
 - "FUNCTION_CALL: generate_search_terms" (if you haven't called all three describe tools first)
-- "I can now proceed to infer context. FUNCTION_CALL: infer_context"
-- "Now that the search is complete, I will provide the final answer."
 
 GOOD examples (DO EXACTLY LIKE THESE):
 - "FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png"
@@ -192,7 +174,6 @@ GOOD examples (DO EXACTLY LIKE THESE):
 - "FUNCTION_CALL: infer_context"
 - "FINAL_ANSWER: {\"context\":\"Japanese Ukiyo-e art from Edo period\",\"confidence\":0.85,\"explanation\":\"The visual elements and style match Ukiyo-e woodblock prints\"}"
 
-# Add this to format_reminder in generate_agent_step function
 The FINAL_ANSWER must be a JSON with this exact structure:
 {
   "context_guess": "Brief description of the historical/cultural context",
@@ -201,6 +182,9 @@ The FINAL_ANSWER must be a JSON with this exact structure:
   "related_links": ["link1", "link2"],
   "search_terms_used": ["term1", "term2"]
 }
+
+IMPORTANT: You MUST include related_links from the web search results in your FINAL_ANSWER. 
+If no relevant links were found, include an empty array.
 """
 
     full_prompt = prompt + "\n\n" + format_reminder
@@ -232,7 +216,6 @@ def format_tools_for_prompt(tools: List[Any]) -> str:
     tool_descriptions = []
     for i, tool in enumerate(tools):
         try:
-            # Use simplified representation if schema is complex
             params_str = str(tool.inputSchema.get("properties", "No parameters")) 
             desc = getattr(tool, 'description', 'No description')
             name = getattr(tool, 'name', f'tool_{i}')
@@ -264,7 +247,6 @@ async def execute_tool_call(
         "retrieve_similar_analyses"
     ]
     
-    # Define workflow sequence - tools must be called in this order
     workflow_sequence = [
         "describe_visual_elements",
         "describe_style_or_aesthetics", 
@@ -282,7 +264,6 @@ async def execute_tool_call(
         state.errors.append(error_message)
         return f"Error: {error_message}"
     
-    # Check if we're trying to call a tool that's already been successfully executed
     if tool_name == "describe_visual_elements" and state.visual_elements:
         state.log_step(f"⚠️ Tool {tool_name} has already been executed. Using cached results.")
         return state.visual_elements
@@ -302,15 +283,12 @@ async def execute_tool_call(
         state.log_step(f"⚠️ Tool {tool_name} has already been executed. Using cached results.")
         return state.context_inference
     
-    # Validate sequence - check that we're not skipping steps
     if tool_name in workflow_sequence:
         current_index = workflow_sequence.index(tool_name)
         
-        # For each previous step in the sequence, check if it's been completed
         for i in range(current_index):
             previous_tool = workflow_sequence[i]
             
-            # Check if the previous tool has been completed by checking the state
             if previous_tool == "describe_visual_elements" and not state.visual_elements:
                 error_message = f"Cannot call {tool_name} yet. You must first call describe_visual_elements."
                 state.log_step(f"❌ {error_message}")
@@ -348,12 +326,9 @@ async def execute_tool_call(
                 return f"Error: {error_message}. Follow the required sequence."
     
     try:
-        # Normalize parameters - handle possible formatting issues
         normalized_params = []
         for p in params:
-            # Special case for image paths with parameter names
             if "image_path" in p and ("C:" in p or "/" in p or "\\" in p):
-                # Try to extract the path
                 if "image_path=" in p:
                     path_value = p.split("image_path=", 1)[1].strip()
                     normalized_params.append(path_value)
@@ -363,16 +338,12 @@ async def execute_tool_call(
                     normalized_params.append(path_value)
                     state.log_step(f"Extracted path from image_path: format: {path_value}")
                 else:
-                    # If we can't extract clearly, just use the parameter
                     normalized_params.append(p.strip())
-            # Handle other param=value cases
             elif "=" in p and not p.startswith("http"):
                 normalized_params.append(p.split("=", 1)[1].strip())
             elif ":" in p and not (p.startswith("http") or p.startswith("C:\\") or p.startswith("c:\\")):
-                # This is likely a param:value format, not a Windows path
                 normalized_params.append(p.split(":", 1)[1].strip())
             else:
-                # Clean up any quotes or extra formatting
                 param = p.strip()
                 if param.startswith('"') and param.endswith('"'):
                     param = param[1:-1]  # Remove surrounding quotes
@@ -380,11 +351,8 @@ async def execute_tool_call(
         
         state.log_step(f"Normalized parameters: {normalized_params}")
         
-        # Prepare input model based on tool name
         if tool_name == "describe_visual_elements" or tool_name == "describe_style_or_aesthetics" or tool_name == "describe_possible_scenario":
-            # Perception tools take an image path
             if normalized_params:
-                # Use last parameter as image path to handle different formatting patterns
                 input_model = PerceptionInput(image_path=normalized_params[-1])
             else:
                 state.log_step(f"❌ Error: No image path provided for {tool_name}")
@@ -392,7 +360,6 @@ async def execute_tool_call(
                 return f"Error: No image path provided for {tool_name}. Correct format: {tool_name}|image_path"
                 
         elif tool_name == "generate_search_terms":
-            # Collect descriptions from state
             descriptions = []
             if state.visual_elements:
                 descriptions.append(state.visual_elements)
@@ -455,7 +422,6 @@ async def execute_tool_call(
             
             state.log_step("Extracted text content from all analyses for infer_context")
             
-            # Create input model with string values
             input_model = ContextInferenceInput(
                 visual_elements=visual_elements_text,
                 style_analysis=style_analysis_text,
@@ -517,13 +483,10 @@ async def execute_tool_call(
         # Execute the tool with properly structured input
         client_logger.info(f"Calling MCP tool '{tool_name}' with input model: {input_model}")
         
-        # Convert Pydantic model to a dictionary before passing to call_tool
         if hasattr(input_model, "dict"):
-            # This is a Pydantic model - convert to dict and wrap in input_data
             arguments_dict = {"input_data": input_model.dict()}
             result = await session.call_tool(tool_name, arguments=arguments_dict)
         else:
-            # This is already a dictionary or other object
             result = await session.call_tool(tool_name, arguments={"input_data": input_model})
             
         client_logger.info(f"Received result from tool '{tool_name}'")
@@ -535,7 +498,6 @@ async def execute_tool_call(
                 if hasattr(item, 'text'):
                     texts.append(item.text)
                 else:
-                    # Handle potential non-text content if necessary
                     texts.append(str(item)) 
         else:
             texts.append(str(result))  # Fallback
@@ -544,9 +506,7 @@ async def execute_tool_call(
         state.log_step(f"Tool '{tool_name}' executed.")
         client_logger.debug(f"Tool Result Text (truncated): {result_str[:200]}...")
         
-        # Add to run_context_analysis function after each tool call
         if result:
-            # Safely handle result object without assuming it's a string
             try:
                 debug_str = str(result)
                 debug_output = debug_str[:200] + "..." if len(debug_str) > 200 else debug_str
@@ -611,13 +571,11 @@ async def run_context_analysis(
                 tools = [tool for tool in all_tools if tool.name != "get_system_prompt"]
                 tools_block = format_tools_for_prompt(tools)
                 
-                # Try to get system prompt from server
                 try:
                     system_prompt = await session.call_tool("get_system_prompt", {})
                     system_prompt = system_prompt.content[0].text if hasattr(system_prompt, 'content') else str(system_prompt)
                     state.log_step("Retrieved system prompt from server.")
                 except Exception as e:
-                    # Use the actual SYSTEM_PROMPT rather than a placeholder
                     system_prompt = """
 FOLLOW THESE EXACT INSTRUCTIONS:
 
@@ -997,6 +955,17 @@ Example: FUNCTION_CALL: describe_visual_elements|C:\\Users\\path\\to\\image.png
                             "related_links": [],
                             "search_terms_used": []
                         })
+
+                # Add to run_context_analysis before final step
+                if state.web_findings:
+                    # Extract URLs from web findings
+                    try:
+                        web_data = json.loads(state.web_findings)
+                        links = [item.get('url', '') for item in web_data if 'url' in item]
+                        if links:
+                            state.log_step(f"Extracted {len(links)} links from web findings: {links[:3]}")
+                    except:
+                        state.log_step("Could not extract links from web findings")
 
     except Exception as e:
         error_msg = f"Error during MCP session: {str(e)}"
