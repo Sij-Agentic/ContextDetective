@@ -3,3 +3,55 @@
 2025-04-17 11:38:52,783 - ContextDetective.Memory - INFO - Memory module initialized with storage at memory_storage
 2025-04-17 11:38:53,559 - ContextDetective.Decision - INFO - Decision module initialized
 2025-04-17 11:38:53,559 - ContextDetective.Action - INFO - Action module initialized
+2025-04-17 11:44:18,956 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-17 11:44:18,983 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:21,760 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:24,531 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:27,646 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:30,846 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:39,562 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:44:42,483 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:12,268 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-17 11:56:12,293 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:15,496 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:18,393 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:21,468 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:24,239 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:29,631 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:56:32,319 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:16,338 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-17 11:58:16,354 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:19,309 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:19,334 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpwq8e3tjq.png
+2025-04-17 11:58:19,549 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-17 11:58:23,001 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-17 11:58:23,023 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-17 11:58:23,023 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-17 11:58:25,886 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:25,888 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpwq8e3tjq.png
+2025-04-17 11:58:25,888 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-17 11:58:28,811 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-17 11:58:28,815 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-17 11:58:28,815 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-17 11:58:31,620 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:31,622 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpwq8e3tjq.png
+2025-04-17 11:58:31,623 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-17 11:58:33,329 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-17 11:58:33,333 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-17 11:58:33,335 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-17 11:58:36,029 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:36,034 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-17 11:58:36,035 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-17 11:58:37,034 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-17 11:58:37,039 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-17 11:58:37,040 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-17 11:58:39,791 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:39,791 - ContextDetective.Decision - INFO - Performing web search for query: Public protest signs "RESIST!" "STOP TRAITORS" American flag
+2025-04-17 11:58:39,798 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Public protest signs "RESIST!" "STOP TRAITORS" American flag&format=json
+2025-04-17 11:58:40,725 - ContextDetective.Decision - INFO - Found 0 results for query: Public protest signs "RESIST!" "STOP TRAITORS" American flag
+2025-04-17 11:58:43,400 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-17 11:58:43,403 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-17 11:58:43,404 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-17 11:58:46,537 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-17 11:58:46,541 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-17 11:58:46,541 - ContextDetective.Decision - INFO - Context inference complete

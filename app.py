@@ -583,8 +583,12 @@ async def run_context_analysis(
         st.error("GEMINI_API_KEY not found in environment variables.")
         return None
 
-    # Set user preferences in environment for the server process
+    # Add this debugging line in run_context_analysis function, right after it receives user_prefs
+    state.log_step(f"User interests: {json.dumps(user_prefs)}")
+    
+    # Make sure the environment variable is properly set:
     os.environ["USER_PREFERENCES"] = json.dumps(user_prefs)
+    state.log_step(f"Set USER_PREFERENCES env var: {os.environ.get('USER_PREFERENCES')}")
     
     final_result_json = None
 
@@ -1009,7 +1013,15 @@ Example: FUNCTION_CALL: describe_visual_elements|C:\\Users\\path\\to\\image.png
     error_parsing = None
     try:
         if final_result_json:
+            # First parse the outer JSON
             structured_data = json.loads(final_result_json)
+            
+            # Check if we have a nested JSON in 'json' field
+            if isinstance(structured_data, dict) and 'json' in structured_data:
+                # Parse the inner stringified JSON
+                inner_json = json.loads(structured_data['json'])
+                structured_data = inner_json
+            
             try:
                 structured_result = ActionOutput(**structured_data).dict()
                 state.log_step("Final JSON parsed and validated successfully.")
@@ -1037,27 +1049,27 @@ Example: FUNCTION_CALL: describe_visual_elements|C:\\Users\\path\\to\\image.png
 
 def main():
     st.title("Context Detective")
-
+    
+    # Move sidebar code here, before image upload
+    st.sidebar.title("User Preferences")
+    interests_options = [
+        "Art", "Technology", "Nature", "History", "Culture", "Science",
+        "Current Events"
+    ]
+    user_interests = st.sidebar.multiselect(
+        "Select your interests:",
+        options=interests_options,
+        default=["Art", "History"]
+    )
+    user_prefs = {"interests": user_interests}
+    
     # Let user upload an image
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
     if uploaded_file:
         st.image(uploaded_file, caption="Uploaded Image")
-        
-        # --- User Preferences Input ---
-        st.sidebar.title("User Preferences")
-        interests_options = [
-            "Art", "Technology", "Nature", "History", "Culture", "Science",
-            "Current Events"
-        ]
-        user_interests = st.sidebar.multiselect(
-            "Select your interests:",
-            options=interests_options,
-            default=["Art", "History"]
-        )
-        user_prefs = {"interests": user_interests}
         # Placeholder for progress
         progress_placeholder = st.empty()
-
+        
         if st.button("Analyze"):
             import tempfile
             import asyncio
@@ -1075,8 +1087,29 @@ def main():
             if result["error"]:
                 st.error(f"Error: {result['error']}")
             else:
-                st.subheader("Structured Output")
-                st.json(result["structured"])
+                st.subheader("Context Analysis Results")
+                
+                # Better display of structured output
+                structured = result["structured"]
+                
+                # Main findings in a highlighted box
+                st.success(f"**Context:** {structured.get('context_guess', 'Unknown')}")
+                st.progress(float(structured.get('confidence', 0)))
+                st.write(f"Confidence: {int(float(structured.get('confidence', 0))*100)}%")
+                
+                # Explanation in a dedicated section
+                with st.expander("Detailed Explanation", expanded=True):
+                    st.write(structured.get('explanation', 'No explanation available'))
+                
+                # Related links and search terms
+                if structured.get('related_links'):
+                    with st.expander("Related Links"):
+                        for link in structured.get('related_links', []):
+                            st.markdown(f"- [{link}]({link})")
+                
+                # Show the raw JSON for reference
+                with st.expander("Raw JSON Result"):
+                    st.json(structured)
 
 if __name__ == "__main__":
     main()
