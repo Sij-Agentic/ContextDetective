@@ -1,0 +1,23 @@
+2025-04-22 14:32:47,921 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_143247.log
+2025-04-22 14:32:49,665 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_143249.log
+2025-04-22 14:32:49,685 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 14:32:49,686 - ContextDetectiveClient - INFO - Created session ID: 6fcb144e for analysis
+2025-04-22 14:32:49,687 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 14:32:49,687 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 14:32:49,942 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 14:32:49,942 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - Starting image analysis workflow...
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - Analyzing visual elements...
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - ✅ Visual elements analysis complete
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - 📝 Stored in short-term memory
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - Analyzing style and aesthetics...
+2025-04-22 14:32:57,221 - ContextDetectiveClient - INFO - ✅ Style analysis complete
+2025-04-22 14:32:57,221 - ContextDetectiveClient - INFO - Analyzing possible scenarios...
+2025-04-22 14:32:58,927 - ContextDetectiveClient - INFO - ✅ Scenario analysis complete
+2025-04-22 14:32:58,927 - ContextDetectiveClient - INFO - Analysis complete.

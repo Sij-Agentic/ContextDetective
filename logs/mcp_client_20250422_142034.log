@@ -1,0 +1,34 @@
+2025-04-22 14:20:34,282 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142034.log
+2025-04-22 14:20:50,502 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142050.log
+2025-04-22 14:20:54,836 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142054.log
+2025-04-22 14:20:54,860 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 14:20:54,864 - ContextDetectiveClient - INFO - Created session ID: 08cbb167 for analysis
+2025-04-22 14:20:54,865 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 14:20:54,866 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 14:20:56,013 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 14:20:56,061 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 14:21:02,692 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:21:02,692 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:21:02,692 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:21:02,699 - ContextDetectiveClient - INFO - DEBUG: Extracted hash using .text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:21:02,701 - ContextDetectiveClient - INFO - 🔑 Computed image hash: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]} for image analysis
+2025-04-22 14:21:02,703 - ContextDetectiveClient - INFO - ℹ️ No short-term memory to clear for session 08cbb167
+2025-04-22 14:21:02,703 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:21:02,708 - ContextDetectiveClient - INFO - No final JSON output received from the agent.
+2025-04-22 14:24:46,149 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142446.log
+2025-04-22 14:24:50,367 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142450.log
+2025-04-22 14:24:52,299 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142452.log
+2025-04-22 14:24:52,321 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 14:24:52,323 - ContextDetectiveClient - INFO - Created session ID: ad3fc803 for analysis
+2025-04-22 14:24:52,327 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 14:24:52,327 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 14:24:53,289 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 14:24:53,322 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 14:24:57,229 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:24:57,238 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:24:57,238 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:24:57,240 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:24:57,244 - ContextDetectiveClient - INFO - DEBUG: Hash extraction error: name 'extract_hash_from_response' is not defined
+2025-04-22 14:24:57,244 - ContextDetectiveClient - INFO - ℹ️ No short-term memory to clear for session ad3fc803
+2025-04-22 14:24:57,244 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:24:57,244 - ContextDetectiveClient - INFO - No final JSON output received from the agent.

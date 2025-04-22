@@ -1,0 +1,15 @@
+2025-04-22 14:08:55,670 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_140855.log
+2025-04-22 14:08:55,693 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 14:08:55,696 - ContextDetectiveClient - INFO - Created session ID: b926dbe1 for analysis
+2025-04-22 14:08:55,698 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 14:08:55,699 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 14:08:56,673 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 14:08:56,697 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='Unknown tool: compute_image_hash', annotations=None)] isError=True
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='Unknown tool: compute_image_hash' annotations=None
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Content text 0: Unknown tool: compute_image_hash
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Extracted hash using .text: Unknown tool: compute_image_hash
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - 🔑 Computed image hash: Unknown tool: compute_image_hash for image analysis
+2025-04-22 14:09:03,324 - ContextDetectiveClient - INFO - ℹ️ No short-term memory to clear for session b926dbe1
+2025-04-22 14:09:03,330 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:09:03,330 - ContextDetectiveClient - INFO - No final JSON output received from the agent.

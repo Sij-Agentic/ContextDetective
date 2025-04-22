@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 from mcp.server.fastmcp.prompts import base
 from typing import Dict, Any, List
+import uuid
+from mcp.types import TextContent
 
 # modular components
 from modules.perception import PerceptionModule
@@ -34,7 +36,7 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(log_file),
+            logging.FileHandler(log_file, encoding='utf-8'),
             logging.StreamHandler()
         ]
     )
@@ -54,7 +56,7 @@ mcp = FastMCP("ContextDetective")
 
 # Initialize our modules
 perception = PerceptionModule(os.getenv("GEMINI_API_KEY"))
-memory = MemoryModule()
+memory = MemoryModule(os.getenv("MEMORY_PATH", "memory_storage"), os.getenv("OLLAMA_URL", "http://localhost:11434"))
 decision = DecisionModule(os.getenv("GEMINI_API_KEY"))
 action = ActionModule()
 
@@ -66,14 +68,29 @@ FOLLOW THESE EXACT INSTRUCTIONS:
    FUNCTION_CALL: tool_name|parameter
    FINAL_ANSWER: {"json": "output"}
 
-2. USE THE TOOLS IN THIS EXACT SEQUENCE - DO NOT SKIP STEPS:
-   1️⃣ FIRST: FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png
-   2️⃣ SECOND: FUNCTION_CALL: describe_style_or_aesthetics|C:\\path\\to\\image.png
-   3️⃣ THIRD: FUNCTION_CALL: describe_possible_scenario|C:\\path\\to\\image.png
-   4️⃣ FOURTH: FUNCTION_CALL: generate_search_terms
-   5️⃣ FIFTH: FUNCTION_CALL: search_web|search query
-   6️⃣ SIXTH: FUNCTION_CALL: infer_context
-   7️⃣ LAST: FINAL_ANSWER: {"json output"}
+2. MEMORY-ENHANCED WORKFLOW - FOLLOW THIS SEQUENCE:
+   
+   A. MEMORY CHECK PHASE
+   1️⃣ FUNCTION_CALL: compute_image_hash|C:\\path\\to\\image.png
+   2️⃣ FUNCTION_CALL: check_exact_match|image_hash
+   * If a match is found, go straight to FINAL_ANSWER
+   
+   B. ANALYSIS PHASE
+   3️⃣ FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png
+   4️⃣ FUNCTION_CALL: describe_style_or_aesthetics|C:\\path\\to\\image.png
+   5️⃣ FUNCTION_CALL: describe_possible_scenario|C:\\path\\to\\image.png
+   
+   C. SEARCH & MEMORY RETRIEVAL
+   6️⃣ FUNCTION_CALL: generate_search_terms
+   7️⃣ FUNCTION_CALL: search_web|search query
+   8️⃣ FUNCTION_CALL: retrieve_memory_for_inference
+   
+   D. INFERENCE & STORAGE
+   9️⃣ FUNCTION_CALL: infer_context
+   🔟 FUNCTION_CALL: store_analysis|image_hash|json_analysis
+   
+   E. FINAL RESULT
+   1️⃣1️⃣ FINAL_ANSWER: {"json output"}
 
 CRITICAL: FOLLOW THE EXACT SEQUENCE ABOVE. You MUST complete describe_visual_elements, describe_style_or_aesthetics, and describe_possible_scenario BEFORE calling generate_search_terms.
 
@@ -107,9 +124,19 @@ async def store_analysis(input_data: MemoryStoreInput) -> Dict[str, Any]:
     return await memory.store_analysis(input_data.image_hash, input_data.analysis_json)
 
 @mcp.tool()
-async def retrieve_similar_analyses(input_data: MemoryRetrieveInput) -> Dict[str, Any]:
-    """Retrieve similar previous analyses."""
-    return await memory.retrieve_similar_analyses(input_data.image_hash)
+async def check_exact_match(input_data: MemoryRetrieveInput) -> Dict[str, Any]:
+    """Check if we have an exact match for this image hash."""
+    return await memory.check_exact_match(input_data.image_hash)
+
+@mcp.tool()
+async def retrieve_similar_analyses(input_data: WebSearchInput) -> Dict[str, Any]:
+    """Retrieve semantically similar analyses based on text query."""
+    return await memory.retrieve_similar_analyses(input_data.query)
+
+@mcp.tool()
+async def retrieve_memory_for_inference(input_data: Dict[str, Any]) -> Dict[str, Any]:
+    """Retrieve relevant past analyses to augment inference."""
+    return await memory.retrieve_memory_for_inference(input_data)
 
 # Register decision tools
 @mcp.tool()
@@ -143,6 +170,43 @@ async def format_final_output(input_data: FinalOutputInput) -> Dict[str, Any]:
         input_data.related_links, 
         input_data.search_terms
     )
+
+# Add this new tool to compute image hash
+@mcp.tool()
+async def compute_image_hash(input_data: PerceptionInput) -> Dict[str, Any]:
+    """Compute a hash for an image to uniquely identify it."""
+    try:
+        image_path = input_data.image_path
+        logger.info(f"Computing hash for image at path: {image_path}")
+        
+        # Check if file exists
+        if not os.path.exists(image_path):
+            error_msg = f"Image file not found: {image_path}"
+            logger.error(error_msg)
+            return {
+                "content": [TextContent(type="text", text=f"❌ {error_msg}")]
+            }
+            
+        image_hash = memory._compute_image_hash(image_path)
+        
+        # Make sure we're not returning "Unknown" or any error string
+        if image_hash and not image_hash.startswith("error_"):
+            logger.info(f"🔑 Successfully computed image hash: {image_hash} for {image_path}")
+            return {
+                "content": [TextContent(type="text", text=image_hash)]
+            }
+        else:
+            error_msg = f"Failed to compute valid hash, got: {image_hash}"
+            logger.error(error_msg)
+            return {
+                "content": [TextContent(type="text", text=f"❌ {error_msg}")]
+            }
+    except Exception as e:
+        error_msg = f"Error computing image hash: {str(e)}"
+        logger.error(f"❌ {error_msg}", exc_info=True)
+        return {
+            "content": [TextContent(type="text", text=f"❌ {error_msg}")]
+        }
 
 @mcp.prompt()
 def get_system_prompt() -> str:

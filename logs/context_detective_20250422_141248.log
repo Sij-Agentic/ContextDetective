@@ -1,0 +1,5 @@
+2025-04-22 14:12:49,338 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:12:49,340 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:12:49,412 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:12:50,733 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:12:50,733 - ContextDetective.Action - INFO - Action module initialized

@@ -1,0 +1,75 @@
+2025-04-22 14:27:47,180 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:27:47,180 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:27:47,285 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:27:47,857 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 14:27:47,857 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 14:27:47,857 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 14:27:47,857 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 14:27:48,221 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 14:27:48,221 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 14:27:48,223 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 14:27:48,223 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 14:27:48,223 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 14:27:49,920 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:27:49,920 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:27:49,987 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=8ef65b97a3c1429fba7092951fef9f0a "HTTP/1.1 202 Accepted"
+2025-04-22 14:27:49,999 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=8ef65b97a3c1429fba7092951fef9f0a "HTTP/1.1 202 Accepted"
+2025-04-22 14:27:50,012 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:27:50,015 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:27:50,015 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:27:50,018 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:27:50,020 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 14:27:50,020 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 14:27:50,022 - ContextDetectiveClient - INFO - ℹ️ No short-term memory to clear for session c11d3682
+2025-04-22 14:27:50,022 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:27:50,027 - ContextDetectiveClient - INFO - No final JSON output received from the agent.
+2025-04-22 14:29:25,447 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250422_142925.log
+2025-04-22 14:29:25,447 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142925.log
+2025-04-22 14:29:27,831 - ContextDetectiveUI - INFO - UI Log file created at: logs\streamlit_app_20250422_142927.log
+2025-04-22 14:29:27,831 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_142927.log
+2025-04-22 14:29:27,847 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 14:29:27,848 - ContextDetectiveClient - INFO - Created session ID: 9f3f1c7a for analysis
+2025-04-22 14:29:27,849 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 14:29:27,850 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 14:29:27,851 - mcp.client.sse - INFO - Connecting to SSE endpoint: http://127.0.0.1:8000/sse
+2025-04-22 14:29:28,125 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8000/sse "HTTP/1.1 200 OK"
+2025-04-22 14:29:28,125 - mcp.client.sse - INFO - Received endpoint URL: http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff
+2025-04-22 14:29:28,125 - mcp.client.sse - INFO - Starting post writer with endpoint URL: http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff
+2025-04-22 14:29:28,125 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 14:29:28,125 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:28,125 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 14:29:28,629 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:29:28,629 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:29:28,804 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 14:29:28,804 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 14:29:28,804 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 14:29:28,804 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 14:29:28,807 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 14:29:28,807 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 14:29:28,807 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 14:29:28,808 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 14:29:28,808 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 14:29:29,317 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:29:29,318 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:29:29,331 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:29,335 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:29,340 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:29:29,341 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:29:29,341 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:29:29,343 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:29:29,343 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 14:29:29,343 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 14:29:29,344 - ContextDetectiveClient - INFO - Starting image analysis workflow...
+2025-04-22 14:29:29,344 - ContextDetectiveClient - INFO - Analyzing visual elements...
+2025-04-22 14:29:29,347 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:32,700 - ContextDetectiveClient - INFO - ✅ Visual elements analysis complete
+2025-04-22 14:29:32,700 - ContextDetective.Memory - INFO - 🧠 Created new short-term memory session: 9f3f1c7a
+2025-04-22 14:29:32,701 - ContextDetective.Memory - INFO - 📝 SHORT-TERM: Stored 'visual_elements' (text (1256 chars)) for session 9f3f1c7a
+2025-04-22 14:29:32,701 - ContextDetectiveClient - INFO - 📝 Stored in short-term memory
+2025-04-22 14:29:32,701 - ContextDetectiveClient - INFO - Analyzing style and aesthetics...
+2025-04-22 14:29:32,704 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:34,775 - ContextDetectiveClient - INFO - ✅ Style analysis complete
+2025-04-22 14:29:34,775 - ContextDetectiveClient - INFO - Analyzing possible scenarios...
+2025-04-22 14:29:34,795 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=492d35d78e554bca9149d10a3bd3d7ff "HTTP/1.1 202 Accepted"
+2025-04-22 14:29:36,332 - ContextDetectiveClient - INFO - ✅ Scenario analysis complete
+2025-04-22 14:29:36,332 - ContextDetectiveClient - INFO - Analysis complete.

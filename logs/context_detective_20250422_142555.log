@@ -1,0 +1,24 @@
+2025-04-22 14:25:57,592 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:25:57,598 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:25:57,738 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:25:58,443 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 14:25:58,443 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 14:25:58,443 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 14:25:58,443 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 14:25:58,767 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 14:25:58,783 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 14:25:58,783 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 14:25:58,783 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 14:25:58,783 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 14:26:00,487 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:26:00,487 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:26:00,569 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=2f81d5078f4b4141a391c73675f05596 "HTTP/1.1 202 Accepted"
+2025-04-22 14:26:00,577 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=2f81d5078f4b4141a391c73675f05596 "HTTP/1.1 202 Accepted"
+2025-04-22 14:26:00,598 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:26:00,598 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:26:00,598 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:26:00,598 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:26:00,598 - ContextDetectiveClient - INFO - DEBUG: Hash extraction error: name 'extract_hash_from_response' is not defined
+2025-04-22 14:26:00,606 - ContextDetectiveClient - INFO - ℹ️ No short-term memory to clear for session 5e3bf0a9
+2025-04-22 14:26:00,606 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:26:00,606 - ContextDetectiveClient - INFO - No final JSON output received from the agent.

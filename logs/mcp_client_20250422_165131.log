@@ -1,0 +1,59 @@
+2025-04-22 16:51:31,498 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_165131.log
+2025-04-22 16:51:35,159 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_165135.log
+2025-04-22 16:51:38,275 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_165138.log
+2025-04-22 16:51:38,295 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 16:51:38,297 - ContextDetectiveClient - INFO - Created session ID: 182782b5 for analysis
+2025-04-22 16:51:38,299 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 16:51:38,300 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 16:51:39,287 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 16:51:39,306 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 16:51:45,523 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 16:51:45,527 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 16:51:45,529 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 16:51:45,529 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 16:51:45,530 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 16:51:45,533 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 16:51:45,533 - ContextDetectiveClient - INFO - Starting image analysis workflow...
+2025-04-22 16:51:45,535 - ContextDetectiveClient - INFO - Analyzing visual elements...
+2025-04-22 16:51:48,688 - ContextDetectiveClient - INFO - ✅ Visual elements analysis complete
+2025-04-22 16:51:48,693 - ContextDetectiveClient - INFO - 📝 Stored in short-term memory
+2025-04-22 16:51:48,694 - ContextDetectiveClient - INFO - Analyzing style and aesthetics...
+2025-04-22 16:51:51,275 - ContextDetectiveClient - INFO - ✅ Style analysis complete
+2025-04-22 16:51:51,277 - ContextDetectiveClient - INFO - Analyzing possible scenarios...
+2025-04-22 16:51:52,877 - ContextDetectiveClient - INFO - ✅ Scenario analysis complete
+2025-04-22 16:51:52,879 - ContextDetectiveClient - INFO - Generating search terms based on analyses...
+2025-04-22 16:51:52,880 - ContextDetectiveClient - INFO - DEBUG: Using visual elements for search terms: {"content": [{"type": "text", "text": "Here's a detailed description of the visual elements in the i...
+2025-04-22 16:51:52,881 - ContextDetectiveClient - INFO - DEBUG: Using style analysis for search terms: {"content": [{"type": "text", "text": "Here's an analysis of the image's style and aesthetics, keepi...
+2025-04-22 16:51:52,882 - ContextDetectiveClient - INFO - DEBUG: Using scenario analysis for search terms: {"content": [{"type": "text", "text": "Here's an analysis of the image, focusing on possible interpr...
+2025-04-22 16:51:52,884 - ContextDetectiveClient - INFO - DEBUG: Calling generate_search_terms with 3 descriptions
+2025-04-22 16:51:52,885 - ContextDetectiveClient - INFO - DEBUG: Search input created
+2025-04-22 16:51:53,970 - ContextDetectiveClient - INFO - DEBUG: Got search terms result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "Political protest signs\\n\\"Resist!\\" protest\\n\\"Stop Traitors\\" protest\\nPublic defenders protest\\nAmerican flag protest\\nPolitical rally signs\\n\\"Public Defenders for Due Process\\" protest", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 16:51:53,973 - ContextDetectiveClient - INFO - ✅ Search terms generation complete: {"content": [{"type": "text", "text": "Political protest signs\n\"Resist!\" protest\n\"Stop Traitors\" protest\nPublic defenders protest\nAmerican flag protest\nPolitical rally signs\n\"Public Defenders for Due Process\" protest", "annotations": null}]}
+2025-04-22 16:51:53,974 - ContextDetectiveClient - INFO - Performing web search for context information...
+2025-04-22 16:51:53,975 - ContextDetectiveClient - INFO - 🔍 Using search query: {"content": [{"type": "text", "text": "Political protest signs\n\"Resist!\" protest\n\"Stop Traitors\" protest\nPublic defenders protest\nAmerican flag protest\nPolitical rally signs\n\"Public Defenders for Due Process\" protest", "annotations": null}]}
+2025-04-22 16:51:53,977 - ContextDetectiveClient - INFO - DEBUG: Search web input: {'query': '{"content": [{"type": "text", "text": "Political protest signs\\n\\"Resist!\\" protest\\n\\"Stop Traitors\\" protest\\nPublic defenders protest\\nAmerican flag protest\\nPolitical rally signs\\n\\"Public Defenders for Due Process\\" protest", "annotations": null}]}'}
+2025-04-22 16:51:54,598 - ContextDetectiveClient - INFO - DEBUG: Search web result received: <class 'mcp.types.CallToolResult'>
+2025-04-22 16:51:54,599 - ContextDetectiveClient - INFO - DEBUG: Content found in web result
+2025-04-22 16:51:54,600 - ContextDetectiveClient - INFO - ✅ Web search complete
+2025-04-22 16:51:54,601 - ContextDetectiveClient - INFO - DEBUG: Web findings snippet: {"content": [{"type": "text", "text": "[]", "annotations": null}]}...
+2025-04-22 16:51:54,604 - ContextDetectiveClient - INFO - Inferring context from all gathered information...
+2025-04-22 16:51:54,605 - ContextDetectiveClient - INFO - DEBUG: Calling infer_context with input: {'visual_elements': '{"content": [{"type": "text", "text": "Here\'s a detailed description of the visual elements in the image:\\n\\n**Objects:**\\n\\n*   Signs/Posters: Numerous signs and posters hel...
+2025-04-22 16:51:57,069 - ContextDetectiveClient - INFO - DEBUG: Infer context result received: <class 'mcp.types.CallToolResult'>
+2025-04-22 16:51:57,071 - ContextDetectiveClient - INFO - DEBUG: Content found in inference result
+2025-04-22 16:51:57,072 - ContextDetectiveClient - INFO - ✅ Context inference complete
+2025-04-22 16:51:57,073 - ContextDetectiveClient - INFO - DEBUG: Inference snippet: {"content": [{"type": "text", "text": "Here's an analysis of the image context, confidence score, reasoning, and supporting evidence:\n\n1.  **Most Li...
+2025-04-22 16:51:57,074 - ContextDetectiveClient - INFO - Formatting final output...
+2025-04-22 16:51:57,075 - ContextDetectiveClient - INFO - DEBUG: Using context inference: {"content": [{"type": "text", "text": "Here's an analysis of the image context, confidence score, re...
+2025-04-22 16:51:57,076 - ContextDetectiveClient - INFO - DEBUG: Extracting from search terms: {"content": [{"type": "text", "text": "Political protest signs\n\"Resist!\" protest\n\"Stop Traitors...
+2025-04-22 16:51:57,077 - ContextDetectiveClient - INFO - DEBUG: Parsed search terms JSON successfully
+2025-04-22 16:51:57,079 - ContextDetectiveClient - INFO - DEBUG: Final search terms list: []
+2025-04-22 16:51:57,079 - ContextDetectiveClient - INFO - DEBUG: Attempting to parse JSON from inference
+2025-04-22 16:51:57,080 - ContextDetectiveClient - INFO - DEBUG: JSON parsing successful with keys: ['content']
+2025-04-22 16:51:57,081 - ContextDetectiveClient - INFO - DEBUG: Found content key, extracting actual context data
+2025-04-22 16:51:57,082 - ContextDetectiveClient - INFO - DEBUG: Content item: {'type': 'text', 'text': 'Here\'s an analysis of the image context, confidence score, reasoning, and supporting evidence:\n\n1.  **Most Likely Context:**\n    The image most likely depicts a political protest or demonstration in the United States, potentially addressing a range of issues including due process, resistance to specific policies or individuals labeled as "traitors," and other concerns reflected in the various signs.\n\n2.  **Confidence Score:**\n    0.95\n\n3.  **Reasoning:**\n\n    The analysis of visual elements, style, and scenario strongly supports the interpretation of a protest. The presence of a large crowd holding signs with clear political messages like "RESIST!", "STOP TRAITORS," and "Public Defenders for Due Process" is a strong indicator of a demonstration. The American flags suggest the protest is taking place within the US and relates to issues within the nation. The photojournalistic style further reinforces that the image documents a real-world event. The bare trees suggest a cooler season, which doesn\'t significantly change the main context but can help narrow down possible timelines if further information was available. Although the web findings were empty, the internal analysis provides ample context.\n\n4.  **Key Supporting Evidence:**\n\n    *   **Visual Elements:**\n        *   Numerous signs/posters with political messages ("RESIST!", "STOP TRAITORS", "Public Defenders for Due Process").\n        *   American flags indicating a US context.\n        *   Large crowd suggesting a planned gathering.\n    *   **Style Analysis:**\n        *   Photojournalistic style pointing to a real-world event documentation.\n        *   The description of protest culture based on the messaging on the signs.\n    *   **Scenario Analysis:**\n        *   The analysis explicitly suggests a protest or demonstration as the most likely scenario.\n        *   The signs\' messages suggest the crowd is advocating for a cause or expressing dissent.\n', 'annotations': None}
+2025-04-22 16:51:57,083 - ContextDetectiveClient - INFO - DEBUG: Found text in content: Here's an analysis of the image context, confidence score, reasoning, and supporting evidence:
+
+1.  ...
+2025-04-22 16:51:57,084 - ContextDetectiveClient - INFO - ✅ Final output formatting complete with guess: Here's an analysis of the image context, confidence score, reasoning, and supporting evidence:
+2025-04-22 16:51:57,085 - ContextDetectiveClient - INFO - DEBUG: Final output structure: dict_keys(['context_guess', 'confidence', 'explanation', 'related_links', 'search_terms_used'])
+2025-04-22 16:51:57,087 - ContextDetectiveClient - INFO - Analysis complete.

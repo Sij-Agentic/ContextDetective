@@ -1,5 +1,3 @@
-import streamlit as st
-import asyncio
 import os
 import sys
 import json
@@ -10,10 +8,12 @@ import base64
 from io import BytesIO
 from pathlib import Path
 from PIL import Image
+import re
+import uuid
+import streamlit as st
+import asyncio
 from dotenv import load_dotenv
 from typing import Dict, Any, List, Optional, Tuple
-import re
-
 # Import MCP components
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -77,6 +77,44 @@ def setup_logging():
 
 logger, client_logger = setup_logging()
 
+# Add this function near the beginning of the file, after imports
+def extract_hash_from_response(response_text):
+    """Extract the actual hash value from a potentially nested JSON response."""
+    try:
+        # First check if it's a JSON string
+        if response_text.startswith('{') and response_text.endswith('}'):
+            json_data = json.loads(response_text)
+            
+            # Handle nested content array structure
+            if 'content' in json_data and isinstance(json_data['content'], list):
+                for item in json_data['content']:
+                    if 'text' in item:
+                        return item['text']
+            
+            # If not found in the expected structure, search recursively
+            def find_hash(obj):
+                if isinstance(obj, dict):
+                    for key, value in obj.items():
+                        if key == 'text' and isinstance(value, str) and len(value) == 32:
+                            return value
+                        result = find_hash(value)
+                        if result:
+                            return result
+                elif isinstance(obj, list):
+                    for item in obj:
+                        result = find_hash(item)
+                        if result:
+                            return result
+                return None
+            
+            return find_hash(json_data)
+        else:
+            # Already a simple string
+            return response_text
+    except:
+        # If parsing fails, return original
+        return response_text
+
 # --- MCP Client Workflow State ---
 class WorkflowState:
     def __init__(self):
@@ -91,6 +129,8 @@ class WorkflowState:
         self.image_path = None
         self.errors = []
         self.analysis_log = [] # Store log messages for UI display
+        self.session_id = None
+        self.memory_context = None
 
     def log_step(self, message):
         timestamp = datetime.datetime.now().strftime("%H:%M:%S")
@@ -151,40 +191,50 @@ Determine the appropriate next step in the analysis.
 """
     
     format_reminder = """
-IMPORTANT FINAL REMINDER:
-Your entire response MUST ONLY be in ONE of these EXACT formats:
-1. FUNCTION_CALL: tool_name|parameter  (NO JSON, NO parameter names, NO explanations)
-2. FINAL_ANSWER: {"json": "output"}
+CONTEXT DETECTIVE WORKFLOW INSTRUCTIONS:
 
-FOLLOW THE STRICT TOOL SEQUENCE:
-describe_visual_elements -> describe_style_or_aesthetics -> describe_possible_scenario -> 
-generate_search_terms -> search_web -> infer_context -> FINAL_ANSWER
+## Goal
+You are analyzing images to determine their historical or cultural context by following a structured workflow.
 
-BAD examples (DO NOT DO THESE):
-- "FUNCTION_CALL: visual_reasoning|{"image_path":"path"}"
-- "FUNCTION_CALL: describe_style_or_aesthetics|image_path:path"
-- "FUNCTION_CALL: generate_search_terms" (if you haven't called all three describe tools first)
+## Reasoning and Tool Use Process
+For each step in your analysis:
+1. First, briefly explain your reasoning (1-2 sentences)
+2. Then use the appropriate tool by writing: FUNCTION_CALL: tool_name|parameter
+3. After receiving results, verify if they make sense before proceeding
 
-GOOD examples (DO EXACTLY LIKE THESE):
-- "FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png"
-- "FUNCTION_CALL: describe_style_or_aesthetics|C:\\path\\to\\image.png"
-- "FUNCTION_CALL: describe_possible_scenario|C:\\path\\to\\image.png"
-- "FUNCTION_CALL: generate_search_terms"
-- "FUNCTION_CALL: search_web|flowers in japanese art history"
-- "FUNCTION_CALL: infer_context"
-- "FINAL_ANSWER: {\"context\":\"Japanese Ukiyo-e art from Edo period\",\"confidence\":0.85,\"explanation\":\"The visual elements and style match Ukiyo-e woodblock prints\"}"
+## Required Analysis Sequence
+You MUST follow this exact sequence:
+1️⃣ FUNCTION_CALL: describe_visual_elements|[image_path]
+2️⃣ FUNCTION_CALL: describe_style_or_aesthetics|[image_path]
+3️⃣ FUNCTION_CALL: describe_possible_scenario|[image_path]
+4️⃣ FUNCTION_CALL: generate_search_terms
+5️⃣ FUNCTION_CALL: search_web|[search query]
+6️⃣ FUNCTION_CALL: infer_context
+7️⃣ FINAL_ANSWER: [structured JSON]
 
-The FINAL_ANSWER must be a JSON with this exact structure:
-{
-  "context_guess": "Brief description of the historical/cultural context",
-  "confidence": 0.75,
-  "explanation": "Detailed explanation of why this context is likely",
-  "related_links": ["link1", "link2"],
-  "search_terms_used": ["term1", "term2"]
-}
+## Output Rules
+- Your FUNCTION_CALL should use pipe delimiter format: tool_name|parameter
+- For image analysis tools, use the exact image path without parameter names
+- Your FINAL_ANSWER must use this JSON structure:
+  {
+    "context_guess": "Brief description of the historical/cultural context",
+    "confidence": 0.75,
+    "explanation": "Detailed explanation of why this context is likely",
+    "related_links": ["link1", "link2"],
+    "search_terms_used": ["term1", "term2"]
+  }
 
-IMPORTANT: You MUST include related_links from the web search results in your FINAL_ANSWER. 
-If no relevant links were found, include an empty array.
+## Error Handling
+- If uncertain about a tool's output, note your concerns before proceeding
+- If a tool seems to fail, explain the issue and retry or proceed with caution
+- Include related_links even if few were found; use empty array if none
+
+## Examples
+Good function call with reasoning:
+"I need to identify the visual elements first. FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png"
+
+Good final answer:
+"Based on the analysis, I can now provide a structured conclusion. FINAL_ANSWER: {\"context_guess\":\"Japanese Ukiyo-e art from Edo period\",\"confidence\":0.85,\"explanation\":\"The visual elements and style match Ukiyo-e woodblock prints\",\"related_links\":[\"https://example.com/ukiyo-e\"],\"search_terms_used\":[\"woodblock prints\",\"japanese art\"]}"
 """
 
     full_prompt = prompt + "\n\n" + format_reminder
@@ -363,18 +413,32 @@ async def execute_tool_call(
             descriptions = []
             if state.visual_elements:
                 descriptions.append(state.visual_elements)
+                state.log_step(f"DEBUG: Using visual elements for search terms: {state.visual_elements[:100]}...")
             if state.style_analysis:
-                descriptions.append(state.style_analysis)  
+                descriptions.append(state.style_analysis)
+                state.log_step(f"DEBUG: Using style analysis for search terms: {state.style_analysis[:100]}...")
             if state.scenario_analysis:
                 descriptions.append(state.scenario_analysis)
+                state.log_step(f"DEBUG: Using scenario analysis for search terms: {state.scenario_analysis[:100]}...")
+            
+            if descriptions:
+                state.log_step(f"DEBUG: Calling generate_search_terms with {len(descriptions)} descriptions")
+                search_input = {"descriptions": descriptions}
+                state.log_step(f"DEBUG: Search input created")
                 
-            if not descriptions:
-                error_msg = "Cannot generate search terms yet - no analysis results available"
-                state.log_step(f"❌ {error_msg}")
-                state.errors.append(f"TOOL ERROR: {error_msg}. First complete the visual analysis steps.")
-                return f"Error: {error_msg}. Complete some analysis tools first."
+                search_terms_result = await session.call_tool("generate_search_terms", 
+                                                       arguments={"input_data": search_input})
                 
-            input_model = SearchTermsInput(descriptions=descriptions)
+                state.log_step(f"DEBUG: Got search terms result: {search_terms_result}")
+                
+                if hasattr(search_terms_result, 'content') and search_terms_result.content:
+                    search_terms_text = search_terms_result.content[0].text
+                    state.search_terms = search_terms_text
+                    state.log_step(f"✅ Search terms generation complete: {search_terms_text}")
+                else:
+                    state.log_step("⚠️ Search terms result has no content")
+            else:
+                state.log_step("⚠️ No descriptions available for search terms generation")
                 
         elif tool_name == "search_web":
             if not normalized_params:
@@ -531,9 +595,15 @@ async def run_context_analysis(
 ) -> Dict[str, Any]:
     """Runs the full context analysis workflow using MCP with SSE transport."""
     
+    # Initialize state first
     state = WorkflowState()
     state.log_step("Starting context analysis...")
     progress_placeholder.text(state.get_progress_text())
+    
+    # Create a unique session ID for short-term memory tracking
+    session_id = str(uuid.uuid4())
+    state.session_id = session_id  # Store in state object
+    state.log_step(f"Created session ID: {session_id[:8]} for analysis")
     
     # Store image path in state for use in suggestions
     state.image_path = image_path
@@ -550,7 +620,9 @@ async def run_context_analysis(
     os.environ["USER_PREFERENCES"] = json.dumps(user_prefs)
     state.log_step(f"Set USER_PREFERENCES env var: {os.environ.get('USER_PREFERENCES')}")
     
+    # First let's compute the image hash - move this after establishing connection
     final_result_json = None
+    image_hash = None
 
     try:
         # Connect to SSE server
@@ -563,409 +635,477 @@ async def run_context_analysis(
                 state.log_step("MCP Session initialized.")
                 progress_placeholder.text(state.get_progress_text())
 
-                # Get available tools
-                tools_result = await session.list_tools()
-                all_tools = tools_result.tools
-                
-                # Filter out system tools like get_system_prompt
-                tools = [tool for tool in all_tools if tool.name != "get_system_prompt"]
-                tools_block = format_tools_for_prompt(tools)
-                
+                # Import memory reference for direct access
                 try:
-                    system_prompt = await session.call_tool("get_system_prompt", {})
-                    system_prompt = system_prompt.content[0].text if hasattr(system_prompt, 'content') else str(system_prompt)
-                    state.log_step("Retrieved system prompt from server.")
-                except Exception as e:
-                    system_prompt = """
-FOLLOW THESE EXACT INSTRUCTIONS:
-
-1. You must ONLY respond with ONE of these formats:
-   FUNCTION_CALL: tool_name|parameter
-   FINAL_ANSWER: {"json": "output"}
-
-2. USE THE TOOLS IN THIS EXACT SEQUENCE - DO NOT SKIP STEPS:
-   1️⃣ FIRST: FUNCTION_CALL: describe_visual_elements|C:\\path\\to\\image.png
-   2️⃣ SECOND: FUNCTION_CALL: describe_style_or_aesthetics|C:\\path\\to\\image.png
-   3️⃣ THIRD: FUNCTION_CALL: describe_possible_scenario|C:\\path\\to\\image.png
-   4️⃣ FOURTH: FUNCTION_CALL: generate_search_terms
-   5️⃣ FIFTH: FUNCTION_CALL: search_web|search query
-   6️⃣ SIXTH: FUNCTION_CALL: infer_context
-   7️⃣ LAST: FINAL_ANSWER: {"json output"}
-
-CRITICAL: FOLLOW THE EXACT SEQUENCE ABOVE. You MUST complete describe_visual_elements, describe_style_or_aesthetics, and describe_possible_scenario BEFORE calling generate_search_terms.
-
-3. DO NOT add ANY explanations before or after your function call.
-4. DO NOT use ANY other format or tools than those listed above.
-5. DO NOT include "image_path" or any parameter names in your function calls.
-
-Example: FUNCTION_CALL: describe_visual_elements|C:\\Users\\path\\to\\image.png
-"""
-                    system_prompt = system_prompt.replace('{tools_block}', tools_block)
-                    state.log_step("Using default system prompt.")
-                
-                # Main workflow loop
-                max_iterations = 10  # Increase max iterations
-                mandatory_tools_completed = {
-                    "describe_visual_elements": False,
-                    "describe_style_or_aesthetics": False,
-                    "describe_possible_scenario": False,
-                    "generate_search_terms": False,
-                    "search_web": False,
-                    "infer_context": False
-                }
-                
-                # Track repeated tool calls to detect loops
-                tool_call_history = []
-                repeated_call_threshold = 2  # Number of consecutive repeated calls to consider as stuck
-                
-                while state.iteration < max_iterations:
-                    state.iteration += 1
-                    state.log_step(f"--- Starting Agent Iteration {state.iteration} ---")
-                    progress_placeholder.text(state.get_progress_text())
-
-                    # Track if we're in the final iterations and need to ensure all tools are called
-                    approaching_max = state.iteration >= max_iterations - 3
-                    if approaching_max:
-                        missing_tools = [tool for tool, completed in mandatory_tools_completed.items() if not completed]
-                        if missing_tools:
-                            state.log_step(f"Approaching max iterations. Still need to complete: {', '.join(missing_tools)}")
-                            
-                    # Update completed tools based on the current state
-                    if state.visual_elements:
-                        mandatory_tools_completed["describe_visual_elements"] = True
-                    if state.style_analysis:
-                        mandatory_tools_completed["describe_style_or_aesthetics"] = True
-                    if state.scenario_analysis:
-                        mandatory_tools_completed["describe_possible_scenario"] = True
-                    if state.search_terms:
-                        mandatory_tools_completed["generate_search_terms"] = True
-                    if state.web_findings:
-                        mandatory_tools_completed["search_web"] = True
-                    if state.context_inference:
-                        mandatory_tools_completed["infer_context"] = True
+                    from main import memory
                     
-                    # Construct prompt for the agent
-                    prompt = f"{system_prompt}\n\nImage Path: {image_path}\n"
-                    if state.errors:
-                        prompt += "\nPrevious Errors:\n" + "\n".join(state.errors)
-                        state.errors = []  # Clear errors after showing them
-                    
-                    if approaching_max and missing_tools:
-                        prompt += f"\n\nIMPORTANT: You must call these mandatory tools to complete the analysis: {', '.join(missing_tools)}"
-                        
-                    prompt += "\nWhat is the next step based on the workflow?"
-
-                    # Add state information to help the agent
-                    if state.visual_elements:
-                        prompt += f"\n\nCurrent Visual Elements: {state.visual_elements[:500]}..."
-                    if state.style_analysis:
-                        prompt += f"\n\nCurrent Style Analysis: {state.style_analysis[:500]}..."
-                    if state.scenario_analysis:
-                        prompt += f"\n\nCurrent Scenario Analysis: {state.scenario_analysis[:500]}..."
-                    if state.search_terms:
-                        prompt += f"\n\nCurrent Search Terms: {state.search_terms}"
-                    if state.web_findings:
-                        prompt += f"\n\nCurrent Web Findings: {state.web_findings[:500]}..."
-                    if state.context_inference:
-                        prompt += f"\n\nCurrent Context Inference: {state.context_inference[:500]}..."
-                    
-                    # Check for repeated tool calls and provide explicit guidance
-                    is_stuck = False
-                    if len(tool_call_history) >= repeated_call_threshold:
-                        # Check if the last N calls were the same
-                        last_calls = tool_call_history[-repeated_call_threshold:]
-                        if all(call == last_calls[0] for call in last_calls):
-                            is_stuck = True
-                            state.log_step(f"⚠️ Detected repetition of tool: {last_calls[0]}. Providing explicit guidance.")
-                            
-                            # Find the next tool to recommend
-                            next_tool = None
-                            for tool in ["describe_visual_elements", "describe_style_or_aesthetics", "describe_possible_scenario", 
-                                        "generate_search_terms", "search_web", "infer_context"]:
-                                if not mandatory_tools_completed.get(tool, False):
-                                    next_tool = tool
-                                    break
-                            
-                            if next_tool:
-                                prompt += f"\n\n⚠️ IMPORTANT: You are repeating the same tool call. You should move to the next step: {next_tool}"
-                                if next_tool in ["describe_visual_elements", "describe_style_or_aesthetics", "describe_possible_scenario"]:
-                                    prompt += f"\nUse: FUNCTION_CALL: {next_tool}|{image_path}"
-                                else:
-                                    prompt += f"\nUse: FUNCTION_CALL: {next_tool}"
-                    
-                    # If we have all mandatory tools and we're past iteration 5, suggest final answer
-                    all_mandatory_complete = all(mandatory_tools_completed.values())
-                    if all_mandatory_complete and state.iteration >= 5:
-                        prompt += "\n\nAll mandatory tools have been called. You should now provide a FINAL_ANSWER."
-
-                    client_logger.debug(f"Iteration {state.iteration} Prompt: {prompt}")
-
-                    # Generate next step
+                    # First compute hash and check for matches
                     try:
-                        # Prepare the analysis state with all current data
-                        analysis_state = {}
-                        if state.visual_elements:
-                            analysis_state["visual_elements"] = state.visual_elements
-                        if state.style_analysis:
-                            analysis_state["style_or_aesthetics"] = state.style_analysis
-                        if state.scenario_analysis:
-                            analysis_state["possible_scenario"] = state.scenario_analysis
-                        if state.search_terms:
-                            analysis_state["search_terms"] = state.search_terms
-                        if state.web_findings:
-                            analysis_state["search_results"] = state.web_findings
-                        if state.context_inference:
-                            analysis_state["inferred_context"] = state.context_inference
-                            
-                        # Prepare history for context
-                        history = state.analysis_log.copy()
+                        # Use the compute_image_hash tool
+                        hash_result = await session.call_tool("compute_image_hash", 
+                                                           arguments={"input_data": {"image_path": image_path}})
                         
-                        # Call generate_agent_step with the required parameters
-                        try:
-                            agent_response = await asyncio.to_thread(
-                                generate_agent_step,
-                                session,
-                                image_path,
-                                analysis_state,
-                                history
-                            )
-                            state.log_step("Agent response received.")
-                        except Exception as e:
-                            error_msg = f"Error generating agent step: {str(e)}"
-                            state.log_step(f"❌ {error_msg}")
-                            client_logger.error(error_msg, exc_info=True)
-                            agent_response = f"FUNCTION_CALL: describe_visual_elements|{image_path}"
+                        # Debug code to see what's coming back
+                        state.log_step(f"DEBUG: Raw hash result: {hash_result}")
                         
-                        # Debug log to see the actual response
-                        client_logger.debug(f"Raw agent response: {agent_response}")
-                        
-                        # Log a sample of the response to help debug
-                        first_200 = agent_response[:200] + ("..." if len(agent_response) > 200 else "")
-                        state.log_step(f"Agent response sample: {first_200}")
-                        
-                        progress_placeholder.text(state.get_progress_text())
-                        
-                        # Extract function calls and final answers using regex patterns
-                        function_match = re.search(r'FUNCTION_CALL:\s*([a-z_]+)\|?(.*?)(?:\s*$|\n)', agent_response, re.DOTALL)
-                        final_answer_match = re.search(r'FINAL_ANSWER:\s*({.*})', agent_response, re.DOTALL)
-                        
-                        # Check for final answer
-                        if final_answer_match:
-                            answer_part = final_answer_match.group(1).strip()
-                            state.log_step(f"Agent provided FINAL_ANSWER.")
-                            client_logger.info(f"Final Answer Raw: {answer_part}")
-                            state.update('final_output', answer_part)
-                            final_result_json = answer_part  # Store the final JSON
-                            break  # Exit loop
-                        
-                        # Process function calls - more flexible parsing
-                        function_calls = []
-                        if function_match:
-                            function_part = function_match.group(0).split("FUNCTION_CALL:", 1)[1].strip()
-                            function_calls.append(function_part)
-                        else:
-                            # Try alternative pattern to find function calls
-                            alt_patterns = [
-                                r'(?:FUNCTION_CALL|function_call|Function_Call):\s*([a-z_]+)\|?(.*?)(?:\s*$|\n)',
-                                r'(?:Use|Call|Execute)\s+([a-z_]+)\s+with\s+(.*?)(?:\s*$|\n)',
-                                r'([a-z_]+)\|([^|\n]+)(?:\s*$|\n)'
-                            ]
+                        # Extra check for what's in the response
+                        if hasattr(hash_result, 'content'):
+                            for i, content_item in enumerate(hash_result.content):
+                                state.log_step(f"DEBUG: Content item {i}: {content_item}")
+                                if hasattr(content_item, 'text'):
+                                    state.log_step(f"DEBUG: Content text {i}: {content_item.text}")
                             
-                            for pattern in alt_patterns:
-                                alt_matches = re.findall(pattern, agent_response, re.IGNORECASE | re.DOTALL)
-                                if alt_matches:
-                                    for match in alt_matches:
-                                        tool_name = match[0].strip()
-                                        tool_input = match[1].strip() if len(match) > 1 else ""
-                                        
-                                        # Validate tool name
-                                        if tool_name in ["describe_visual_elements", "describe_style_or_aesthetics", 
-                                                        "describe_possible_scenario", "generate_search_terms", 
-                                                        "search_web", "infer_context", "format_final_output"]:
-                                            function_calls.append(f"{tool_name}|{tool_input}")
-                                            state.log_step(f"Found function call using alternative pattern: {tool_name}")
-                                            break
-
-                        if not function_calls:
-                            state.log_step("Agent did not provide FUNCTION_CALL or FINAL_ANSWER. Retrying with clearer instructions.")
-                            
-                            # Define workflow tools in order
-                            workflow_tools = [
-                                "describe_visual_elements", 
-                                "describe_style_or_aesthetics",
-                                "describe_possible_scenario",
-                                "generate_search_terms",
-                                "search_web",
-                                "infer_context",
-                                "format_final_output"
-                            ]
-                            
-                            # Check which step we're at
-                            next_tool = None
-                            if not state.visual_elements:
-                                next_tool = workflow_tools[0]
-                            elif not state.style_analysis:
-                                next_tool = workflow_tools[1]
-                            elif not state.scenario_analysis:
-                                next_tool = workflow_tools[2]
-                            elif not state.search_terms:
-                                next_tool = workflow_tools[3]
-                            elif not state.web_findings:
-                                next_tool = workflow_tools[4]
-                            elif not state.context_inference:
-                                next_tool = workflow_tools[5]
-                            else:
-                                next_tool = workflow_tools[6]
-                                
-                            # Create a specific suggestion
-                            suggestion = f"You must call '{next_tool}' now. "
-                            if next_tool == "describe_visual_elements" or next_tool == "describe_style_or_aesthetics" or next_tool == "describe_possible_scenario":
-                                suggestion += f"Example: FUNCTION_CALL: {next_tool}|{state.image_path}"
-                            elif next_tool == "generate_search_terms" or next_tool == "infer_context":
-                                suggestion += f"Example: FUNCTION_CALL: {next_tool}"
-                            elif next_tool == "search_web":
-                                suggestion += f"Example: FUNCTION_CALL: {next_tool}|your search query"
-                            else:
-                                suggestion += "Use the format: FUNCTION_CALL: tool_name|parameter"
-                            
-                            # Add previous response analysis if available
-                            response_analysis = ""
-                            if "visual_reasoning" in agent_response:
-                                response_analysis = "Your response used 'visual_reasoning' which is not an allowed tool. "
-                            elif "get_system_prompt" in agent_response:
-                                response_analysis = "Your response tried to call 'get_system_prompt' which is not an allowed tool. "
-                            elif "image_path:" in agent_response or "image_path=" in agent_response:
-                                response_analysis = "Your response included 'image_path:' or 'image_path=' which is incorrect format. "
-                            elif "{" in agent_response and "}" in agent_response:
-                                response_analysis = "Your response used JSON format which is incorrect. Do not use JSON for function calls. "
-                            
-                            state.errors.append(f"FORMAT ERROR: Your response must be EXACTLY in this format:\n" +
-                                             f"FUNCTION_CALL: tool_name|parameter\n" +
-                                             f"Do not include ANY other text. {response_analysis}{suggestion}")
-                            # Don't break, retry with clearer instructions
-                            continue
-                        
-                        # Execute calls
-                        for func_call in function_calls:
-                            state.log_step(f"Processing: {func_call}")
-                            progress_placeholder.text(state.get_progress_text())
-                            
-                            # More flexible parsing - handles with or without pipe separator
-                            parts = []
-                            if "|" in func_call:
-                                parts = [p.strip() for p in func_call.split("|") if p.strip()]
-                            else:
-                                # Try space separator as fallback
-                                parts = [p.strip() for p in func_call.split() if p.strip()]
-                                
-                            if not parts:
-                                state.log_step(f"Warning: Could not parse function call: {func_call}")
-                                continue
-                                
-                            func_name = parts[0]
-                            params = parts[1:] if len(parts) > 1 else []
-                            
-                            # Handle special case for tools that don't need parameters
-                            if func_name == "generate_search_terms" and not params:
-                                # No need to add dummy parameters - the execute_tool_call handles this
-                                pass
-                            elif func_name == "infer_context" and not params:
-                                # No need to add dummy parameters - the execute_tool_call handles this
-                                pass
-                            
-                            # Execute tool
-                            tool_result = await execute_tool_call(session, func_name, params, state)
-                            
-                            # Update tool call history to track repetition
-                            tool_call_history.append(func_name)
-                            
-                            # Update state based on tool result
-                            if tool_result:
-                                state.log_step(f"Tool '{func_name}' result processed.")
-                                # Update state based on tool name
-                                if func_name == "describe_visual_elements": 
-                                    state.update('visual_elements', tool_result)
-                                elif func_name == "describe_style_or_aesthetics": 
-                                    state.update('style_analysis', tool_result)
-                                elif func_name == "describe_possible_scenario": 
-                                    state.update('scenario_analysis', tool_result)
-                                elif func_name == "generate_search_terms": 
-                                    state.update('search_terms', tool_result)
-                                elif func_name == "search_web": 
-                                    state.update('web_findings', tool_result)
-                                elif func_name == "infer_context": 
-                                    state.update('context_inference', tool_result)
-                                elif func_name == "format_final_output": 
-                                    state.update('final_output', tool_result)
-                            else:
-                                state.log_step(f"Tool '{func_name}' execution failed or returned no result.")
-
-                            progress_placeholder.text(state.get_progress_text())
+                            # Try different methods to extract the hash
+                            if hash_result.content:
+                                # Try first approach
+                                try:
+                                    # Get the raw text response
+                                    raw_response = hash_result.content[0].text
+                                    state.log_step(f"DEBUG: Raw hash text: {raw_response}")
+                                    
+                                    # Extract the actual hash from nested JSON if needed
+                                    image_hash = extract_hash_from_response(raw_response)
+                                    state.log_step(f"DEBUG: Extracted hash: {image_hash}")
+                                    
+                                    if image_hash and image_hash != "Unknown" and not image_hash.startswith("{"):
+                                        state.log_step(f"🔑 Computed image hash: {image_hash} for image analysis")
+                                    else:
+                                        # Fallback to direct hash computation
+                                        try:
+                                            image_hash = memory._compute_image_hash(image_path)
+                                            state.log_step(f"DEBUG: Direct hash computation: {image_hash}")
+                                        except Exception as direct_error:
+                                            state.log_step(f"DEBUG: Direct hash error: {str(direct_error)}")
+                                except Exception as e:
+                                    state.log_step(f"DEBUG: Hash extraction error: {str(e)}")
                     except Exception as e:
-                        error_msg = f"Error during agent iteration {state.iteration}: {str(e)}"
-                        state.log_step(f"❌ {error_msg}")
-                        client_logger.error(error_msg, exc_info=True)
-                        state.errors.append(error_msg)
+                        state.log_step(f"⚠️ Failed to check image hash: {str(e)}")
+                        # Continue with analysis even if hash check fails
                 
-                # After the loop ends
-                if state.iteration >= max_iterations:
-                    state.log_step("Reached maximum iterations. Stopping.")
-                
-                # Check if we completed all necessary steps
-                missing_tools = [tool for tool, completed in mandatory_tools_completed.items() if not completed]
-                if missing_tools:
-                    state.log_step(f"Warning: Analysis incomplete. Missing tools: {', '.join(missing_tools)}")
+                except ImportError as e:
+                    # Handle the case where we can't import memory module
+                    state.log_step(f"⚠️ Could not import memory module: {str(e)}")
+                    memory = None
+
+                # Add this after computing the image hash but before starting the analysis
+                if image_hash:
+                    # Check for exact matches in memory
+                    state.log_step("🔍 Checking for exact hash match in ChromaDB...")
+                    match_result = await session.call_tool("check_exact_match", 
+                                                         arguments={"input_data": {"image_hash": image_hash}})
                     
-                if not final_result_json:
-                    state.log_step("Workflow finished without a FINAL_ANSWER. Generating one based on available data.")
+                    if hasattr(match_result, 'content') and match_result.content:
+                        match_content = match_result.content[0].text
+                        if "match_found" in match_content and "true" in match_content.lower():
+                            state.log_step("🎯 EXACT MATCH FOUND IN CHROMADB! Hash-based retrieval successful")
+                            # Try to parse the cached analysis
+                            try:
+                                match_data = json.loads(match_content)
+                                if 'data' in match_data:
+                                    context = match_data['data'].get('context_guess', 'Unknown context')
+                                    confidence = match_data['data'].get('confidence', 'Unknown confidence')
+                                    state.log_step(f"📋 Retrieved context: {context} (confidence: {confidence})")
+                                    state.final_output = match_data['data']
+                                    state.log_step("✅ Successfully loaded cached vector analysis from ChromaDB")
+                                    return {
+                                        "raw_output": state.get_progress_text(),
+                                        "structured": state.final_output,
+                                        "error": None
+                                    }
+                            except:
+                                state.log_step("⚠️ Failed to parse cached result from ChromaDB, continuing with new analysis")
+                        else:
+                            state.log_step("ℹ️ No exact hash match in ChromaDB, proceeding with full analysis")
+
+                # Add this right before the infer_context step
+                state.log_step("🧠 Retrieving similar analyses through vector search in ChromaDB...")
+                try:
+                    memory_query = {
+                        "visual_elements": state.visual_elements or "",
+                        "style_analysis": state.style_analysis or "",
+                        "scenario_analysis": state.scenario_analysis or ""
+                    }
+                    state.log_step(f"📊 Creating vector embedding from current analysis data...")
+                    memory_result = await session.call_tool("retrieve_memory_for_inference", 
+                                                         arguments={"input_data": memory_query})
                     
-                    # If we have enough data, try to generate a final output ourselves
-                    if state.context_inference:
-                        # We have context inference, so we can create a reasonable output
-                        try:
-                            context_parts = state.context_inference.split("\n")
-                            context_guess = context_parts[0] if len(context_parts) > 0 else "Analysis incomplete"
-                            explanation = state.context_inference
-                            search_terms = state.search_terms.split("\n") if state.search_terms else []
+                    if hasattr(memory_result, 'content') and memory_result.content:
+                        memory_context = memory_result.content[0].text
+                        state.memory_context = memory_context
+                        
+                        # Add clearer logging about vector search
+                        num_analyses = memory_context.count('Analysis')
+                        if num_analyses > 0:
+                            state.log_step(f"🔍 VECTOR SEARCH: Found {num_analyses} semantically similar analyses in ChromaDB")
                             
-                            final_output = {
-                                "context_guess": context_guess[:100],  # First line or part of first line
-                                "confidence": 0.5,  # Medium confidence since this is auto-generated
-                                "explanation": explanation,
-                                "related_links": [],  # No links available if we didn't complete
-                                "search_terms_used": search_terms
-                            }
-                            
-                            final_result_json = json.dumps(final_output)
-                            state.log_step("Auto-generated final output based on incomplete analysis.")
-                        except Exception as auto_gen_error:
-                            state.log_step(f"Failed to auto-generate output: {str(auto_gen_error)}")
-                            final_result_json = json.dumps({
-                                "context_guess": "Analysis incomplete",
-                                "confidence": 0.1,
-                                "explanation": "Workflow did not complete successfully.",
-                                "related_links": [],
-                                "search_terms_used": []
-                            })
+                            # Try to extract similarity scores
+                            similarity_matches = re.findall(r'Similarity: (0\.\d+)', memory_context)
+                            if similarity_matches:
+                                state.log_step(f"📈 Similarity scores: {', '.join(similarity_matches)}")
+                        else:
+                            state.log_step("⚠️ VECTOR SEARCH: No semantically similar analyses found in ChromaDB")
                     else:
-                        final_result_json = json.dumps({
+                        state.log_step("⚠️ VECTOR SEARCH: Query returned empty result from ChromaDB")
+                except Exception as e:
+                    state.log_step(f"❌ VECTOR SEARCH ERROR: {str(e)}")
+
+                # NOW ADD THE ACTUAL ANALYSIS WORKFLOW
+                state.log_step("Starting image analysis workflow...")
+                
+                # Step 1: Describe visual elements
+                state.log_step("Analyzing visual elements...")
+                visual_result = await session.call_tool("describe_visual_elements", 
+                                                     arguments={"input_data": {"image_path": image_path}})
+                if hasattr(visual_result, 'content') and visual_result.content:
+                    visual_text = visual_result.content[0].text
+                    state.visual_elements = visual_text
+                    state.log_step("✅ Visual elements analysis complete")
+                    
+                    # Store in short-term memory
+                    if memory:
+                        try:
+                            memory.store_in_short_term(session_id, "visual_elements", visual_text)
+                            state.log_step("📝 Stored in short-term memory")
+                        except Exception as e:
+                            state.log_step(f"⚠️ Failed to store in memory: {e}")
+                
+                # Step 2: Describe style/aesthetics
+                state.log_step("Analyzing style and aesthetics...")
+                style_result = await session.call_tool("describe_style_or_aesthetics", 
+                                                    arguments={"input_data": {"image_path": image_path}})
+                if hasattr(style_result, 'content') and style_result.content:
+                    style_text = style_result.content[0].text
+                    state.style_analysis = style_text
+                    state.log_step("✅ Style analysis complete")
+                
+                # Step 3: Describe possible scenario
+                state.log_step("Analyzing possible scenarios...")
+                scenario_result = await session.call_tool("describe_possible_scenario", 
+                                                       arguments={"input_data": {"image_path": image_path}})
+                if hasattr(scenario_result, 'content') and scenario_result.content:
+                    scenario_text = scenario_result.content[0].text
+                    state.scenario_analysis = scenario_text
+                    state.log_step("✅ Scenario analysis complete")
+                
+                # Step 4: Generate search terms
+                state.log_step("Generating search terms based on analyses...")
+                try:
+                    descriptions = []
+                    if state.visual_elements:
+                        descriptions.append(state.visual_elements)
+                        state.log_step(f"DEBUG: Using visual elements for search terms: {state.visual_elements[:100]}...")
+                    if state.style_analysis:
+                        descriptions.append(state.style_analysis)
+                        state.log_step(f"DEBUG: Using style analysis for search terms: {state.style_analysis[:100]}...")
+                    if state.scenario_analysis:
+                        descriptions.append(state.scenario_analysis)
+                        state.log_step(f"DEBUG: Using scenario analysis for search terms: {state.scenario_analysis[:100]}...")
+                    
+                    if descriptions:
+                        state.log_step(f"DEBUG: Calling generate_search_terms with {len(descriptions)} descriptions")
+                        search_input = {"descriptions": descriptions}
+                        state.log_step(f"DEBUG: Search input created")
+                        
+                        search_terms_result = await session.call_tool("generate_search_terms", 
+                                                               arguments={"input_data": search_input})
+                        
+                        state.log_step(f"DEBUG: Got search terms result: {search_terms_result}")
+                        
+                        if hasattr(search_terms_result, 'content') and search_terms_result.content:
+                            search_terms_text = search_terms_result.content[0].text
+                            state.search_terms = search_terms_text
+                            state.log_step(f"✅ Search terms generation complete: {search_terms_text}")
+                        else:
+                            state.log_step("⚠️ Search terms result has no content")
+                    else:
+                        state.log_step("⚠️ No descriptions available for search terms generation")
+                    
+                except Exception as e:
+                    state.log_step(f"❌ Error generating search terms: {str(e)}")
+                    # Create a fallback search term based on visual elements
+                    if state.visual_elements:
+                        state.search_terms = state.visual_elements.split('.')[0] if '.' in state.visual_elements else state.visual_elements[:50]
+                        state.log_step(f"⚠️ Using fallback search term: {state.search_terms}")
+                
+                # Step 5: Search web
+                state.log_step("Performing web search for context information...")
+                try:
+                    if state.search_terms:
+                        # Simplify search query extraction
+                        search_query = state.search_terms
+                        
+                        # Clean up the query if it's JSON or has formatting issues
+                        try:
+                            if search_query.startswith('{') or search_query.startswith('['):
+                                # Try to parse JSON
+                                search_data = json.loads(search_query)
+                                
+                                # If it's a list, use the first item
+                                if isinstance(search_data, list) and len(search_data) > 0:
+                                    search_query = search_data[0]
+                                
+                                # If it's a dict with terms, use the first term
+                                elif isinstance(search_data, dict) and 'terms' in search_data:
+                                    if isinstance(search_data['terms'], list) and search_data['terms']:
+                                        search_query = search_data['terms'][0]
+                                    else:
+                                        search_query = str(search_data['terms'])
+                        except:
+                            # If parsing fails just use the raw text and take the first 100 chars
+                            if len(search_query) > 100:
+                                search_query = search_query[:100]
+                        
+                        state.log_step(f"🔍 Using search query: {search_query}")
+                        
+                        search_input = {"query": search_query}
+                        state.log_step(f"DEBUG: Search web input: {search_input}")
+                        
+                        web_result = await session.call_tool("search_web", arguments={"input_data": search_input})
+                        
+                        state.log_step(f"DEBUG: Search web result received: {type(web_result)}")
+                        
+                        if hasattr(web_result, 'content') and web_result.content:
+                            state.log_step(f"DEBUG: Content found in web result")
+                            web_text = web_result.content[0].text
+                            state.web_findings = web_text
+                            state.log_step("✅ Web search complete")
+                            state.log_step(f"DEBUG: Web findings snippet: {web_text[:150]}...")
+                        else:
+                            state.log_step("⚠️ Web search returned no content")
+                    else:
+                        state.log_step("⚠️ No search terms available for web search")
+                except Exception as e:
+                    state.log_step(f"❌ Error searching web: {str(e)}")
+                    state.web_findings = "No web search results due to error."
+                
+                # Step 6: Infer context with better error handling
+                state.log_step("Inferring context from all gathered information...")
+                try:
+                    # Modify the infer_context input to include memory context
+                    infer_input = {
+                        "visual_elements": state.visual_elements or "No visual elements analysis available.",
+                        "style_analysis": state.style_analysis or "No style analysis available.",
+                        "scenario_analysis": state.scenario_analysis or "No scenario analysis available.",
+                        "web_findings": state.web_findings or "No web findings available."
+                    }
+                    
+                    # Add memory context if available
+                    if state.memory_context:
+                        infer_input["memory_context"] = state.memory_context
+                        state.log_step("✅ Including memory context in inference")
+                    
+                    state.log_step(f"DEBUG: Calling infer_context with input: {str(infer_input)[:200]}...")
+                    
+                    infer_result = await session.call_tool("infer_context", arguments={"input_data": infer_input})
+                    
+                    state.log_step(f"DEBUG: Infer context result received: {type(infer_result)}")
+                    
+                    if hasattr(infer_result, 'content') and infer_result.content:
+                        state.log_step(f"DEBUG: Content found in inference result")
+                        inference_text = infer_result.content[0].text
+                        state.context_inference = inference_text
+                        state.log_step("✅ Context inference complete")
+                        state.log_step(f"DEBUG: Inference snippet: {inference_text[:150]}...")
+                    else:
+                        state.log_step("⚠️ Inference returned no content")
+                except Exception as e:
+                    state.log_step(f"❌ Error inferring context: {str(e)}")
+                    # Create a simple fallback inference
+                    state.context_inference = f"Based on the visual analysis, this appears to be {state.visual_elements[:50] if state.visual_elements else 'an unidentified context'}."
+                
+                # Step 7: Format final output
+                state.log_step("Formatting final output...")
+                try:
+                    if state.context_inference:
+                        state.log_step(f"DEBUG: Using context inference: {state.context_inference[:100]}...")
+                        
+                        # Try to parse the inference to get structured data
+                        context_data = {}
+                        search_terms_list = []
+                        
+                        # Extract search terms used
+                        if state.search_terms:
+                            state.log_step(f"DEBUG: Extracting from search terms: {state.search_terms[:100]}...")
+                            try:
+                                if isinstance(state.search_terms, str) and (state.search_terms.startswith("[") or state.search_terms.startswith("{")):
+                                    parsed_terms = json.loads(state.search_terms)
+                                    state.log_step(f"DEBUG: Parsed search terms JSON successfully")
+                                    if isinstance(parsed_terms, list):
+                                        search_terms_list = parsed_terms
+                                    elif isinstance(parsed_terms, dict) and 'terms' in parsed_terms:
+                                        search_terms_list = parsed_terms['terms']
+                                else:
+                                    search_terms_list = [state.search_terms]
+                                    
+                                state.log_step(f"DEBUG: Final search terms list: {search_terms_list}")
+                            except Exception as e:
+                                state.log_step(f"DEBUG: Error parsing search terms: {str(e)}")
+                                search_terms_list = [state.search_terms]
+                        else:
+                            state.log_step("DEBUG: No search terms available")
+                            search_terms_list = ["unspecified search terms"]
+                        
+                        # Try to extract context guess and confidence from inference
+                        try:
+                            if state.context_inference and isinstance(state.context_inference, str) and state.context_inference.strip().startswith("{"):
+                                state.log_step("DEBUG: Attempting to parse JSON from inference")
+                                parsed_data = json.loads(state.context_inference)
+                                state.log_step(f"DEBUG: JSON parsing successful with keys: {list(parsed_data.keys())}")
+                                
+                                # Handle the case where we have a 'content' key at the top level
+                                if 'content' in parsed_data:
+                                    state.log_step(f"DEBUG: Found content key, extracting actual context data")
+                                    
+                                    # Try to extract content from the nested structure
+                                    if isinstance(parsed_data['content'], list) and parsed_data['content']:
+                                        # Try to get the actual context data from the first content item
+                                        content_item = parsed_data['content'][0]
+                                        state.log_step(f"DEBUG: Content item: {content_item}")
+                                        
+                                        # Extract text if it's there
+                                        if isinstance(content_item, dict) and 'text' in content_item:
+                                            actual_text = content_item['text']
+                                            state.log_step(f"DEBUG: Found text in content: {actual_text[:100]}...")
+                                            
+                                            # Try to parse the text as JSON if possible
+                                            try:
+                                                if actual_text.strip().startswith("{"):
+                                                    actual_context = json.loads(actual_text)
+                                                    state.log_step(f"DEBUG: Successfully parsed nested JSON from text")
+                                                    context_data = actual_context
+                                                else:
+                                                    # Use the text directly with default structure
+                                                    context_data = {
+                                                        "context_guess": actual_text.split('\n')[0] if '\n' in actual_text else actual_text[:100],
+                                                        "confidence": 0.7,
+                                                        "explanation": actual_text,
+                                                        "related_links": [],
+                                                        "search_terms_used": search_terms_list
+                                                    }
+                                            except:
+                                                # Fall back to using text directly
+                                                context_data = {
+                                                    "context_guess": actual_text.split('\n')[0] if '\n' in actual_text else actual_text[:100],
+                                                    "confidence": 0.7,
+                                                    "explanation": actual_text,
+                                                    "related_links": [],
+                                                    "search_terms_used": search_terms_list
+                                                }
+                                        else:
+                                            # Just use the original parsed data
+                                            context_data = parsed_data
+                                else:
+                                    context_data = parsed_data
+                            else:
+                                # Rest of existing code for non-JSON case
+                                context_data = {
+                                    "context_guess": state.context_inference.split('\n')[0] if '\n' in state.context_inference else state.context_inference[:100],
+                                    "confidence": 0.7,
+                                    "explanation": state.context_inference,
+                                    "related_links": [],
+                                    "search_terms_used": search_terms_list
+                                }
+                        except Exception as e:
+                            state.log_step(f"DEBUG: Error extracting context: {str(e)}")
+                            # Fallback data - VERY explicit to ensure we get something
+                            context_data = {
+                                "context_guess": "Unknown context",
+                                "confidence": 0.5,
+                                "explanation": str(state.context_inference or "No context inference available"),
+                                "related_links": [],
+                                "search_terms_used": search_terms_list
+                            }
+                            state.log_step("DEBUG: Using fallback context data")
+                        
+                        # Ensure all expected fields are present
+                        if "context_guess" not in context_data:
+                            context_data["context_guess"] = "Unspecified context"
+                        if "confidence" not in context_data:
+                            context_data["confidence"] = 0.5
+                        if "explanation" not in context_data:
+                            context_data["explanation"] = "No detailed explanation available."
+                        if "related_links" not in context_data:
+                            context_data["related_links"] = []
+                        if "search_terms_used" not in context_data:
+                            context_data["search_terms_used"] = search_terms_list
+                            
+                        # Ensure confidence is a float
+                        try:
+                            context_data["confidence"] = float(context_data["confidence"])
+                        except (ValueError, TypeError):
+                            context_data["confidence"] = 0.5
+                            
+                        # Store the structured output
+                        state.final_output = context_data
+                        state.log_step(f"✅ Final output formatting complete with guess: {context_data['context_guess']}")
+                        state.log_step(f"DEBUG: Final output structure: {context_data.keys()}")
+                    else:
+                        state.log_step("⚠️ No context inference available for final output")
+                        # Create a minimal fallback output
+                        state.final_output = {
                             "context_guess": "Analysis incomplete",
-                            "confidence": 0.1,
-                            "explanation": "Workflow did not complete successfully.",
+                            "confidence": 0.3,
+                            "explanation": "The analysis process didn't produce a complete context inference.",
                             "related_links": [],
                             "search_terms_used": []
-                        })
+                        }
+                except Exception as e:
+                    state.log_step(f"❌ Error formatting final output: {str(e)}")
+                    # Create emergency fallback output
+                    state.final_output = {
+                        "context_guess": "Analysis error",
+                        "confidence": 0.1,
+                        "explanation": f"An error occurred during analysis: {str(e)}",
+                        "related_links": [],
+                        "search_terms_used": []
+                    }
 
-                # Add to run_context_analysis before final step
-                if state.web_findings:
-                    # Extract URLs from web findings
+                # After all analysis is done
+                state.log_step("Analysis complete.")
+                progress_placeholder.text(state.get_progress_text())
+                
+                # Add this at the end, after final output is generated but before returning
+                if state.final_output and image_hash:
+                    state.log_step("💾 Storing analysis results in memory systems...")
                     try:
-                        web_data = json.loads(state.web_findings)
-                        links = [item.get('url', '') for item in web_data if 'url' in item]
-                        if links:
-                            state.log_step(f"Extracted {len(links)} links from web findings: {links[:3]}")
-                    except:
-                        state.log_step("Could not extract links from web findings")
+                        state.log_step("🧩 Preparing data for ChromaDB vector storage...")
+                        store_result = await session.call_tool("store_analysis", 
+                                                           arguments={"input_data": {
+                                                               "image_hash": image_hash,
+                                                               "analysis_json": json.dumps(state.final_output)
+                                                           }})
+                        
+                        if hasattr(store_result, 'content') and store_result.content:
+                            store_text = store_result.content[0].text
+                            state.log_step("✅ Analysis vectorized and stored in ChromaDB")
+                            
+                            # Log collections that were updated
+                            collections = []
+                            if "visual_elements" in store_text:
+                                collections.append("visual_elements")
+                            if "style_analysis" in store_text:
+                                collections.append("style_analysis")
+                            if "scenario_analysis" in store_text:
+                                collections.append("scenario_analysis")
+                            if "complete_analysis" in store_text:
+                                collections.append("complete_analysis")
+                                
+                            if collections:
+                                state.log_step(f"📊 Vector embeddings created for: {', '.join(collections)}")
+                                state.log_step(f"🗂️ Data indexed in ChromaDB for future similarity search")
+                            else:
+                                state.log_step("⚠️ No specific ChromaDB collections mentioned in storage response")
+                        else:
+                            state.log_step("⚠️ Failed to store analysis vectors in ChromaDB")
+                    except Exception as e:
+                        state.log_step(f"❌ ChromaDB storage error: {str(e)}")
+
+                # Return the results
+                return {
+                    "raw_output": state.get_progress_text(),
+                    "structured": state.final_output,
+                    "error": state.errors[-1] if state.errors else None
+                }
 
     except Exception as e:
         error_msg = f"Error during MCP session: {str(e)}"
@@ -973,47 +1113,6 @@ Example: FUNCTION_CALL: describe_visual_elements|C:\\Users\\path\\to\\image.png
         logger.error(error_msg, exc_info=True)
         st.error(f"An error occurred during analysis: {e}")
         return {"raw_output": state.get_progress_text(), "structured": None, "error": error_msg}
-
-    state.log_step("Analysis complete.")
-    progress_placeholder.text(state.get_progress_text())
-
-    # Parse the final JSON result
-    structured_result = None
-    error_parsing = None
-    try:
-        if final_result_json:
-            # First parse the outer JSON
-            structured_data = json.loads(final_result_json)
-            
-            # Check if we have a nested JSON in 'json' field
-            if isinstance(structured_data, dict) and 'json' in structured_data:
-                # Parse the inner stringified JSON
-                inner_json = json.loads(structured_data['json'])
-                structured_data = inner_json
-            
-            try:
-                structured_result = ActionOutput(**structured_data).dict()
-                state.log_step("Final JSON parsed and validated successfully.")
-            except Exception as pydantic_error:
-                state.log_step(f"Warning: Final JSON parsed but failed Pydantic validation: {pydantic_error}")
-                structured_result = structured_data
-        else:
-            state.log_step("No final JSON output received from the agent.")
-            
-    except json.JSONDecodeError as json_err:
-        state.log_step(f"❌ Error parsing final JSON output: {json_err}")
-        error_parsing = str(json_err)
-        client_logger.error(f"Failed to parse FINAL_ANSWER JSON: {final_result_json}", exc_info=True)
-    except Exception as e:
-        state.log_step(f"❌ Error processing final output: {e}")
-        error_parsing = str(e)
-        client_logger.error(f"Unexpected error processing final output: {final_result_json}", exc_info=True)
-
-    return {
-        "raw_output": state.get_progress_text(),
-        "structured": structured_result,
-        "error": state.errors[-1] if state.errors else error_parsing
-    }
 
 
 def main():
@@ -1056,29 +1155,32 @@ def main():
             if result["error"]:
                 st.error(f"Error: {result['error']}")
             else:
-                st.subheader("Context Analysis Results")
-                
                 # Better display of structured output
                 structured = result["structured"]
                 
-                # Main findings in a highlighted box
-                st.success(f"**Context:** {structured.get('context_guess', 'Unknown')}")
-                st.progress(float(structured.get('confidence', 0)))
-                st.write(f"Confidence: {int(float(structured.get('confidence', 0))*100)}%")
-                
-                # Explanation in a dedicated section
-                with st.expander("Detailed Explanation", expanded=True):
-                    st.write(structured.get('explanation', 'No explanation available'))
-                
-                # Related links and search terms
-                if structured.get('related_links'):
-                    with st.expander("Related Links"):
-                        for link in structured.get('related_links', []):
-                            st.markdown(f"- [{link}]({link})")
-                
-                # Show the raw JSON for reference
-                with st.expander("Raw JSON Result"):
-                    st.json(structured)
+                if structured is None:
+                    st.warning("Analysis completed but no structured output was produced.")
+                else:
+                    st.subheader("Context Analysis Results")
+                    
+                    # Main findings in a highlighted box
+                    st.success(f"**Context:** {structured.get('context_guess', 'Unknown')}")
+                    st.progress(float(structured.get('confidence', 0)))
+                    st.write(f"Confidence: {int(float(structured.get('confidence', 0))*100)}%")
+                    
+                    # Explanation in a dedicated section
+                    with st.expander("Detailed Explanation", expanded=True):
+                        st.write(structured.get('explanation', 'No explanation available'))
+                    
+                    # Related links and search terms
+                    if structured.get('related_links'):
+                        with st.expander("Related Links"):
+                            for link in structured.get('related_links', []):
+                                st.markdown(f"- [{link}]({link})")
+                    
+                    # Show the raw JSON for reference
+                    with st.expander("Raw JSON Result"):
+                        st.json(structured)
 
 if __name__ == "__main__":
     main()
@@ -1110,3 +1212,94 @@ def image_to_base64(image_path):
     except Exception as e:
         logging.error(f"Error converting image to base64: {str(e)}")
         raise e
+
+# Add this helper to track processing state in app.py
+async def run_memory_enhanced_workflow(session, state, image_path):
+    """Run the full memory-enhanced workflow step by step."""
+    try:
+        # Step 1: Compute image hash
+        state.log_step("Computing image hash...")
+        hash_result = await session.call_tool("compute_image_hash", arguments={"input_data": {"image_path": image_path}})
+        
+        if not hash_result or not hasattr(hash_result, 'content'):
+            state.log_step("❌ Failed to compute image hash")
+            return False
+            
+        image_hash = hash_result.content[0].text
+        state.update('image_hash', image_hash)
+        state.log_step(f"✅ Image hash: {image_hash[:8]}")
+        
+        # Step 2: Check for exact match
+        state.log_step("Checking memory for exact match...")
+        match_result = await session.call_tool("check_exact_match", arguments={"input_data": {"image_hash": image_hash}})
+        
+        match_content = match_result.content[0].text if hasattr(match_result, 'content') else ""
+        if "match_found" in match_content and "true" in match_content.lower():
+            state.log_step("🎯 EXACT MATCH FOUND! Retrieving cached analysis...")
+            # Parse the cached analysis
+            try:
+                cached_analysis = json.loads(match_content)
+                state.update('final_output', cached_analysis)
+                state.log_step("✅ Successfully retrieved cached analysis")
+                return "cached"
+            except:
+                state.log_step("⚠️ Failed to parse cached analysis, continuing with new analysis")
+        else:
+            state.log_step("🔍 No exact match found, proceeding with analysis")
+        
+        # Continue with analysis as normal...
+        # After each significant step, store in short-term memory
+
+        # For visual elements
+        if state.visual_elements:
+            session_id = state.session_id
+            store_in_short_term_memory(session_id, "visual_elements", state.visual_elements)
+            
+        # For style analysis
+        if state.style_analysis:
+            session_id = state.session_id
+            store_in_short_term_memory(session_id, "style_analysis", state.style_analysis)
+    
+        # For scenario analysis
+        if state.scenario_analysis:
+            session_id = state.session_id
+            store_in_short_term_memory(session_id, "scenario_analysis", state.scenario_analysis)
+            
+        # Before infer_context, call retrieve_memory_for_inference
+        state.log_step("Retrieving similar analyses from memory to enhance inference...")
+        memory_data = {
+            "visual_elements": state.visual_elements,
+            "style_analysis": state.style_analysis,
+            "scenario_analysis": state.scenario_analysis
+        }
+        memory_result = await session.call_tool("retrieve_memory_for_inference", arguments={"input_data": memory_data})
+        
+        # ... complete workflow including infer_context
+
+        # Finally, store the complete analysis
+        if state.final_output:
+            state.log_step("Storing final analysis in long-term memory...")
+            store_result = await session.call_tool("store_analysis", arguments={
+                "input_data": {
+                    "image_hash": image_hash,
+                    "analysis_json": json.dumps(state.final_output)
+                }
+            })
+            state.log_step("✅ Analysis stored successfully in memory for future reuse")
+            
+        return True
+    except Exception as e:
+        state.log_step(f"❌ Error in memory-enhanced workflow: {str(e)}")
+        return False
+        
+# Helper function for short-term memory
+def store_in_short_term_memory(session_id, component, data):
+    """Store analysis component in short-term memory via global memory module."""
+    try:
+        from main import memory
+        memory.store_in_short_term(session_id, component, data)
+        logger.info(f"✅ Stored {component} in short-term memory for session {session_id[:8]}")
+        return True
+    except Exception as e:
+        logger.error(f"❌ Failed to store in short-term memory: {str(e)}")
+        return False

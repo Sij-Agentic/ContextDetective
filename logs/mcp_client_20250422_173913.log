@@ -1,0 +1,84 @@
+2025-04-22 17:39:13,210 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_173913.log
+2025-04-22 17:39:13,229 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 17:39:13,230 - ContextDetectiveClient - INFO - Created session ID: 85dd357a for analysis
+2025-04-22 17:39:13,230 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 17:39:13,231 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 17:39:13,559 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 17:39:13,578 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 17:39:15,595 - ContextDetectiveClient - INFO - 🔍 Checking for exact hash match in ChromaDB...
+2025-04-22 17:39:15,610 - ContextDetectiveClient - INFO - 🎯 EXACT MATCH FOUND IN CHROMADB! Hash-based retrieval successful
+2025-04-22 17:39:15,611 - ContextDetectiveClient - INFO - 📋 Retrieved context: Here's an analysis of the image's most likely context: (confidence: 0.7)
+2025-04-22 17:39:15,611 - ContextDetectiveClient - INFO - ✅ Successfully loaded cached vector analysis from ChromaDB
+2025-04-22 17:43:48,351 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_174348.log
+2025-04-22 17:43:52,833 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_174352.log
+2025-04-22 17:44:13,900 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs\mcp_client_20250422_174413.log
+2025-04-22 17:44:14,045 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-22 17:44:14,045 - ContextDetectiveClient - INFO - Created session ID: af8fb14d for analysis
+2025-04-22 17:44:14,045 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-22 17:44:14,045 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-22 17:44:14,287 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-22 17:44:14,308 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-22 17:44:14,326 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "7508a4b119862e94108a3444b04f642f", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 17:44:14,327 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "7508a4b119862e94108a3444b04f642f", "annotations": null}]}' annotations=None
+2025-04-22 17:44:14,327 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "7508a4b119862e94108a3444b04f642f", "annotations": null}]}
+2025-04-22 17:44:14,328 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "7508a4b119862e94108a3444b04f642f", "annotations": null}]}
+2025-04-22 17:44:14,328 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 7508a4b119862e94108a3444b04f642f
+2025-04-22 17:44:14,329 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 7508a4b119862e94108a3444b04f642f for image analysis
+2025-04-22 17:44:14,329 - ContextDetectiveClient - INFO - 🔍 Checking for exact hash match in ChromaDB...
+2025-04-22 17:44:14,337 - ContextDetectiveClient - INFO - ℹ️ No exact hash match in ChromaDB, proceeding with full analysis
+2025-04-22 17:44:14,338 - ContextDetectiveClient - INFO - 🧠 Retrieving similar analyses through vector search in ChromaDB...
+2025-04-22 17:44:14,338 - ContextDetectiveClient - INFO - 📊 Creating vector embedding from current analysis data...
+2025-04-22 17:44:18,102 - ContextDetectiveClient - INFO - 🔍 VECTOR SEARCH: Found 1 semantically similar analyses in ChromaDB
+2025-04-22 17:44:18,102 - ContextDetectiveClient - INFO - Starting image analysis workflow...
+2025-04-22 17:44:18,102 - ContextDetectiveClient - INFO - Analyzing visual elements...
+2025-04-22 17:44:28,824 - ContextDetectiveClient - INFO - ✅ Visual elements analysis complete
+2025-04-22 17:44:28,824 - ContextDetectiveClient - INFO - 📝 Stored in short-term memory
+2025-04-22 17:44:28,824 - ContextDetectiveClient - INFO - Analyzing style and aesthetics...
+2025-04-22 17:44:43,166 - ContextDetectiveClient - INFO - ✅ Style analysis complete
+2025-04-22 17:44:43,166 - ContextDetectiveClient - INFO - Analyzing possible scenarios...
+2025-04-22 17:44:52,629 - ContextDetectiveClient - INFO - ✅ Scenario analysis complete
+2025-04-22 17:44:52,629 - ContextDetectiveClient - INFO - Generating search terms based on analyses...
+2025-04-22 17:44:52,629 - ContextDetectiveClient - INFO - DEBUG: Using visual elements for search terms: {"content": [{"type": "text", "text": "Here's a breakdown of the visual elements in the image:\n\n- ...
+2025-04-22 17:44:52,629 - ContextDetectiveClient - INFO - DEBUG: Using style analysis for search terms: {"content": [{"type": "text", "text": "Okay, let's break down the style and aesthetics of this image...
+2025-04-22 17:44:52,629 - ContextDetectiveClient - INFO - DEBUG: Using scenario analysis for search terms: {"content": [{"type": "text", "text": "Here's an analysis of the image:\n\n*   **Possible Scenario:*...
+2025-04-22 17:44:52,634 - ContextDetectiveClient - INFO - DEBUG: Calling generate_search_terms with 3 descriptions
+2025-04-22 17:44:52,634 - ContextDetectiveClient - INFO - DEBUG: Search input created
+2025-04-22 17:44:53,920 - ContextDetectiveClient - INFO - DEBUG: Got search terms result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "Fernanda Torres\\nCortejo das Minas\\nBrazilian Carnaval\\nBrazilian street parade\\nSamba drums\\nFeminist parade Brazil\\nSocial media parade frame", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 17:44:53,920 - ContextDetectiveClient - INFO - ✅ Search terms generation complete: {"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazilian street parade\nSamba drums\nFeminist parade Brazil\nSocial media parade frame", "annotations": null}]}
+2025-04-22 17:44:53,922 - ContextDetectiveClient - INFO - Performing web search for context information...
+2025-04-22 17:44:53,923 - ContextDetectiveClient - INFO - 🔍 Using search query: {"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazilian street parade\nSamba drums\nFeminist parade Brazil\nSocial media parade frame", "annotations": null}]}
+2025-04-22 17:44:53,923 - ContextDetectiveClient - INFO - DEBUG: Search web input: {'query': '{"content": [{"type": "text", "text": "Fernanda Torres\\nCortejo das Minas\\nBrazilian Carnaval\\nBrazilian street parade\\nSamba drums\\nFeminist parade Brazil\\nSocial media parade frame", "annotations": null}]}'}
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - DEBUG: Search web result received: <class 'mcp.types.CallToolResult'>
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - DEBUG: Content found in web result
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - ✅ Web search complete
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - DEBUG: Web findings snippet: {"content": [{"type": "text", "text": "[]", "annotations": null}]}...
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - Inferring context from all gathered information...
+2025-04-22 17:44:54,871 - ContextDetectiveClient - INFO - ✅ Including memory context in inference
+2025-04-22 17:44:54,887 - ContextDetectiveClient - INFO - DEBUG: Calling infer_context with input: {'visual_elements': '{"content": [{"type": "text", "text": "Here\'s a breakdown of the visual elements in the image:\\n\\n- **Objects:**\\n  - Drummers are holding silver snare drums.\\n  - A large re...
+2025-04-22 17:44:59,333 - ContextDetectiveClient - INFO - DEBUG: Infer context result received: <class 'mcp.types.CallToolResult'>
+2025-04-22 17:44:59,336 - ContextDetectiveClient - INFO - DEBUG: Content found in inference result
+2025-04-22 17:44:59,337 - ContextDetectiveClient - INFO - ✅ Context inference complete
+2025-04-22 17:44:59,338 - ContextDetectiveClient - INFO - DEBUG: Inference snippet: {"content": [{"type": "text", "text": "Here's a breakdown of the most likely context, confidence, reasoning, and supporting evidence for the image:\n\...
+2025-04-22 17:44:59,339 - ContextDetectiveClient - INFO - Formatting final output...
+2025-04-22 17:44:59,341 - ContextDetectiveClient - INFO - DEBUG: Using context inference: {"content": [{"type": "text", "text": "Here's a breakdown of the most likely context, confidence, re...
+2025-04-22 17:44:59,343 - ContextDetectiveClient - INFO - DEBUG: Extracting from search terms: {"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazi...
+2025-04-22 17:44:59,343 - ContextDetectiveClient - INFO - DEBUG: Parsed search terms JSON successfully
+2025-04-22 17:44:59,344 - ContextDetectiveClient - INFO - DEBUG: Final search terms list: []
+2025-04-22 17:44:59,345 - ContextDetectiveClient - INFO - DEBUG: Attempting to parse JSON from inference
+2025-04-22 17:44:59,346 - ContextDetectiveClient - INFO - DEBUG: JSON parsing successful with keys: ['content']
+2025-04-22 17:44:59,347 - ContextDetectiveClient - INFO - DEBUG: Found content key, extracting actual context data
+2025-04-22 17:44:59,348 - ContextDetectiveClient - INFO - DEBUG: Content item: {'type': 'text', 'text': 'Here\'s a breakdown of the most likely context, confidence, reasoning, and supporting evidence for the image:\n\n1.  **Most Likely Context:** The image depicts a street parade or festival in Brazil, likely related to Brazilian Carnival or a similar cultural celebration with a feminist leaning. The event is centered around celebrating or being inspired by the Brazilian actress Fernanda Torres, and the participants are highlighting the event on social media, specifically Instagram.\n\n2.  **Confidence Score:** 0.95\n\n3.  **Reasoning:** The analyses consistently point to a Brazilian cultural event, specifically related to Carnival or a similar festival. The presence of the banner with "Sósias da Fernanda Torres Cortejo das Minas" is a strong indicator, suggesting a celebration of Fernanda Torres by a women\'s procession. The festive costumes, drums, and joyful expressions further support this. The Instagram frame cements the contemporary nature of the event and its connection to social media. The lack of contradictory information strengthens this interpretation.\n\n4.  **Key Supporting Evidence:**\n\n    *   **VISUAL ELEMENTS:**\n        *   "Drummers are holding silver snare drums." - Suggests a musical performance, common in Brazilian celebrations.\n        *   "A large red banner with gold fringe is in the background." - Indicates a formal event or parade.\n        *   "The banner displays images of women and a golden goblet." and "On the banner: \\"Sósias da Fernanda Torres Cortejo das Minas\\"" - The text translates to "Fernanda Torres\' Look-alikes Women\'s Procession", directly linking the event to the actress and a women\'s movement or celebration.\n        *   "One woman is holding a white frame mimicking an Instagram post, complete with a logo, username, and like/comment/share icons." and "On the Instagram frame: \\"theacademy\\" (followed by a check mark indicating a verified account.)" - Shows the event is being documented and shared on social media.\n    *   **STYLE ANALYSIS:**\n        *   "This image primarily captures a moment of street photography or documentary photography." - Captures a real event.\n        *   "There\'s also an element of performance art or celebration involved, given the context of a parade." - Confirms the festive nature.\n        *   "The image strongly suggests a Brazilian Carnaval or similar celebration." - Explicitly links the image to Brazilian Carnival or related events.\n        *   "The festive costumes with bright colors and sequins. The musical instruments, specifically the drums, suggesting a Samba-style performance." - Supports the Brazilian cultural context.\n        *   "The banner that says "Sósias da Fernanda Torres" which translates to "Fernanda Torres\' Partners". Fernanda Torres is a famous Brazilian actress." - Reinforces the event\'s focus.\n        *   "The Instagram frame is a modern cultural reference, indicating the importance of social media in capturing and sharing these cultural events." - Confirms the social media aspect.\n    *   **SCENARIO ANALYSIS:**\n        *   "This image likely depicts a street parade or festival, possibly related to Brazilian Carnival or a similar cultural celebration with a strong feminist theme. The banner with "Sósias da Fernanda Torres" (Fernanda Torres Look-alikes) and "Cortejo das Minas" (Women\'s Procession) suggests the event is focused on women and potentially inspired by or celebrating the actress Fernanda Torres. The "Instagram frame" suggests a connection to social media and modern expression." -  Provides a clear summary scenario.\n    *   **WEB FINDINGS:**\n        *   "[]" - While there are no specific web findings to support, the lack of contradictory information allows for confidence in this interpretation.\n', 'annotations': None}
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - DEBUG: Found text in content: Here's a breakdown of the most likely context, confidence, reasoning, and supporting evidence for th...
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - ✅ Final output formatting complete with guess: Here's a breakdown of the most likely context, confidence, reasoning, and supporting evidence for the image:
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - DEBUG: Final output structure: dict_keys(['context_guess', 'confidence', 'explanation', 'related_links', 'search_terms_used'])
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - 💾 Storing analysis results in memory systems...
+2025-04-22 17:44:59,349 - ContextDetectiveClient - INFO - 🧩 Preparing data for ChromaDB vector storage...
+2025-04-22 17:45:01,703 - ContextDetectiveClient - INFO - ✅ Analysis vectorized and stored in ChromaDB
+2025-04-22 17:45:01,714 - ContextDetectiveClient - INFO - ⚠️ No specific ChromaDB collections mentioned in storage response

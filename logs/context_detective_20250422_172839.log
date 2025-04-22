@@ -1,0 +1,369 @@
+2025-04-22 17:28:40,499 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 17:28:40,499 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 17:28:40,560 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 17:28:40,834 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 17:28:40,835 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 17:28:40,835 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 17:28:40,835 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 17:28:40,966 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 17:28:40,967 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 17:28:40,967 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 17:28:40,967 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 17:28:40,967 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 17:28:41,327 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 17:28:41,327 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 17:29:08,399 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:08,406 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:08,407 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:08,407 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 17:29:08,408 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:08,408 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:08,417 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:08,418 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash 763e77d0...
+2025-04-22 17:29:08,418 - ContextDetective.Memory - INFO - 🔍 CACHE MISS: No exact match found for image hash 763e77d0
+2025-04-22 17:29:08,425 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:08,425 - ContextDetective.Memory - INFO - 🧠 Retrieving memory for inference augmentation...
+2025-04-22 17:29:08,426 - ContextDetective.Memory - INFO - Retrieving similar analyses for query: Visual elements: 
+
+Style: 
+
+Scenario: ...
+2025-04-22 17:29:12,241 - ContextDetective.Memory - INFO - No similar analyses found.
+2025-04-22 17:29:12,241 - ContextDetective.Memory - INFO - ⚠️ No relevant past analyses found to augment inference.
+2025-04-22 17:29:12,241 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:12,241 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:12,266 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:29:15,757 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:29:15,757 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:29:15,757 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 17:29:15,766 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:15,766 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:15,766 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:29:19,145 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:29:19,146 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:29:19,146 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 17:29:19,153 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:19,153 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpldj2fc1r.png
+2025-04-22 17:29:19,153 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:29:20,612 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:29:20,613 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:29:20,613 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-22 17:29:20,619 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:20,619 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-22 17:29:20,620 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:29:21,908 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:29:21,908 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:29:21,908 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-22 17:29:21,928 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:21,928 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Political protest signs\nAmerican political protest\n\"Resist\" protest\n\"Stop Traitors\" protest\nPublic Defenders protest\nPolitical demonstration Washington D.C.\nPolitical activism photography", "annotations": null}]}
+2025-04-22 17:29:21,928 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Political protest signs\nAmerican political protest\n\"Resist\" protest\n\"Stop Traitors\" protest\nPublic Defenders protest\nPolitical demonstration Washington D.C.\nPolitical activism photography", "annotations": null}]}&format=json
+2025-04-22 17:29:22,735 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Political protest signs\nAmerican political protest\n\"Resist\" protest\n\"Stop Traitors\" protest\nPublic Defenders protest\nPolitical demonstration Washington D.C.\nPolitical activism photography", "annotations": null}]}
+2025-04-22 17:29:22,760 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:22,760 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-22 17:29:22,760 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:29:26,179 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:29:26,181 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:29:26,181 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-22 17:29:26,193 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:29:26,193 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash 763e77d0...
+2025-04-22 17:29:26,194 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage\763e77d0167bac4e2e5badea34ff0df4.json
+2025-04-22 17:29:26,195 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for 763e77d0
+2025-04-22 17:29:26,195 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-22 17:29:28,576 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-22 17:29:28,725 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-22 17:29:28,725 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image 763e77d0
+2025-04-22 17:29:28,725 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 17:29:28,725 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 17:29:28,725 - ContextDetective.Memory - INFO -    └─ Location: memory_storage\763e77d0167bac4e2e5badea34ff0df4.json
+2025-04-22 17:39:15,578 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:39:15,578 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpgnsscc9o.png
+2025-04-22 17:39:15,578 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpgnsscc9o.png
+2025-04-22 17:39:15,578 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 17:39:15,578 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpgnsscc9o.png
+2025-04-22 17:39:15,594 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpgnsscc9o.png
+2025-04-22 17:39:15,602 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:39:15,604 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash 763e77d0...
+2025-04-22 17:39:15,606 - ContextDetective.Memory - INFO - 🔄 CACHE HIT: Found exact match for image hash 763e77d0
+2025-04-22 17:39:15,606 - ContextDetective.Memory - INFO -    └─ Original analysis from: 2025-04-22T17:29:26.193658
+2025-04-22 17:39:15,606 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 17:39:15,606 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 17:44:14,317 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:14,318 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:14,319 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:14,320 - ContextDetective.Memory - INFO - File size: 1209235 bytes
+2025-04-22 17:44:14,320 - ContextDetective.Memory - INFO - Computed hash 7508a4b119862e94108a3444b04f642f for C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:14,320 - ContextDetective - INFO - 🔑 Successfully computed image hash: 7508a4b119862e94108a3444b04f642f for C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:14,334 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:14,335 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash 7508a4b1...
+2025-04-22 17:44:14,335 - ContextDetective.Memory - INFO - 🔍 CACHE MISS: No exact match found for image hash 7508a4b1
+2025-04-22 17:44:14,338 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:14,338 - ContextDetective.Memory - INFO - 🧠 Retrieving memory for inference augmentation...
+2025-04-22 17:44:14,338 - ContextDetective.Memory - INFO - Retrieving similar analyses for query: Visual elements: 
+
+Style: 
+
+Scenario: ...
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO - Found 1 similar analyses.
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #1 (similarity: 222.6937)
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO -    └─ Image hash: 763e77d0
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T17:29:28.577000
+2025-04-22 17:44:18,102 - ContextDetective.Memory - INFO - ✅ Retrieved 1 relevant analyses for inference
+2025-04-22 17:44:18,119 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:18,119 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:18,131 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:44:28,808 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:44:28,824 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:44:28,824 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 17:44:28,840 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:28,840 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:28,840 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:44:43,145 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:44:43,148 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:44:43,149 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 17:44:43,166 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:43,166 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpubmu_aq9.png
+2025-04-22 17:44:43,166 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:44:52,602 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:44:52,618 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:44:52,618 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-22 17:44:52,634 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:52,634 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-22 17:44:52,634 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:44:53,901 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:44:53,917 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:44:53,917 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-22 17:44:53,923 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:53,923 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazilian street parade\nSamba drums\nFeminist parade Brazil\nSocial media parade frame", "annotations": null}]}
+2025-04-22 17:44:53,923 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazilian street parade\nSamba drums\nFeminist parade Brazil\nSocial media parade frame", "annotations": null}]}&format=json
+2025-04-22 17:44:54,871 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Fernanda Torres\nCortejo das Minas\nBrazilian Carnaval\nBrazilian street parade\nSamba drums\nFeminist parade Brazil\nSocial media parade frame", "annotations": null}]}
+2025-04-22 17:44:54,887 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:54,887 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-22 17:44:54,887 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 17:44:59,312 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 17:44:59,312 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 17:44:59,312 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-22 17:44:59,365 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 17:44:59,365 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash 7508a4b1...
+2025-04-22 17:44:59,367 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage\7508a4b119862e94108a3444b04f642f.json
+2025-04-22 17:44:59,372 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for 7508a4b1
+2025-04-22 17:44:59,372 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-22 17:45:01,675 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-22 17:45:01,703 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-22 17:45:01,703 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image 7508a4b1
+2025-04-22 17:45:01,703 - ContextDetective.Memory - INFO -    └─ Context: Here's a breakdown of the most likely context, confidence, reasoning, and supporting evidence for the image:
+2025-04-22 17:45:01,703 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 17:45:01,703 - ContextDetective.Memory - INFO -    └─ Location: memory_storage\7508a4b119862e94108a3444b04f642f.json
+2025-04-22 18:29:07,837 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:07,843 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:07,846 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:07,847 - ContextDetective.Memory - INFO - File size: 129361 bytes
+2025-04-22 18:29:07,849 - ContextDetective.Memory - INFO - Computed hash cf1a56d2c2fa9b00fdd0b5bcbe2a7c49 for C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:07,850 - ContextDetective - INFO - 🔑 Successfully computed image hash: cf1a56d2c2fa9b00fdd0b5bcbe2a7c49 for C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:07,859 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:07,861 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash cf1a56d2...
+2025-04-22 18:29:07,862 - ContextDetective.Memory - INFO - 🔍 CACHE MISS: No exact match found for image hash cf1a56d2
+2025-04-22 18:29:07,869 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:07,871 - ContextDetective.Memory - INFO - 🧠 Retrieving memory for inference augmentation...
+2025-04-22 18:29:07,871 - ContextDetective.Memory - INFO - Retrieving similar analyses for query: Visual elements: 
+
+Style: 
+
+Scenario: ...
+2025-04-22 18:29:11,644 - ContextDetective.Memory - INFO - Found 2 similar analyses.
+2025-04-22 18:29:11,645 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #1 (similarity: 222.6937)
+2025-04-22 18:29:11,645 - ContextDetective.Memory - INFO -    └─ Image hash: 763e77d0
+2025-04-22 18:29:11,646 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 18:29:11,646 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T17:29:28.577000
+2025-04-22 18:29:11,646 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #2 (similarity: 257.2603)
+2025-04-22 18:29:11,646 - ContextDetective.Memory - INFO -    └─ Image hash: 7508a4b1
+2025-04-22 18:29:11,646 - ContextDetective.Memory - INFO -    └─ Context: Here's a breakdown of the most likely context, confidence, reasoning, and supporting evidence for the image:
+2025-04-22 18:29:11,647 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T17:45:01.675770
+2025-04-22 18:29:11,647 - ContextDetective.Memory - INFO - ✅ Retrieved 2 relevant analyses for inference
+2025-04-22 18:29:11,654 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:11,655 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:11,661 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:29:17,541 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:29:17,546 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:29:17,546 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 18:29:17,558 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:17,559 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:17,560 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:29:20,136 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:29:20,140 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:29:20,140 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 18:29:20,150 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:20,151 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpzs2nlvxd.png
+2025-04-22 18:29:20,152 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:29:22,527 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:29:22,529 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:29:22,530 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-22 18:29:22,549 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:22,551 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-22 18:29:22,552 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:29:24,139 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:29:24,142 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:29:24,143 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-22 18:29:24,160 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:24,161 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "\"Stop the Billionaire Takeover\" protest\nBillionaire takeover protests\nWealth inequality protests\nWashington DC protests\nAmerican flag protest hat\nPolitical demonstration signs\nEconomic inequality demonstration", "annotations": null}]}
+2025-04-22 18:29:24,162 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "\"Stop the Billionaire Takeover\" protest\nBillionaire takeover protests\nWealth inequality protests\nWashington DC protests\nAmerican flag protest hat\nPolitical demonstration signs\nEconomic inequality demonstration", "annotations": null}]}&format=json
+2025-04-22 18:29:24,907 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "\"Stop the Billionaire Takeover\" protest\nBillionaire takeover protests\nWealth inequality protests\nWashington DC protests\nAmerican flag protest hat\nPolitical demonstration signs\nEconomic inequality demonstration", "annotations": null}]}
+2025-04-22 18:29:24,924 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:24,925 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-22 18:29:24,926 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:29:28,716 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:29:28,720 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:29:28,720 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-22 18:29:28,735 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:29:28,736 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash cf1a56d2...
+2025-04-22 18:29:28,741 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage\cf1a56d2c2fa9b00fdd0b5bcbe2a7c49.json
+2025-04-22 18:29:28,742 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for cf1a56d2
+2025-04-22 18:29:28,742 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-22 18:29:31,065 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-22 18:29:31,097 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-22 18:29:31,097 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image cf1a56d2
+2025-04-22 18:29:31,097 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis and inference of the image's context, based on the provided information:
+2025-04-22 18:29:31,097 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 18:29:31,097 - ContextDetective.Memory - INFO -    └─ Location: memory_storage\cf1a56d2c2fa9b00fdd0b5bcbe2a7c49.json
+2025-04-22 18:34:38,141 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:38,146 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:38,147 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:38,148 - ContextDetective.Memory - INFO - File size: 119893 bytes
+2025-04-22 18:34:38,150 - ContextDetective.Memory - INFO - Computed hash 5d16123f5635f6b3da2aa426bae1e0a2 for C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:38,151 - ContextDetective - INFO - 🔑 Successfully computed image hash: 5d16123f5635f6b3da2aa426bae1e0a2 for C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:38,165 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:38,166 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash 5d16123f...
+2025-04-22 18:34:38,167 - ContextDetective.Memory - INFO - 🔍 CACHE MISS: No exact match found for image hash 5d16123f
+2025-04-22 18:34:38,175 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:38,176 - ContextDetective.Memory - INFO - 🧠 Retrieving memory for inference augmentation...
+2025-04-22 18:34:38,177 - ContextDetective.Memory - INFO - Retrieving similar analyses for query: Visual elements: 
+
+Style: 
+
+Scenario: ...
+2025-04-22 18:34:41,717 - ContextDetective.Memory - INFO - Found 2 similar analyses.
+2025-04-22 18:34:41,718 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #1 (similarity: 207.3638)
+2025-04-22 18:34:41,718 - ContextDetective.Memory - INFO -    └─ Image hash: cf1a56d2
+2025-04-22 18:34:41,719 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis and inference of the image's context, based on the provided information:
+2025-04-22 18:34:41,719 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T18:29:31.065663
+2025-04-22 18:34:41,719 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #2 (similarity: 222.6937)
+2025-04-22 18:34:41,719 - ContextDetective.Memory - INFO -    └─ Image hash: 763e77d0
+2025-04-22 18:34:41,719 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 18:34:41,720 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T17:29:28.577000
+2025-04-22 18:34:41,720 - ContextDetective.Memory - INFO - ✅ Retrieved 2 relevant analyses for inference
+2025-04-22 18:34:41,726 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:41,726 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:41,730 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:34:45,384 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:34:45,388 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:34:45,389 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 18:34:45,398 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:45,398 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:45,399 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:34:48,806 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:34:48,811 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:34:48,811 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 18:34:48,818 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:48,818 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpgs50dvsv.png
+2025-04-22 18:34:48,819 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:34:51,264 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:34:51,269 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:34:51,269 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-22 18:34:51,282 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:51,283 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-22 18:34:51,283 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:34:52,540 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:34:52,543 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:34:52,545 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-22 18:34:52,555 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:52,555 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Fernanda Torres Globo de Ouro\nAinda Estou Aqui award\nBrazilian Golden Globe Best Actress\n\u00c9 do Brasil\nGoverno Federal Brasil\nBrazilian actress award\nUni\u00e3o e Reconstru\u00e7\u00e3o government", "annotations": null}]}
+2025-04-22 18:34:52,556 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Fernanda Torres Globo de Ouro\nAinda Estou Aqui award\nBrazilian Golden Globe Best Actress\n\u00c9 do Brasil\nGoverno Federal Brasil\nBrazilian actress award\nUni\u00e3o e Reconstru\u00e7\u00e3o government", "annotations": null}]}&format=json
+2025-04-22 18:34:53,433 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Fernanda Torres Globo de Ouro\nAinda Estou Aqui award\nBrazilian Golden Globe Best Actress\n\u00c9 do Brasil\nGoverno Federal Brasil\nBrazilian actress award\nUni\u00e3o e Reconstru\u00e7\u00e3o government", "annotations": null}]}
+2025-04-22 18:34:53,448 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:53,448 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-22 18:34:53,449 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:34:57,080 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:34:57,092 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:34:57,093 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-22 18:34:57,113 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:34:57,113 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash 5d16123f...
+2025-04-22 18:34:57,115 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage\5d16123f5635f6b3da2aa426bae1e0a2.json
+2025-04-22 18:34:57,116 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for 5d16123f
+2025-04-22 18:34:57,116 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-22 18:34:59,545 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-22 18:34:59,577 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-22 18:34:59,577 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image 5d16123f
+2025-04-22 18:34:59,578 - ContextDetective.Memory - INFO -    └─ Context: Here's a breakdown of the most likely context of the image, along with confidence, reasoning, and supporting evidence:
+2025-04-22 18:34:59,578 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 18:34:59,578 - ContextDetective.Memory - INFO -    └─ Location: memory_storage\5d16123f5635f6b3da2aa426bae1e0a2.json
+2025-04-22 18:41:03,230 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:03,231 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:03,232 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:03,232 - ContextDetective.Memory - INFO - File size: 427326 bytes
+2025-04-22 18:41:03,234 - ContextDetective.Memory - INFO - Computed hash d765862d714af44ed04eb38baffc696b for C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:03,235 - ContextDetective - INFO - 🔑 Successfully computed image hash: d765862d714af44ed04eb38baffc696b for C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:03,245 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:03,245 - ContextDetective.Memory - INFO - ⚡ Checking for exact match for image hash d765862d...
+2025-04-22 18:41:03,246 - ContextDetective.Memory - INFO - 🔍 CACHE MISS: No exact match found for image hash d765862d
+2025-04-22 18:41:03,253 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:03,254 - ContextDetective.Memory - INFO - 🧠 Retrieving memory for inference augmentation...
+2025-04-22 18:41:03,254 - ContextDetective.Memory - INFO - Retrieving similar analyses for query: Visual elements: 
+
+Style: 
+
+Scenario: ...
+2025-04-22 18:41:06,487 - ContextDetective.Memory - INFO - Found 2 similar analyses.
+2025-04-22 18:41:06,488 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #1 (similarity: 207.3638)
+2025-04-22 18:41:06,489 - ContextDetective.Memory - INFO -    └─ Image hash: cf1a56d2
+2025-04-22 18:41:06,489 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis and inference of the image's context, based on the provided information:
+2025-04-22 18:41:06,489 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T18:29:31.065663
+2025-04-22 18:41:06,489 - ContextDetective.Memory - INFO - 🔍 Found similar analysis #2 (similarity: 222.6937)
+2025-04-22 18:41:06,490 - ContextDetective.Memory - INFO -    └─ Image hash: 763e77d0
+2025-04-22 18:41:06,490 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely context:
+2025-04-22 18:41:06,490 - ContextDetective.Memory - INFO -    └─ From: 2025-04-22T17:29:28.577000
+2025-04-22 18:41:06,491 - ContextDetective.Memory - INFO - ✅ Retrieved 2 relevant analyses for inference
+2025-04-22 18:41:06,498 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:06,499 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:06,504 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:41:11,627 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:41:11,637 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:41:11,638 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 18:41:11,651 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:11,651 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:11,652 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:41:16,501 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:41:16,503 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:41:16,504 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 18:41:16,510 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:16,511 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpcr8fnrfr.png
+2025-04-22 18:41:16,511 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:41:20,056 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:41:20,063 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:41:20,063 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-22 18:41:20,074 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:20,075 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-22 18:41:20,075 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:41:21,149 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:41:21,153 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:41:21,154 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-22 18:41:21,162 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:21,162 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Chuck Schumer protest\nElon Musk protest\nDefend Democracy protest\nNobody Elected Elon protest\nStop the Billionaire Grift\npolitical rally signs\nphotojournalism protest", "annotations": null}]}
+2025-04-22 18:41:21,162 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Chuck Schumer protest\nElon Musk protest\nDefend Democracy protest\nNobody Elected Elon protest\nStop the Billionaire Grift\npolitical rally signs\nphotojournalism protest", "annotations": null}]}&format=json
+2025-04-22 18:41:21,940 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Chuck Schumer protest\nElon Musk protest\nDefend Democracy protest\nNobody Elected Elon protest\nStop the Billionaire Grift\npolitical rally signs\nphotojournalism protest", "annotations": null}]}
+2025-04-22 18:41:21,949 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:21,949 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-22 18:41:21,949 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 18:41:25,194 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 18:41:25,197 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 18:41:25,199 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-22 18:41:25,222 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 18:41:25,223 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash d765862d...
+2025-04-22 18:41:25,226 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage\d765862d714af44ed04eb38baffc696b.json
+2025-04-22 18:41:25,227 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for d765862d
+2025-04-22 18:41:25,228 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-22 18:41:27,622 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-22 18:41:27,659 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-22 18:41:27,659 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image d765862d
+2025-04-22 18:41:27,659 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's context based on the provided information:
+2025-04-22 18:41:27,659 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-22 18:41:27,660 - ContextDetective.Memory - INFO -    └─ Location: memory_storage\d765862d714af44ed04eb38baffc696b.json

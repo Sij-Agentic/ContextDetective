@@ -1,0 +1,77 @@
+2025-04-18 21:40:50,367 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-18 21:40:50,368 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-18 21:40:50,368 - ContextDetective.Memory - INFO - Memory module initialized with storage at memory_storage
+2025-04-18 21:40:50,801 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-18 21:40:50,801 - ContextDetective.Action - INFO - Action module initialized
+2025-04-18 21:41:20,422 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-18 21:41:20,434 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:41:22,195 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:41:22,196 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpd1o_f_40.png
+2025-04-18 21:41:22,226 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:41:50,879 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:41:50,884 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:41:50,884 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-18 21:41:52,752 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:41:52,752 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpd1o_f_40.png
+2025-04-18 21:41:52,753 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:41:55,713 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:41:55,714 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:41:55,715 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-18 21:41:57,529 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:41:57,530 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpd1o_f_40.png
+2025-04-18 21:41:57,531 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:41:59,152 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:41:59,154 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:41:59,155 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-18 21:42:00,748 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:00,748 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-18 21:42:00,749 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:42:01,888 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:42:01,889 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:42:01,889 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-18 21:42:03,612 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:03,613 - ContextDetective.Decision - INFO - Performing web search for query: Political protest American protest Resist movement Public Defenders protest Anti-government protest Demonstration signs Political activism
+2025-04-18 21:42:03,613 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Political protest American protest Resist movement Public Defenders protest Anti-government protest Demonstration signs Political activism&format=json
+2025-04-18 21:42:04,853 - ContextDetective.Decision - INFO - Found 0 results for query: Political protest American protest Resist movement Public Defenders protest Anti-government protest Demonstration signs Political activism
+2025-04-18 21:42:06,700 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:06,701 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-18 21:42:06,701 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:42:08,912 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:42:08,915 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:42:08,915 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-18 21:42:37,479 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-18 21:42:37,489 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:39,145 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:39,145 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpzqbjc5e2.png
+2025-04-18 21:42:39,147 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:42:48,711 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:42:48,713 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:42:48,714 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-18 21:42:50,392 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:42:50,393 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpzqbjc5e2.png
+2025-04-18 21:42:50,395 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:42:58,654 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:42:58,657 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:42:58,658 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-18 21:43:00,532 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:43:00,533 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpzqbjc5e2.png
+2025-04-18 21:43:00,534 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:43:11,831 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:43:11,835 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:43:11,836 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-18 21:43:13,598 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:43:13,598 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-18 21:43:13,599 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:43:14,632 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:43:14,633 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:43:14,633 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-18 21:43:16,331 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:43:16,332 - ContextDetective.Decision - INFO - Performing web search for query: Sósias da Fernanda Torres, Cortejo das Minas, Brazilian Carnival, Rio de Janeiro street parade, Fernanda Torres tribute, GOPE drums Brazil, Academy Rio de Janeiro
+2025-04-18 21:43:16,332 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q=Sósias da Fernanda Torres, Cortejo das Minas, Brazilian Carnival, Rio de Janeiro street parade, Fernanda Torres tribute, GOPE drums Brazil, Academy Rio de Janeiro&format=json
+2025-04-18 21:43:17,368 - ContextDetective.Decision - INFO - Found 0 results for query: Sósias da Fernanda Torres, Cortejo das Minas, Brazilian Carnival, Rio de Janeiro street parade, Fernanda Torres tribute, GOPE drums Brazil, Academy Rio de Janeiro
+2025-04-18 21:43:19,063 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-18 21:43:19,063 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-18 21:43:19,064 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-18 21:43:23,476 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-18 21:43:23,478 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-18 21:43:23,478 - ContextDetective.Decision - INFO - Context inference complete

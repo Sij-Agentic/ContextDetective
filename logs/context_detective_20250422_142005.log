@@ -1,0 +1,62 @@
+2025-04-22 14:20:06,631 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:20:06,631 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:20:06,724 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:20:07,209 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 14:20:07,209 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 14:20:07,209 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 14:20:07,209 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 14:20:07,435 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 14:20:07,435 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 14:20:07,435 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 14:20:07,435 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 14:20:07,435 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 14:20:07,945 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:20:07,945 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:21:02,668 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:21:02,678 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpvfvx3ss5.png
+2025-04-22 14:21:02,678 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpvfvx3ss5.png
+2025-04-22 14:21:02,678 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 14:21:02,685 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpvfvx3ss5.png
+2025-04-22 14:21:02,687 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpvfvx3ss5.png
+2025-04-22 14:24:57,210 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:24:57,223 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpkm_40z_e.png
+2025-04-22 14:24:57,225 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpkm_40z_e.png
+2025-04-22 14:24:57,226 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 14:24:57,229 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpkm_40z_e.png
+2025-04-22 14:24:57,229 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpkm_40z_e.png
+2025-04-22 14:26:00,583 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:26:00,583 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpbv41m41t.png
+2025-04-22 14:26:00,583 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpbv41m41t.png
+2025-04-22 14:26:00,583 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 14:26:00,590 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpbv41m41t.png
+2025-04-22 14:26:00,590 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpbv41m41t.png
+2025-04-22 14:27:49,999 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:27:49,999 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmp922wzl74.png
+2025-04-22 14:27:49,999 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmp922wzl74.png
+2025-04-22 14:27:49,999 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 14:27:49,999 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmp922wzl74.png
+2025-04-22 14:27:50,009 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmp922wzl74.png
+2025-04-22 14:29:29,335 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:29:29,335 - ContextDetective - INFO - Computing hash for image at path: C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:29,336 - ContextDetective.Memory - INFO - Computing hash for image at C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:29,336 - ContextDetective.Memory - INFO - File size: 17896 bytes
+2025-04-22 14:29:29,337 - ContextDetective.Memory - INFO - Computed hash 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:29,337 - ContextDetective - INFO - 🔑 Successfully computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:29,347 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:29:29,352 - ContextDetective.Perception - INFO - Analyzing visual elements in C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:29,463 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 14:29:32,684 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 14:29:32,694 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 14:29:32,696 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-22 14:29:32,704 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:29:32,706 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:32,707 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 14:29:34,775 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 14:29:34,775 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 14:29:34,775 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-22 14:29:34,795 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-22 14:29:34,795 - ContextDetective.Perception - INFO - Analyzing possible scenarios in C:\Users\cydal\AppData\Local\Temp\tmpm0j5dtu_.png
+2025-04-22 14:29:34,795 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-22 14:29:36,330 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-22 14:29:36,332 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-22 14:29:36,332 - ContextDetective.Perception - INFO - Scenario analysis complete

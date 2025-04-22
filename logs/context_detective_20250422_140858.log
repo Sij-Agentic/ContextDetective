@@ -1,0 +1,13 @@
+2025-04-22 14:09:00,207 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:09:00,207 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:09:00,350 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:09:03,202 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:09:03,218 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:09:03,282 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=3cc07f2c7e63423ca2ea70b25f5f3c7e "HTTP/1.1 202 Accepted"
+2025-04-22 14:09:03,282 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=3cc07f2c7e63423ca2ea70b25f5f3c7e "HTTP/1.1 202 Accepted"
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='Unknown tool: compute_image_hash', annotations=None)] isError=True
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='Unknown tool: compute_image_hash' annotations=None
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Content text 0: Unknown tool: compute_image_hash
+2025-04-22 14:09:03,298 - ContextDetectiveClient - INFO - DEBUG: Extracted hash using .text: Unknown tool: compute_image_hash
+2025-04-22 14:09:03,330 - ContextDetectiveClient - INFO - Analysis complete.
+2025-04-22 14:09:03,330 - ContextDetectiveClient - INFO - No final JSON output received from the agent.

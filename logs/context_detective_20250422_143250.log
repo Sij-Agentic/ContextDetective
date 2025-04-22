@@ -1,0 +1,36 @@
+2025-04-22 14:32:50,734 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-22 14:32:50,734 - ContextDetective.Memory - INFO - No index file found, creating new index
+2025-04-22 14:32:50,765 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-22 14:32:51,023 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-22 14:32:51,023 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-22 14:32:51,023 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage\chromadb
+2025-04-22 14:32:51,023 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-22 14:32:51,161 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-22 14:32:51,161 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-22 14:32:51,161 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 0 stored analyses
+2025-04-22 14:32:51,161 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 0 complete analyses
+2025-04-22 14:32:51,161 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-22 14:32:51,529 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-22 14:32:51,529 - ContextDetective.Action - INFO - Action module initialized
+2025-04-22 14:32:51,545 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=0225b8e8722c4e81a3289197cc61a43c "HTTP/1.1 202 Accepted"
+2025-04-22 14:32:51,545 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=0225b8e8722c4e81a3289197cc61a43c "HTTP/1.1 202 Accepted"
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}', annotations=None)] isError=False
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}' annotations=None
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "763e77d0167bac4e2e5badea34ff0df4", "annotations": null}]}
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 763e77d0167bac4e2e5badea34ff0df4
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 763e77d0167bac4e2e5badea34ff0df4 for image analysis
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - Starting image analysis workflow...
+2025-04-22 14:32:51,560 - ContextDetectiveClient - INFO - Analyzing visual elements...
+2025-04-22 14:32:51,560 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=0225b8e8722c4e81a3289197cc61a43c "HTTP/1.1 202 Accepted"
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - ✅ Visual elements analysis complete
+2025-04-22 14:32:54,747 - ContextDetective.Memory - INFO - 🧠 Created new short-term memory session: 6fcb144e
+2025-04-22 14:32:54,747 - ContextDetective.Memory - INFO - 📝 SHORT-TERM: Stored 'visual_elements' (text (1173 chars)) for session 6fcb144e
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - 📝 Stored in short-term memory
+2025-04-22 14:32:54,747 - ContextDetectiveClient - INFO - Analyzing style and aesthetics...
+2025-04-22 14:32:54,747 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=0225b8e8722c4e81a3289197cc61a43c "HTTP/1.1 202 Accepted"
+2025-04-22 14:32:57,221 - ContextDetectiveClient - INFO - ✅ Style analysis complete
+2025-04-22 14:32:57,221 - ContextDetectiveClient - INFO - Analyzing possible scenarios...
+2025-04-22 14:32:57,221 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=0225b8e8722c4e81a3289197cc61a43c "HTTP/1.1 202 Accepted"
+2025-04-22 14:32:58,927 - ContextDetectiveClient - INFO - ✅ Scenario analysis complete
+2025-04-22 14:32:58,927 - ContextDetectiveClient - INFO - Analysis complete.
