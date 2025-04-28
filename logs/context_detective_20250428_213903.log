@@ -1,0 +1,13 @@
+2025-04-28 21:39:04,135 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-28 21:39:04,149 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-28 21:39:04,173 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-28 21:39:04,173 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-28 21:39:04,173 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage/chromadb
+2025-04-28 21:39:04,173 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-28 21:39:04,198 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-28 21:39:04,198 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-28 21:39:04,198 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 8 stored analyses
+2025-04-28 21:39:04,198 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 8 complete analyses
+2025-04-28 21:39:04,198 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-28 21:39:04,211 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-28 21:39:04,211 - ContextDetective.Action - INFO - Action module initialized

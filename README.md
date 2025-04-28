@@ -69,31 +69,101 @@ Context Detective uses a multi-step workflow to analyze images:
 8. **Context Inference**: Combines all analyses and memory to determine the image's context
 9. **Memory Storage**: Stores the complete analysis in vector database for future use
 
-## Memory System
+## Memory System Architecture
 
-Context Detective features a sophisticated memory system with multiple layers:
+Context Detective implements a sophisticated multi-layered memory system that enhances image analysis through past experiences:
 
-### Short-Term Memory
+### 1. Memory Layers
 
-- **Session-based storage**: Keeps track of intermediate analysis results during a session
-- **Component caching**: Stores visual elements, style analysis, and scenario analysis separately
-- **Reduces redundant processing**: Avoids re-analyzing components within the same session
+#### Short-Term Memory
+- **Purpose**: Caches intermediate analysis results during active sessions
+- **Storage**: In-memory dictionary with session-based organization
+- **Components Stored**:
+  - Visual element analysis
+  - Style analysis
+  - Scenario analysis
+  - Intermediate search results
+- **Lifecycle**: Cleared after session completion or explicit cleanup
 
-### Long-Term Memory (ChromaDB)
+#### Long-Term Memory
+- **File-Based Storage**:
+  - Complete analysis results stored as JSON files
+  - Indexed by image hash for exact matching
+  - Includes full analysis context and metadata
 
-- **Vector storage**: Converts analyses into embeddings for semantic similarity search
-- **Multiple collections**: Organizes memory into specialized collections:
-  - `complete_analysis`: Stores full analysis results
-  - `visual_elements`: Stores visual component analyses
-  - `style_analysis`: Stores style and aesthetic analyses
-  - `scenario_analysis`: Stores scenario interpretations
+- **Vector Storage (ChromaDB)**:
+  - **Collections**:
+    - `complete_analysis`: Full analysis results
+    - `visual_elements`: Visual component analyses
+    - `style_analysis`: Style and aesthetic analyses
+    - `scenario_analysis`: Scenario interpretations
+    - `inferred_contexts`: Memory-enhanced context inferences
 
-### Memory Operations
+### 2. Memory Operations
 
-- **Exact matching**: Instantly retrieves cached results for identical images via hash lookup
-- **Semantic retrieval**: Finds similar past analyses using vector similarity search
-- **Memory-enhanced inference**: Includes relevant past analyses when determining context
-- **Automatic storage**: Stores each new analysis for future reference and learning
+#### Retrieval Operations
+1. **Exact Match Check**
+   - Computes image hash
+   - Checks for identical previous analysis
+   - Returns complete cached result if found
+   - Performance: O(1) lookup time
+
+2. **Similar Analysis Retrieval**
+   - Generates embeddings for current analysis
+   - Performs semantic similarity search
+   - Returns top-k similar past analyses
+   - Used for context enhancement
+
+3. **Memory-Enhanced Inference**
+   - Combines current analysis with similar past experiences
+   - Weights influence based on similarity scores
+   - Enhances context understanding through past knowledge
+
+#### Storage Operations
+1. **Analysis Storage**
+   - Stores complete analysis in file system
+   - Updates hash index
+   - Generates and stores embeddings
+   - Creates separate collection entries for components
+
+2. **Context Storage**
+   - Stores inferred contexts with metadata
+   - Records memory influence metrics
+   - Maintains traceability of enhancement
+
+### 3. Memory Enhancement Process
+
+```mermaid
+graph TD
+    A[New Image Analysis] --> B{Exact Match?}
+    B -->|Yes| C[Return Cached Result]
+    B -->|No| D[Generate Embeddings]
+    D --> E[Search Similar Analyses]
+    E --> F[Retrieve Past Contexts]
+    F --> G[Enhance Current Analysis]
+    G --> H[Store Enhanced Result]
+```
+
+### 4. Memory Statistics and Monitoring
+
+The system maintains comprehensive statistics about:
+- Active sessions and components
+- File storage utilization
+- Vector collection sizes
+- Retrieval success rates
+- Memory enhancement metrics
+
+### 5. Logging and Traceability
+
+Each memory operation is extensively logged with:
+- Operation boundaries (start/end)
+- Duration measurements
+- Success/failure status
+- Detailed operation context
+- Memory influence metrics
+- Error traces when applicable
+
+Example log structure:
 
 ## Architecture
 

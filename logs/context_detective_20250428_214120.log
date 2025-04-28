@@ -1,0 +1,29 @@
+2025-04-28 21:41:20,823 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-28 21:41:20,830 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-28 21:41:20,852 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-28 21:41:20,852 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-28 21:41:20,852 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage/chromadb
+2025-04-28 21:41:20,852 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-28 21:41:20,877 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-28 21:41:20,877 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-28 21:41:20,877 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 8 stored analyses
+2025-04-28 21:41:20,877 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 8 complete analyses
+2025-04-28 21:41:20,877 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-28 21:41:20,890 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-28 21:41:20,890 - ContextDetective.Action - INFO - Action module initialized
+2025-04-28 21:42:00,115 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:42:00,115 - ContextDetective - INFO - Computing hash for image at path: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png
+2025-04-28 21:42:00,115 - ContextDetective.Memory - INFO - [HASH] Starting hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png
+2025-04-28 21:42:00,115 - ContextDetective.Memory - INFO - Computing hash for image at /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png
+2025-04-28 21:42:00,115 - ContextDetective.Memory - INFO - File size: 97493 bytes
+2025-04-28 21:42:00,116 - ContextDetective.Memory - INFO - Computed hash 4557301e50b7a820a4aa8bc6e70d1374 for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png
+2025-04-28 21:42:00,116 - ContextDetective.Memory - INFO - [HASH] Completed hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png in 0.000s
+2025-04-28 21:42:00,116 - ContextDetective - INFO - 🔑 Successfully computed image hash: 4557301e50b7a820a4aa8bc6e70d1374 for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp3u13qp09.png
+2025-04-28 21:42:00,117 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:42:00,117 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] START - Checking hash: 4557301e
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] SUCCESS - Found match for 4557301e
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] DETAILS:
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO -    └─ Timestamp: 2025-04-26T10:46:10.292899
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's context, incorporating the provided analyses and user interests:
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-28 21:42:00,118 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] END - Duration: 0.000s

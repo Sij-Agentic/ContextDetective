@@ -1,0 +1,105 @@
+2025-04-28 21:25:31,257 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-28 21:25:31,272 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-28 21:25:31,337 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-28 21:25:31,337 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-28 21:25:31,337 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage/chromadb
+2025-04-28 21:25:31,337 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-28 21:25:31,384 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-28 21:25:31,384 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-28 21:25:31,384 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 6 stored analyses
+2025-04-28 21:25:31,384 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 6 complete analyses
+2025-04-28 21:25:31,384 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-28 21:25:31,396 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-28 21:25:31,396 - ContextDetective.Action - INFO - Action module initialized
+2025-04-28 21:26:02,589 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:02,589 - ContextDetective - INFO - Computing hash for image at path: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:02,589 - ContextDetective.Memory - INFO - [HASH] Starting hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:02,589 - ContextDetective.Memory - INFO - Computing hash for image at /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:02,589 - ContextDetective.Memory - INFO - File size: 11848 bytes
+2025-04-28 21:26:02,590 - ContextDetective.Memory - INFO - Computed hash 7ba01f49e6aa7eedd5ecc0d14ed9febb for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:02,590 - ContextDetective.Memory - INFO - [HASH] Completed hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png in 0.000s
+2025-04-28 21:26:02,590 - ContextDetective - INFO - 🔑 Successfully computed image hash: 7ba01f49e6aa7eedd5ecc0d14ed9febb for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:02,592 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:02,592 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] START - Checking hash: 7ba01f49
+2025-04-28 21:26:02,592 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] NO_MATCH - Hash 7ba01f49 not found
+2025-04-28 21:26:02,592 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] END - Duration: 0.000s
+2025-04-28 21:26:02,594 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] START - Retrieving memory for inference
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] INPUT - Analysis components: visual_elements, style_analysis, scenario_analysis
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] QUERY - Built from 3 components
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] START - Query: 'visual_elements: ...
+
+style_analysis: ...
+
+scenari...'
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] PARAMS - top_k: 2
+2025-04-28 21:26:02,594 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] Generating query embedding...
+2025-04-28 21:26:03,237 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] Querying vector database...
+2025-04-28 21:26:03,244 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] RESULTS - Found 2 matches
+2025-04-28 21:26:03,244 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] MATCH #1:
+2025-04-28 21:26:03,244 - ContextDetective.Memory - INFO -    └─ Hash: cf1a56d2
+2025-04-28 21:26:03,244 - ContextDetective.Memory - INFO -    └─ Similarity: 232.6901
+2025-04-28 21:26:03,244 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis and inference of the image's co...
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] MATCH #2:
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Hash: 763e77d0
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Similarity: 241.6679
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image's most likely cont...
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] SUCCESS - Retrieved 2 results
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] END - Duration: 0.651s
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] SUCCESS - Found 2 relevant memories
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] MEMORY #1:
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Hash: cf1a56d2
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Similarity: 232.6901
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO -    └─ Timestamp: 2025-04-22T18:29:31.065663
+2025-04-28 21:26:03,245 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] MEMORY #2:
+2025-04-28 21:26:03,246 - ContextDetective.Memory - INFO -    └─ Hash: 763e77d0
+2025-04-28 21:26:03,246 - ContextDetective.Memory - INFO -    └─ Similarity: 241.6679
+2025-04-28 21:26:03,246 - ContextDetective.Memory - INFO -    └─ Timestamp: 2025-04-22T17:29:28.577000
+2025-04-28 21:26:03,246 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] END - Duration: 0.652s
+2025-04-28 21:26:03,252 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:03,252 - ContextDetective.Perception - INFO - Analyzing visual elements in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:03,261 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:26:06,603 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:26:06,609 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:26:06,609 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-28 21:26:06,616 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:06,617 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:06,617 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:26:09,805 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:26:09,807 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:26:09,807 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-28 21:26:09,816 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:09,817 - ContextDetective.Perception - INFO - Analyzing possible scenarios in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmp54y703cr.png
+2025-04-28 21:26:09,817 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:26:11,820 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:26:11,824 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:26:11,824 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-28 21:26:11,834 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:11,834 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-28 21:26:11,835 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:26:13,145 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:26:13,147 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:26:13,147 - ContextDetective.Decision - INFO - Generated 6 search terms
+2025-04-28 21:26:13,156 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:13,156 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Project 2025 protest\n\"We the People Reject Project 2025\"\nUS Capitol protest\nPolitical demonstration Washington DC\nAmerican flag protest\nProject 2025 opposition", "annotations": null}]}
+2025-04-28 21:26:13,156 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Project 2025 protest\n\"We the People Reject Project 2025\"\nUS Capitol protest\nPolitical demonstration Washington DC\nAmerican flag protest\nProject 2025 opposition", "annotations": null}]}&format=json
+2025-04-28 21:26:14,636 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Project 2025 protest\n\"We the People Reject Project 2025\"\nUS Capitol protest\nPolitical demonstration Washington DC\nAmerican flag protest\nProject 2025 opposition", "annotations": null}]}
+2025-04-28 21:26:14,642 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:14,642 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-28 21:26:14,642 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:26:18,642 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:26:18,645 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:26:18,645 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-28 21:26:18,663 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:26:18,663 - ContextDetective.Memory - INFO - [LONG-TERM] Storing analysis for hash: 7ba01f49
+2025-04-28 21:26:18,663 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash 7ba01f49...
+2025-04-28 21:26:18,664 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage/7ba01f49e6aa7eedd5ecc0d14ed9febb.json
+2025-04-28 21:26:18,664 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for 7ba01f49
+2025-04-28 21:26:18,664 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-28 21:26:18,857 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-28 21:26:18,871 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-28 21:26:18,871 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image 7ba01f49
+2025-04-28 21:26:18,871 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image and its likely context, along with a confidence score and supporting evidence:
+2025-04-28 21:26:18,872 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-28 21:26:18,872 - ContextDetective.Memory - INFO -    └─ Location: memory_storage/7ba01f49e6aa7eedd5ecc0d14ed9febb.json
+2025-04-28 21:26:18,872 - ContextDetective.Memory - INFO - [LONG-TERM] Stored analysis for hash: 7ba01f49 in 0.209s

@@ -1,0 +1,26 @@
+2025-04-28 21:42:00,032 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-28 21:42:00,044 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-28 21:42:00,065 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-28 21:42:00,065 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-28 21:42:00,065 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage/chromadb
+2025-04-28 21:42:00,065 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-28 21:42:00,096 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-28 21:42:00,096 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-28 21:42:00,096 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 8 stored analyses
+2025-04-28 21:42:00,096 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 8 complete analyses
+2025-04-28 21:42:00,096 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-28 21:42:00,109 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-28 21:42:00,109 - ContextDetective.Action - INFO - Action module initialized
+2025-04-28 21:42:00,114 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=b30ba32af65b4610ad28b8e79d99e0af "HTTP/1.1 202 Accepted"
+2025-04-28 21:42:00,115 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=b30ba32af65b4610ad28b8e79d99e0af "HTTP/1.1 202 Accepted"
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}', annotations=None)] isError=False
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}' annotations=None
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 4557301e50b7a820a4aa8bc6e70d1374
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 4557301e50b7a820a4aa8bc6e70d1374 for image analysis
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - 🔍 Checking for exact hash match in ChromaDB...
+2025-04-28 21:42:00,117 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8000/messages/?session_id=b30ba32af65b4610ad28b8e79d99e0af "HTTP/1.1 202 Accepted"
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - 🎯 EXACT MATCH FOUND IN CHROMADB! Hash-based retrieval successful
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - 📋 Retrieved context: Here's an analysis of the image's context, incorporating the provided analyses and user interests: (confidence: 0.7)
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - ✅ Successfully loaded cached vector analysis from ChromaDB

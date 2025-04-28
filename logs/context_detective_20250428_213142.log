@@ -1,0 +1,129 @@
+2025-04-28 21:31:42,818 - ContextDetective.Perception - INFO - Perception module initialized
+2025-04-28 21:31:42,832 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-28 21:31:42,857 - ContextDetective.Memory - INFO - 🚀 Memory module initializing...
+2025-04-28 21:31:42,857 - ContextDetective.Memory - INFO -    └─ File storage: memory_storage
+2025-04-28 21:31:42,857 - ContextDetective.Memory - INFO -    └─ ChromaDB: memory_storage/chromadb
+2025-04-28 21:31:42,857 - ContextDetective.Memory - INFO -    └─ Ollama URL: http://localhost:11434
+2025-04-28 21:31:42,882 - ContextDetective.Memory - INFO - 📊 MEMORY STATISTICS:
+2025-04-28 21:31:42,882 - ContextDetective.Memory - INFO -    └─ SHORT-TERM: 0 active sessions with 0 total components
+2025-04-28 21:31:42,882 - ContextDetective.Memory - INFO -    └─ LONG-TERM File: 7 stored analyses
+2025-04-28 21:31:42,882 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector: 7 complete analyses
+2025-04-28 21:31:42,883 - ContextDetective.Memory - INFO -    └─ LONG-TERM Vector Components: 0 visual, 0 style, 0 scenario
+2025-04-28 21:31:42,895 - ContextDetective.Decision - INFO - Decision module initialized
+2025-04-28 21:31:42,895 - ContextDetective.Action - INFO - Action module initialized
+2025-04-28 21:32:00,381 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:00,382 - ContextDetective - INFO - Computing hash for image at path: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:00,382 - ContextDetective.Memory - INFO - [HASH] Starting hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:00,382 - ContextDetective.Memory - INFO - Computing hash for image at /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:00,382 - ContextDetective.Memory - INFO - File size: 13389 bytes
+2025-04-28 21:32:00,382 - ContextDetective.Memory - INFO - Computed hash 0753b537290b3f92b78c968bbba12bc4 for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:00,382 - ContextDetective.Memory - INFO - [HASH] Completed hash computation for: /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png in 0.000s
+2025-04-28 21:32:00,382 - ContextDetective - INFO - 🔑 Successfully computed image hash: 0753b537290b3f92b78c968bbba12bc4 for /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:00,384 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:00,384 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] START - Checking hash: 0753b537
+2025-04-28 21:32:00,384 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] NO_MATCH - Hash 0753b537 not found
+2025-04-28 21:32:00,384 - ContextDetective.Memory - INFO - [EXACT_MATCH_CHECK] END - Duration: 0.000s
+2025-04-28 21:32:00,385 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] START - Retrieving past analyses for context enhancement
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] CONTEXT - This operation searches for similar past analyses to enhance current inference
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] CURRENT_ANALYSIS:
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Available Components: visual_elements, style_analysis, scenario_analysis
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ visual_elements Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ style_analysis Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ scenario_analysis Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] QUERY_COMPONENT - visual_elements:
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Length: 0 chars
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] QUERY_COMPONENT - style_analysis:
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Length: 0 chars
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] QUERY_COMPONENT - scenario_analysis:
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Length: 0 chars
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Preview: ...
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] SEARCH_QUERY:
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Components Used: 3
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO -    └─ Total Length: 56 chars
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] SEARCHING - Querying vector database for similar past analyses
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] START - Query: 'visual_elements: 
+
+style_analysis: 
+
+scenario_anal...'
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] PARAMS - top_k: 2
+2025-04-28 21:32:00,385 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] Generating query embedding...
+2025-04-28 21:32:00,997 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] Querying vector database...
+2025-04-28 21:32:01,002 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] RESULTS - Found 2 matches
+2025-04-28 21:32:01,002 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] MATCH #1:
+2025-04-28 21:32:01,002 - ContextDetective.Memory - INFO -    └─ Hash: 7ba01f49
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Similarity: 206.9693
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis of the image and its likely con...
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] MATCH #2:
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Hash: cf1a56d2
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Similarity: 226.6546
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Context: Here's an analysis and inference of the image's co...
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] SUCCESS - Retrieved 2 results
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO - [VECTOR_SEARCH] END - Duration: 0.618s
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] FOUND - 2 relevant past analyses
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] MATCH #1 DETAILS:
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Image Hash: 7ba01f49
+2025-04-28 21:32:01,003 - ContextDetective.Memory - INFO -    └─ Original Timestamp: 2025-04-28T21:26:18.857537
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Similarity Score: 206.9693
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Original Context: Here's an analysis of the image and its likely context, along with a confidence score and supporting evidence:
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Original Confidence: 0.7
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] MATCH #2 DETAILS:
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Image Hash: cf1a56d2
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Original Timestamp: 2025-04-22T18:29:31.065663
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Similarity Score: 226.6546
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Original Context: Here's an analysis and inference of the image's context, based on the provided information:
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Original Confidence: 0.7
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] SIMILARITY_STATS:
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO -    └─ Average Similarity: 216.8120
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] SUCCESS - Retrieved relevant past analyses
+2025-04-28 21:32:01,004 - ContextDetective.Memory - INFO - [MEMORY_INFERENCE] END - Duration: 0.619s
+2025-04-28 21:32:01,010 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:01,011 - ContextDetective.Perception - INFO - Analyzing visual elements in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:01,020 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:32:04,851 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:32:04,854 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:32:04,854 - ContextDetective.Perception - INFO - Visual elements analysis complete
+2025-04-28 21:32:04,862 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:04,862 - ContextDetective.Perception - INFO - Analyzing style and aesthetics in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:04,863 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:32:09,573 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:32:09,575 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:32:09,576 - ContextDetective.Perception - INFO - Style and aesthetics analysis complete
+2025-04-28 21:32:09,583 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:09,583 - ContextDetective.Perception - INFO - Analyzing possible scenarios in /var/folders/xr/906dz5q10pn2z84_yvrz_j8w0000gn/T/tmpletl2y8o.png
+2025-04-28 21:32:09,583 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:32:12,411 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:32:12,413 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:32:12,413 - ContextDetective.Perception - INFO - Scenario analysis complete
+2025-04-28 21:32:12,422 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:12,424 - ContextDetective.Decision - INFO - Generating search terms...
+2025-04-28 21:32:12,424 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:32:13,617 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:32:13,620 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:32:13,620 - ContextDetective.Decision - INFO - Generated 7 search terms
+2025-04-28 21:32:13,626 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:13,627 - ContextDetective.Decision - INFO - Performing web search for query: {"content": [{"type": "text", "text": "Democracy protest\nOligarchy protest\n\"Fire Don\" protest\nPolitical protest signs\nUrban protest crowd\nGovernment building protest\nSocial activism demonstration", "annotations": null}]}
+2025-04-28 21:32:13,627 - ContextDetective.Decision - INFO - Searching: https://api.duckduckgo.com/?q={"content": [{"type": "text", "text": "Democracy protest\nOligarchy protest\n\"Fire Don\" protest\nPolitical protest signs\nUrban protest crowd\nGovernment building protest\nSocial activism demonstration", "annotations": null}]}&format=json
+2025-04-28 21:32:14,679 - ContextDetective.Decision - INFO - Found 0 results for query: {"content": [{"type": "text", "text": "Democracy protest\nOligarchy protest\n\"Fire Don\" protest\nPolitical protest signs\nUrban protest crowd\nGovernment building protest\nSocial activism demonstration", "annotations": null}]}
+2025-04-28 21:32:14,688 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:14,688 - ContextDetective.Decision - INFO - Inferring context...
+2025-04-28 21:32:14,688 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-04-28 21:32:18,493 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-04-28 21:32:18,497 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-04-28 21:32:18,497 - ContextDetective.Decision - INFO - Context inference complete
+2025-04-28 21:32:18,507 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-04-28 21:32:18,507 - ContextDetective.Memory - INFO - [LONG-TERM] Storing analysis for hash: 0753b537
+2025-04-28 21:32:18,507 - ContextDetective.Memory - INFO - 💾 Storing analysis for image hash 0753b537...
+2025-04-28 21:32:18,507 - ContextDetective.Memory - INFO - 📁 LONG-TERM: Saved analysis to file storage: memory_storage/0753b537290b3f92b78c968bbba12bc4.json
+2025-04-28 21:32:18,508 - ContextDetective.Memory - INFO - 📇 LONG-TERM: Updated index with entry for 0753b537
+2025-04-28 21:32:18,508 - ContextDetective.Memory - INFO - 🔢 LONG-TERM: Generating embeddings for analysis...
+2025-04-28 21:32:18,734 - ContextDetective.Memory - INFO - 🧮 LONG-TERM: Storing in ChromaDB complete_analysis collection...
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Vector embeddings stored for collections: complete_analysis, 
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO - ✅ LONG-TERM: Analysis stored successfully for image 0753b537
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO -    └─ Context: Here's a breakdown of the most likely context of the image, based on the provided analyses:
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO -    └─ Confidence: 0.7
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO -    └─ Location: memory_storage/0753b537290b3f92b78c968bbba12bc4.json
+2025-04-28 21:32:18,748 - ContextDetective.Memory - INFO - [LONG-TERM] Stored analysis for hash: 0753b537 in 0.241s

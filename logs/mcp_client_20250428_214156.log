@@ -1,0 +1,18 @@
+2025-04-28 21:41:56,086 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs/mcp_client_20250428_214156.log
+2025-04-28 21:41:59,786 - ContextDetectiveClient - INFO - MCP Client Log file created at: logs/mcp_client_20250428_214159.log
+2025-04-28 21:41:59,799 - ContextDetectiveClient - INFO - Starting context analysis...
+2025-04-28 21:41:59,800 - ContextDetectiveClient - INFO - Created session ID: 71f614dd for analysis
+2025-04-28 21:41:59,800 - ContextDetectiveClient - INFO - User interests: {"interests": ["Art", "History"]}
+2025-04-28 21:41:59,801 - ContextDetectiveClient - INFO - Set USER_PREFERENCES env var: {"interests": ["Art", "History"]}
+2025-04-28 21:41:59,856 - ContextDetectiveClient - INFO - SSE Connection established.
+2025-04-28 21:41:59,859 - ContextDetectiveClient - INFO - MCP Session initialized.
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Raw hash result: meta=None content=[TextContent(type='text', text='{"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}', annotations=None)] isError=False
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Content item 0: type='text' text='{"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}' annotations=None
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Content text 0: {"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Raw hash text: {"content": [{"type": "text", "text": "4557301e50b7a820a4aa8bc6e70d1374", "annotations": null}]}
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - DEBUG: Extracted hash: 4557301e50b7a820a4aa8bc6e70d1374
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - 🔑 Computed image hash: 4557301e50b7a820a4aa8bc6e70d1374 for image analysis
+2025-04-28 21:42:00,116 - ContextDetectiveClient - INFO - 🔍 Checking for exact hash match in ChromaDB...
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - 🎯 EXACT MATCH FOUND IN CHROMADB! Hash-based retrieval successful
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - 📋 Retrieved context: Here's an analysis of the image's context, incorporating the provided analyses and user interests: (confidence: 0.7)
+2025-04-28 21:42:00,118 - ContextDetectiveClient - INFO - ✅ Successfully loaded cached vector analysis from ChromaDB
