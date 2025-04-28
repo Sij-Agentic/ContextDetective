@@ -177,3 +177,6 @@ The application consists of four main components:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Article
+[Medium Write Up](https://medium.com/@sijpapi/embedding-memory-into-a-simple-ai-agent-a-practical-guide-with-fastapi-chromadb-and-ollama-7dd765567ac5)
